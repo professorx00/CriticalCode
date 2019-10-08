@@ -1,11 +1,11 @@
 // Get references to page elements
-const $exampleText = $("#example-text");
-const $exampleDescription = $("#example-description");
-const $submitBtn = $("#submit");
-const $exampleList = $("#example-list");
+var $exampleText = $("#example-text");
+var $exampleDescription = $("#example-description");
+var $submitBtn = $("#submit");
+var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
-let API = {
+var API = {
   saveExample: function(example) {
     return $.ajax({
       headers: {
@@ -31,21 +31,21 @@ let API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-let refreshExamples = function() {
+var refreshExamples = function() {
   API.getExamples().then(function(data) {
-    let $examples = data.map(function(example) {
-      let $a = $("<a>")
+    var $examples = data.map(function(example) {
+      var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
 
-      let $li = $("<li>")
+      var $li = $("<li>")
         .attr({
           class: "list-group-item",
           "data-id": example.id
         })
         .append($a);
 
-      let $button = $("<button>")
+      var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
         .text("ｘ");
 
@@ -61,10 +61,10 @@ let refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-let handleFormSubmit = function(event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  let example = {
+  var example = {
     text: $exampleText.val().trim(),
     description: $exampleDescription.val().trim()
   };
@@ -84,8 +84,8 @@ let handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-let handleDeleteBtnClick = function() {
-  let idToDelete = $(this)
+var handleDeleteBtnClick = function() {
+  var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
