@@ -1,23 +1,53 @@
-let routes = require("express").Router();
+var express = require('express');
+var router = express.Router();
+var passport = require('passport');
+var dotenv = require('dotenv');
+var util = require('util');
+var url = require('url');
+var querystring = require('querystring');
 
-// const friends = require("../data/friends.js")
+dotenv.config();
 
-routes.post("/add", function(req, res) {
-  //localhost:3000/api
-
-  res.send("hi");
-
-  console.log("body", req.body);
+// Perform the login, after login Auth0 will redirect to callback
+router.get('/login', passport.authenticate('auth0', {
+  scope: 'openid email profile'
+}), function (req, res) {
+  res.redirect('/');
 });
 
-routes.get("/all", function(req, res) {
-  console.log(req.body);
-  res.send("hellllo");
+// Perform the final stage of authentication and redirect to previously requested URL or '/user'
+router.get('/callback', function (req, res, next) {
+  passport.authenticate('auth0', function (err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/login'); }
+    req.logIn(user, function (err) {
+      if (err) { return next(err); }
+      const returnTo = req.session.returnTo;
+      delete req.session.returnTo;
+      res.redirect(returnTo || '/user');
+    });
+  })(req, res, next);
 });
 
-routes.post("/devour", function(req, res) {
-  console.log("body", req.body);
-  res.send("hello again");
+// Perform session logout and redirect to homepage
+router.get('/logout', (req, res) => {
+  req.logout();
+
+  var returnTo = req.protocol + '://' + req.hostname;
+  var port = req.connection.localPort;
+  if (port !== undefined && port !== 80 && port !== 443) {
+    returnTo += ':' + port;
+  }
+  var logoutURL = new url.URL(
+    util.format('https://%s/logout', process.env.AUTH0_DOMAIN)
+  );
+  var searchString = querystring.stringify({
+    client_id: process.env.AUTH0_CLIENT_ID,
+    returnTo: returnTo
+  });
+  logoutURL.search = searchString;
+
+  res.redirect(logoutURL);
 });
 
-module.exports = routes;
+module.exports = router;
