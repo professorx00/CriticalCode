@@ -1,4 +1,4 @@
-const expect = require("chai").expect;
+var expect = require("chai").expect;
 
 describe("canary test", function() {
   // A "canary" test is one we set up to always pass

@@ -1,47 +1,33 @@
 require("dotenv").config();
+
+// let db = require("./models");
+
+// Middleware
 const express = require("express");
+const path = require("path");
+
 const exphbs = require("express-handlebars");
 
-const db = require("./models");
-
+const routes = require("./routes/index.js");
+// Sets up the Express App
+// =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
-
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
-);
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
 
-const syncOptions = { force: false };
+app.use(express.json());
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
+app.use(express.static(path.join(__dirname, "public")));
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+app.use("/", routes);
+
+// Turn on that server!
+app.listen(PORT, () => {
+  console.log("App listening on port 3000");
 });
-
-module.exports = app;
