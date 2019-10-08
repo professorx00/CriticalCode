@@ -1,8 +1,8 @@
-// let routes = require("express").Router();
+let routes = require("express").Router();
 
-// routes.get("/", (req, res) => {
-//     console.log(req.body);
-//     res.send("hello GET html");
-// });
+routes.get("/", (req, res) => {
+  console.log(req.body);
+  res.send("hello GET html");
+});
 
-// module.exports = routes;
+module.exports = routes;
