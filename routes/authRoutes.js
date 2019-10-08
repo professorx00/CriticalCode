@@ -36,6 +36,7 @@ router.get("/callback", function(req, res, next) {
       delete req.session.returnTo;
       res.redirect(returnTo || "/user");
     });
+    console.log("info", info);
   })(req, res, next);
 });
 
@@ -52,7 +53,7 @@ router.get("/logout", (req, res) => {
     util.format("https://%s/logout", process.env.AUTH0_DOMAIN)
   );
   var searchString = querystring.stringify({
-    client_id: process.env.AUTH0_CLIENT_ID,
+    clientId: process.env.AUTH0_CLIENT_ID,
     returnTo: returnTo
   });
   logoutURL.search = searchString;
