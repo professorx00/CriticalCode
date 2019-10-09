@@ -1,0 +1,24 @@
+body {
+    background: url("https://images.wallpaperscraft.com/image/mountains_peaks_clouds_148926_1280x800.jpg");
+    background-color: black !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.headline-jumbo {
+    background-color: goldenrod;
+    background: url("../../assets/images/copper.jpg") !important;
+}
+
+h1 {
+    color: rgb(43, 4, 3);
+    font-family: 'Metamorphous', cursive;
+    font-size: 3rem !important;
+}
+
+
+
+/* font-family: 'Marcellus SC', serif;
+font-family: 'Uncial Antiqua', cursive;
+font-family: 'Metamorphous', cursive; */
