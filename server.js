@@ -21,6 +21,8 @@ const exphbs = require("express-handlebars");
 const routes = require("./routes/index.js");
 
 const PORT = process.env.PORT || 3000;
+//Database Models:
+var db = require("./models");
 
 // Set Handlebars as the default templating engine.
 
@@ -90,6 +92,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", routes);
 
 // Turn on that server!
-app.listen(PORT, () => {
-  console.log("App listening on port 3000");
+
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, () => {
+    console.log("App listening on port 3000");
+  });
 });
