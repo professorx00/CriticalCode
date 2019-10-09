@@ -31,6 +31,7 @@ h1 {
     color: rgb(43, 4, 3);
     font-family: 'Metamorphous', cursive;
     font-size: 3rem !important;
+    width: max-content;
 }
 
 
