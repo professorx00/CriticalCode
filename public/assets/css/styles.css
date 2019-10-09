@@ -5,10 +5,26 @@ body {
     background-size: cover;
 }
 
-
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
+}
+
+.login-jumbo {
+    background: url("../../assets/images/paper.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    overflow: hidden;
+    font-family: 'Marcellus SC', serif !important;
+    font-size: 1.2rem !important;
+    color: rgb(8, 17, 29) !important;
+    border: 3px outset rgba(91, 36, 23, 0.66);
+    border-radius: 21px 21px 21px 21px;
+}
+
+.button-stone {
+    background: url("../../assets/images/stone.jpg") !important;
+    border: none;
 }
 
 h1 {
