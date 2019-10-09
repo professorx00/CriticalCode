@@ -1,47 +1,100 @@
 require("dotenv").config();
-const express = require("express");
-const exphbs = require("express-handlebars");
 
-const db = require("./models");
-
-const app = express();
-const PORT = process.env.PORT || 3000;
+//Auth0 dependencies
+const logger = require("morgan");
+const cookieParser = require("cookie-parser");
+const passport = require("passport");
+const Auth0Strategy = require("passport-auth0");
+// const flash = require('connect-flash');
+// const userInViews = require('./lib/middleware/userInViews');
+// const authRouter = require('./routes/auth');
+// const indexRouter = require('./routes/index');
+// const usersRouter = require('./routes/users');
+const session = require("express-session");
 
 // Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+const express = require("express");
+const path = require("path");
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
-  })
+const exphbs = require("express-handlebars");
+
+const routes = require("./routes/index.js");
+
+const PORT = process.env.PORT || 3000;
+//Database Models:
+var db = require("./models");
+
+// Set Handlebars as the default templating engine.
+
+//Auth0 config/init
+//===============================================================
+const strategy = new Auth0Strategy(
+  {
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL:
+      process.env.AUTH0_CALLBACK_URL || "http://localhost:3000/callback"
+  },
+  function(accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }
 );
-app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+passport.use(strategy);
 
-const syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// You can use this section to keep a smaller payload
+passport.serializeUser(function(user, done) {
+  done(null, user);
 });
 
-module.exports = app;
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+const sess = {
+  secret: "ExpertCrouchingLlama",
+  cookie: {},
+  resave: false,
+  saveUninitialized: true
+};
+
+const app = express();
+
+app.use(logger("dev"));
+app.use(cookieParser());
+
+if (app.get("env") === "production") {
+  //Use secure cookies in production (requires SSL/TLS)
+
+  sess.cookie.secure = true;
+}
+
+app.use(session(sess));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+// ====================================================================
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use("/", routes);
+
+// Turn on that server!
+
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, () => {
+    console.log("App listening on port 3000");
+  });
+});
