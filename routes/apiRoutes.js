@@ -193,8 +193,8 @@ routes.get("/armor/:id?", (req, res) => {
 routes.post("/addCharacter", (req, res) => {
   db.character
     .create({
-      userid: req.body.userid,
-      characterName: req.body.chracterName,
+      userId: req.body.userid,
+      characterName: req.body.characterName,
       str: req.body.str,
       dex: req.body.dex,
       con: req.body.con,
@@ -215,7 +215,14 @@ routes.post("/addCharacter", (req, res) => {
         .json(data)
         .status(201)
         .end();
-    });
+    })
+    .catch(err => {
+      res
+      .status(500)
+      .send("server error");
+      console.log("err", err);
+      throw err;
+    })
 });
 
 module.exports = routes;
