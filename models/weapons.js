@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     weaponType: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
+      validate: {
         isIn: ["Melee", "Ranged"]
       }
     },
