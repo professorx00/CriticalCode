@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     armorType: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
+      validate: {
         isIn: ["leather", "chain", "plate", "full-plate", "cloth"]
       }
     }

@@ -23,8 +23,8 @@ module.exports = function(sequelize, DataTypes) {
     spellType: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
-        isIn: ["fire","air"]
+      validate: {
+        isIn: ["fire", "air"]
       }
     },
     dmgType: {
@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         max: 10
       }
     },
-    specialeffects:{
+    specialeffects: {
       type: DataTypes.STRING,
       allowNull: true
     }
