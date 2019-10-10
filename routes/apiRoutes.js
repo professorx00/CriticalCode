@@ -2,11 +2,6 @@ var db = require("../models");
 
 let routes = require("express").Router();
 
-// routes.get("/", (req, res) => {
-//   console.log(req.body);
-//   res.send("hello GET API");
-// });
-
 routes.get("/", (req, res) => {
   // console.log(req.params.userid);
   db.character
