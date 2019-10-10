@@ -8,14 +8,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    race: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    class: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     str: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -73,5 +65,38 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
+  character.associate = function(models) {
+    character.belongsTo(models.armor, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.weapon, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.spells, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.race, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.classes, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return character;
 };

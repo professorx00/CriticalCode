@@ -49,13 +49,12 @@ $(document).ready(function() {
         // ...
       });
 
-      let confirmation = $("<div>");
-      confirmation.text("Welcome to Valhalla");
-      $("#registrationForm").prepend(confirmation);
-      
-      setTimeout(function(){
-        window.location.href="./login";
-      }, 2000);
-      
+    let confirmation = $("<div>");
+    confirmation.text("Welcome to Valhalla");
+    $("#registrationForm").prepend(confirmation);
+
+    setTimeout(function() {
+      window.location.href = "https://www.google.com";
+    }, 2000);
   });
 });
