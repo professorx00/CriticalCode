@@ -37,8 +37,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   weapon.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     weapon.hasMany(models.character, {
       onDelete: "cascade"
     });
