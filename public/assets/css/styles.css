@@ -8,6 +8,7 @@ body {
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
+    padding: 0 !important;
 }
 
 .login-jumbo {
@@ -28,10 +29,19 @@ body {
 }
 
 h1 {
-    color: rgb(43, 4, 3);
+    /* color: rgb(43, 4, 3); */
+    color: black;
     font-family: 'Metamorphous', cursive;
     font-size: 3rem !important;
+    font-weight: 600;
     width: max-content;
+    margin-bottom: 0;
+    /* background: rgba(0, 0, 0, .9); */
+    background: rgb(255, 255, 255);
+    mix-blend-mode: lighten;
+    padding: .3rem;
+    border-radius: .25rem;
+
 }
 
 

@@ -54,7 +54,7 @@ $(document).ready(function() {
       $("#registrationForm").prepend(confirmation);
       
       setTimeout(function(){
-        window.location.href="https://www.google.com";
+        window.location.href="./login";
       }, 2000);
       
   });

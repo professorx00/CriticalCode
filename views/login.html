@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Marcellus+SC|Metamorphous|Uncial+Antiqua&display=swap"
         rel="stylesheet">
     <!-- Main CSS -->
-    <link rel=" stylesheet" href="../public/assets/css/styles.css">
+    <link rel=" stylesheet" href="./assets/css/styles.css">
 
     <title>Valhalla</title>
 </head>
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row header justify-content-center">
             <div class="jumbotron headline-jumbo p-4 m-3">
-                <h1 class="headline text-center">VALHALLA</h1>
+                <h1 class="text headline text-center">VALHALLA</h1>
             </div>
         </div>
     </div>
@@ -36,20 +36,20 @@
         <div class="jumbotron m-4 login-jumbo">
             <h3 class="text-center">Login</h3>
             <br>
-            <form>
+            <form id="loginForm">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <input id="userEmail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input id="userPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary button-stone">Submit</button>
                 <br><br>
                 <label for="exampleInputPassword1">No account yet?</label><br>
-                <button type="submit" class="btn btn-primary button-stone">Register</button>
+                <a class="text-white btn btn-primary button-stone" href="./registration.html">Register</a>
             </form>
         </div>
     </div>
@@ -60,7 +60,7 @@
 
 
 
-    <script src="../public/assets/javascript/javascript.js"></script>
+    <script src="./assets/javascript/login.js"></script>
 
 </body>
 
