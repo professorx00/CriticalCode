@@ -123,5 +123,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  classes.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    classes.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
+
   return classes;
 };
