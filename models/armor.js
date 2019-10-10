@@ -21,8 +21,6 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   armor.associate = function(models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
     armor.hasMany(models.character, {
       onDelete: "cascade"
     });
