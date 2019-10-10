@@ -217,12 +217,10 @@ routes.post("/addCharacter", (req, res) => {
         .end();
     })
     .catch(err => {
-      res
-      .status(500)
-      .send("server error");
+      res.status(500).send("server error");
       console.log("err", err);
       throw err;
-    })
+    });
 });
 
 module.exports = routes;
