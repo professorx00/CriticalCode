@@ -47,5 +47,13 @@ $(document).ready(function() {
         console.log(errorCode, errorMessage);
         // ...
       });
+
+      setTimeout(function(){
+        let confirmation = $("<div>");
+        confirmation.text("Welcome to Valhalla");
+        $("#registrationForm").prepend(confirmation);
+      }, 2000);
+      
+      window.location.href="https://www.google.com";
   });
 });
