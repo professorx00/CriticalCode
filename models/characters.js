@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   const character = sequelize.define("character", {
-    userid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     characterName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -67,6 +63,11 @@ module.exports = function(sequelize, DataTypes) {
   });
   character.associate = function(models) {
     character.belongsTo(models.armor, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    character.belongsTo(models.user, {
       foreignKey: {
         allowNull: false
       }
