@@ -59,5 +59,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
+  race.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    race.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
   return race;
 };
