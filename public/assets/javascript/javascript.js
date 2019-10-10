@@ -34,8 +34,7 @@ $(document).ready(function() {
     console.log(`userFirstName: ${userFirstName}
         userLastName: ${userLastName}
         userEmail: ${userEmail}
-        userAlias: ${userAlias}
-        userPass: ${userPass}`);
+        userAlias: ${userAlias}`);
 
     firebase
       .auth()
