@@ -13,7 +13,9 @@ routes.get("/login", (req, res) => {
 
 routes.get("/", (req, res) => {
   console.log(req.body);
-  res.render("index");
+  // res.render("index");
+  res.sendFile(path.join(__dirname, "..", "views", "index.html"));
+
 });
 
 module.exports = routes;
