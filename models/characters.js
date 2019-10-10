@@ -71,6 +71,11 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     });
+    character.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
     character.belongsTo(models.weapon, {
       foreignKey: {
         allowNull: false
