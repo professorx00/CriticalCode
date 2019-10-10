@@ -195,5 +195,32 @@ routes.get("/armor/:id?", (req, res) => {
       });
   }
 });
+routes.post("/addCharacter", (req, res) => {
+  db.character
+    .create({
+      userid: req.body.userid,
+      characterName: req.body.chracterName,
+      str: req.body.str,
+      dex: req.body.dex,
+      con: req.body.con,
+      int: req.body.int,
+      wis: req.body.wis,
+      char: req.body.char,
+      equipment: req.body.equipment,
+      skill: req.body.skill,
+      armorId: req.body.armorId,
+      classId: req.body.classId,
+      raceId: req.body.raceId,
+      spellId: req.body.spellId,
+      weaponId: req.body.weaponId
+    })
+    .then(data => {
+      console.log(data);
+      res
+        .json(data)
+        .status(201)
+        .end();
+    });
+});
 
 module.exports = routes;
