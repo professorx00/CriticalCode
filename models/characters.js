@@ -1,9 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   const character = sequelize.define("character", {
-    userid: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     characterName: {
       type: DataTypes.STRING,
       allowNull: false
