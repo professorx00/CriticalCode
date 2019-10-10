@@ -14,7 +14,8 @@ $(document).ready(function() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  $("#registrationForm").on("submit", function() {
+  $("#registrationForm").on("submit", function(event) {
+    event.preventDefault();
     let userFirstName = $("#userFirstName")
       .val()
       .trim();
@@ -48,12 +49,13 @@ $(document).ready(function() {
         // ...
       });
 
+      let confirmation = $("<div>");
+      confirmation.text("Welcome to Valhalla");
+      $("#registrationForm").prepend(confirmation);
+      
       setTimeout(function(){
-        let confirmation = $("<div>");
-        confirmation.text("Welcome to Valhalla");
-        $("#registrationForm").prepend(confirmation);
+        window.location.href="https://www.google.com";
       }, 2000);
       
-      window.location.href="https://www.google.com";
   });
 });
