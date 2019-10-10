@@ -1,6 +1,5 @@
 var db = require("../models");
 
-
 let routes = require("express").Router();
 
 // routes.get("/", (req, res) => {
@@ -23,7 +22,7 @@ routes.get("/", (req, res) => {
     });
 });
 routes.get("/user/:id/:characterId?", (req, res) => {
-  console.log
+  console.log;
   if (req.params.characterId) {
     db.character
       .findAll({
@@ -34,7 +33,7 @@ routes.get("/user/:id/:characterId?", (req, res) => {
         include: [db.armor, db.spells, db.weapon, db.race, db.classes]
       })
       .then(data => {
-        console.log("Character Id Found")
+        console.log("Character Id Found");
         res.json(data);
       })
       .catch(err => {
@@ -49,7 +48,7 @@ routes.get("/user/:id/:characterId?", (req, res) => {
         include: [db.armor, db.spells, db.weapon, db.race, db.classes]
       })
       .then(data => {
-        console.log("All User Characters")
+        console.log("All User Characters");
         res.json(data);
       })
       .catch(err => {
