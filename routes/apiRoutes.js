@@ -211,10 +211,7 @@ routes.post("/addCharacter", (req, res) => {
     })
     .then(data => {
       console.log(data);
-      res
-        .json(data)
-        .status(201)
-        .end();
+      res.json(data);
     })
     .catch(err => {
       res.status(500).send("server error");
