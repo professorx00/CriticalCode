@@ -18,6 +18,9 @@
         rel="stylesheet">
     <!-- Main CSS -->
     <link rel=" stylesheet" href="../public/assets/css/styles.css">
+    <!-- Animate.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 
     <title>Valhalla</title>
 </head>
@@ -32,30 +35,34 @@
         </div>
 
         <div class="row content">
-            <div class="col col-md-12">
-                <div class="" id="strength">
-                    <h5>Strength</h5>
+            <div class="col col-md-12 text-center">
+
+
+                {{#each character}}
+                <div type="div" class="btn btn-primary button-character shadow" id="{{id}}" value="1">{{character.name}}
                 </div>
-                <div class="" id="dexterity">
-                    <h5>Dexterity</h5>
-                </div>
-                <div class="" id="constitution">
-                    <h5>Constitution</h5>
-                </div>
-                <div class="" id="intelligence">
-                    <h5>Intelligenze</h5>
-                </div>
-                <div class="" id="charisma">
-                    <h5>Charisma</h5>
-                </div>
+                {{/each}}
+                <br>
+                <br>
+
+                <!-- some dummy buttons -->
+                <div type="div" class="btn btn-primary button-character" id="{{id}}" value="1">{{character.name}}</div>
+                <br>
+                <br>
+                <div type="div" class="btn btn-primary button-character" id="{{id}}" value="1">{{#each character}}</div>
+                <br>
+                <br>
+                <div type="div" class="btn btn-primary button-character" id="{{id}}" value="1">{{#each character}}</div>
+                <br>
+                <br>
+
+
+
             </div>
-
-
-
         </div>
 
-
         <script src="../public/assets/javascript/javascript.js"></script>
+        <script src="../public/assets/javascript/frontend.js"></script>
 
 </body>
 
