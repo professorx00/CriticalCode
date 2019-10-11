@@ -221,10 +221,6 @@ routes.post("/addCharacter", (req, res) => {
 });
 
 routes.post("/cal/", (req, res) => {
-  console.log(req.body);
-  console.log(calculator.abiityMod(3));
-  console.log(calculator.abiityMod(22));
-  console.log(calculator.abiityMod(13));
   res.json({
     data: "Here is where an array of data will go after calculate it"
   });
