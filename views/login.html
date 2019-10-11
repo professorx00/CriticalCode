@@ -23,6 +23,15 @@
 </head>
 
 <body>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script defer src="https://www.gstatic.com/firebasejs/7.1.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/7.1.0/firebase-firestore.js"></script>
 
     <div class="container">
         <div class="row header justify-content-center">
@@ -39,12 +48,13 @@
             <form id="loginForm">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input id="userEmail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                    <input id="userEmail" type="email" class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input id="userPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input id="userPassword" type="password" class="form-control" id="exampleInputPassword1"
+                        placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-primary button-stone">Submit</button>
                 <br><br>

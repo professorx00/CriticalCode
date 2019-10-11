@@ -39,4 +39,26 @@ $(document).ready(function() {
         console.log(errorCode, errorMessage);
       });
   });
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log("frontEnd user", user);
+
+      $.post("/api/checkUser", user.email).then(results => {
+        console.log(results);
+    }).catch(err => {
+        console.log(err);
+        throw err
+    });
+
+    //   setTimeout(function() {
+    //     console.log("feedback");
+    //     // $.get("/")
+    //   }, 2000);
+    // } else {
+    //   // No user is signed in.
+    }
+  });
+  
 });

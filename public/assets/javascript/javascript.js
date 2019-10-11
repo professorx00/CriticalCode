@@ -53,8 +53,10 @@ $(document).ready(function() {
     confirmation.text("Welcome to Valhalla");
     $("#registrationForm").prepend(confirmation);
 
+      //axios.post send user information to sql database
+
     setTimeout(function() {
-      window.location.href = "https://www.google.com";
+      window.location.href = "./views/login.html";
     }, 2000);
   });
 });
