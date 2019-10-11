@@ -84,14 +84,18 @@ router.post("/register", (req, res) => {
   }
 });
 
+router.get("/test", (req, res) => {
+  console.log("monkey");
+  res.send("monkey");
+});
+
 // login handle
 router.post("/login", (req, res, next) => {
-  console.log("Post body")
-  console.log(req.form)
-  passport.Authenticate("local", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/users/login",
-    failureFlash: false
+  console.log("Post body");
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/users/test",
+    failureFlash: true
   })(req, res, next);
 });
 

@@ -6,30 +6,26 @@ module.exports = function(passport) {
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
       //Match User
-      console.log(email, password);
       db.user
         .findAll({ where: { email: email } })
         .then(result => {
-          console.log("inside localStrat Check")
-          console.log(result)
-          
-          // if (!result.user) {
-          //   return done(null, false, {
-          //     message: "that email is not registered"
-          //   });
-          // }
+          if (!result.user) {
+            return done(null, false, {
+              message: "that email is not registered"
+            });
+          }
 
-          // //Match Password
-          // bcrypt.compare(password, result.password, (err, isMatch) => {
-          //   if (err) {
-          //     throw err;
-          //   }
-          //   if (isMatch) {
-          //     return done(null, result.user);
-          //   } else {
-          //     return null, false, { message: "Password incorrect" };
-          //   }
-          // });
+          //Match Password
+          bcrypt.compare(password, result.password, (err, isMatch) => {
+            if (err) {
+              throw err;
+            }
+            if (isMatch) {
+              return done(null, result.user);
+            } else {
+              return null, false, { message: "Password incorrect" };
+            }
+          });
         })
         .catch(err => console.log(err));
     })
