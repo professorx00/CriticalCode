@@ -1,19 +1,12 @@
 {
   "development": {
-    "username": "root",
-    "password": "Helmar@123",
-    "database": "valhalla",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 3306
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "root",
-    "database": "valhalla",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": 3306
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
+
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
