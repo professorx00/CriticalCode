@@ -22,9 +22,29 @@ body {
     border-radius: 21px 21px 21px 21px;
 }
 
+div.btn:hover {
+    transform: translateY(-7px);
+    width: 65%;
+    cursor: pointer;
+}
+
+
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;
+}
+
+.button-character {
+    background: url("../../assets/images/wood.jpg") !important;
+    border: none;
+    width: 60%;
+    height: 3.5rem;
+    transition: all 0.3s ease 0s;
+    font-size: 1.3rem;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 h1 {
