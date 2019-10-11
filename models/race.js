@@ -59,5 +59,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
+  race.associate = function(models) {
+    race.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
   return race;
 };

@@ -123,5 +123,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  classes.associate = function(models) {
+    classes.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
+
   return classes;
 };

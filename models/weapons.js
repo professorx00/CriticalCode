@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     weaponType: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate:{
+      validate: {
         isIn: ["Melee", "Ranged"]
       }
     },
@@ -36,5 +36,10 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
+  weapon.associate = function(models) {
+    weapon.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
   return weapon;
 };
