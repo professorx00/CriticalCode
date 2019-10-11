@@ -1,11 +1,20 @@
-let routes = require("express").Router();
+const express = require("express");
+const router = express.Router();
+const { ensureAuthenticated } = require("../config/auth");
 
-let authRoutes = require("./authRoutes.js");
-let apiRoutes = require("./apiRoutes.js");
-let htmlRoutes = require("./htmlRoutes.js");
+//welcome Page
+router.get("/", (req, res) => {
+  res.render("welcome", {});
+});
 
-routes.use("/auth", authRoutes);
-routes.use("/api", apiRoutes);
-routes.use("/", htmlRoutes);
+//Dashboard
 
-module.exports = routes;
+router.get("/dashboard", ensureAuthenticated, (req, res) => {
+  console.log("going to dashboard")
+  res.render("dashboard", {
+    id: req.user.name
+  });
+  res.send("hello")
+});
+
+module.exports = router;
