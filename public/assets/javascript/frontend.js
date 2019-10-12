@@ -1,13 +1,4 @@
 $(document).ready(function () {
-
-    let spells = $.ajax({
-            url: "/api/spells",
-            method: "GET",
-        })
-        .then(function (data) {
-            console.log(data);
-        });
-
     let classes = $.ajax({
             url: "/api/classes",
             method: "GET",
