@@ -1,5 +1,5 @@
 var db = require("../models");
-
+let calculator = require("./calculator.js");
 let routes = require("express").Router();
 
 routes.get("/", (req, res) => {
@@ -218,6 +218,12 @@ routes.post("/addCharacter", (req, res) => {
       console.log("err", err);
       throw err;
     });
+});
+
+routes.post("/cal/", (req, res) => {
+  res.json({
+    data: "Here is where an array of data will go after calculate it"
+  });
 });
 
 module.exports = routes;

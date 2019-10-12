@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row header justify-content-center">
+        <div class="jumbotron headline-jumbo p-4 m-3">
+            <h1 class="text headline text-center">VALHALLA</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="jumbotron m-4 login-jumbo">
+            <h3 class="text-center">Login</h3>
+            <br>
+            <form action="/users/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Enter Password" />
+                </div>
+                <button type="submit" class="btn btn-primary button-stone">Login</button>
+            </form>
+            <br><br>
+            </form>
+            No account yet?<br>
+            <a class="text-white btn btn-primary button-stone" href="/users/register">Register</a>
+        </div>
+    </div>
+</div>

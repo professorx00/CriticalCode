@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
   const user = sequelize.define("user", {
-    userName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    firebaseID: {
-      type: DataTypes.INTEGER,
+    password: {
+      type: DataTypes.STRING,
       allowNull: false
     },
     email: {

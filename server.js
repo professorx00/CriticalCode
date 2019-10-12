@@ -1,99 +1,61 @@
 require("dotenv").config();
-
-//Auth0 dependencies
-const logger = require("morgan");
-const cookieParser = require("cookie-parser");
-const passport = require("passport");
-const Auth0Strategy = require("passport-auth0");
-// const flash = require('connect-flash');
-// const userInViews = require('./lib/middleware/userInViews');
-// const authRouter = require('./routes/auth');
-// const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
+const flash = require("connect-flash");
 const session = require("express-session");
+const passport = require("passport");
 
 // Middleware
 const express = require("express");
-const path = require("path");
-
-const exphbs = require("express-handlebars");
-
-const routes = require("./routes/index.js");
-
+const expressLayouts = require('express-ejs-layouts');
 const PORT = process.env.PORT || 3000;
+const path = require("path");
+require("./config/passport")(passport);
+const app = express();
 //Database Models:
 var db = require("./models");
+//handlebar
+app.use(expressLayouts);
+app.set("view engine", "ejs");
 
-// Set Handlebars as the default templating engine.
-
-//Auth0 config/init
-//===============================================================
-const strategy = new Auth0Strategy(
-  {
-    domain: process.env.AUTH0_DOMAIN,
-    clientID: process.env.AUTH0_CLIENT_ID,
-    clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL:
-      process.env.AUTH0_CALLBACK_URL || "http://localhost:3000/callback"
-  },
-  function(accessToken, refreshToken, extraParams, profile, done) {
-    // accessToken is the token to call Auth0 API (not needed in the most cases)
-    // extraParams.id_token has the JSON Web Token
-    // profile has all the information from the user
-    return done(null, profile);
-  }
-);
-
-passport.use(strategy);
-
-// You can use this section to keep a smaller payload
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-
-const sess = {
-  secret: "ExpertCrouchingLlama",
-  cookie: {},
-  resave: false,
-  saveUninitialized: true
-};
-
-const app = express();
-
-app.use(logger("dev"));
-app.use(cookieParser());
-
-if (app.get("env") === "production") {
-  //Use secure cookies in production (requires SSL/TLS)
-
-  sess.cookie.secure = true;
-}
-
-app.use(session(sess));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 // ====================================================================
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
-
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", routes);
+//Express Session
+app.use(
+  session({
+    secret: "Monty Moose",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+//Passport Middle Ware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Connect Flash
+app.use(flash());
+
+//Global Vars
+app.use((req, res, next) => {
+  // eslint-disable-next-line camelcase
+  res.locals.success_msg = req.flash("success_msg");
+  // eslint-disable-next-line camelcase
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
+});
+
+//routes
+app.use("/", require("./routes/index.js"));
+app.use("/users", require("./routes/user.js"));
+app.use("/api", require("./routes/apiRoutes"));
 
 // Turn on that server!
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, () => {
     console.log("App listening on port 3000");
   });

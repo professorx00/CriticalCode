@@ -39,30 +39,28 @@
                 <h1 class="text headline text-center">VALHALLA</h1>
             </div>
         </div>
-    </div>
-
-    <div class="row justify-content-center">
-        <div class="jumbotron m-4 login-jumbo">
-            <h3 class="text-center">Login</h3>
-            <br>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input id="userEmail" type="email" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input id="userPassword" type="password" class="form-control" id="exampleInputPassword1"
-                        placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary button-stone">Submit</button>
-                <br><br>
-                <label for="exampleInputPassword1">No account yet?</label><br>
-                <a class="text-white btn btn-primary button-stone" href="./registration.html">Register</a>
-            </form>
+        <div class="row justify-content-center">
+            <div class="jumbotron m-4 login-jumbo">
+                <h3 class="text-center">Login</h3>
+                <br>
+                <form id="loginForm" actions="/users/test" type="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input id="userEmail" type="email" class="form-control"
+                            aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input id="userPassword" type="password" class="form-control"
+                            placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary button-stone" id="formSubmit">Submit</button>
+                    <br><br>
+                    <label for="exampleInputPassword1">No account yet?</label><br>
+                    <a class="text-white btn btn-primary button-stone" href="/users/register">Register</a>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
     </div>
 

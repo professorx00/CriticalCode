@@ -1,3 +1,4 @@
+
 body {
     background: url("https://images.wallpaperscraft.com/image/mountains_peaks_clouds_148926_1280x800.jpg");
     background-color: black !important;
@@ -20,6 +21,7 @@ body {
     color: rgb(8, 17, 29) !important;
     border: 3px outset rgba(91, 36, 23, 0.66);
     border-radius: 21px 21px 21px 21px;
+    max-width: 80%;
 }
 
 div.btn:hover {
