@@ -1,27 +1,51 @@
-body {
-    background: url("https://images.wallpaperscraft.com/image/mountains_peaks_clouds_148926_1280x800.jpg");
-    background-color: black !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
 }
 
-.login-jumbo {
+.stats-div {
     background: url("../../assets/images/paper.jpg") !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Marcellus SC', serif !important;
     font-size: 1.2rem !important;
     color: rgb(8, 17, 29) !important;
     border: 3px outset rgba(91, 36, 23, 0.66);
     border-radius: 21px 21px 21px 21px;
-    max-width: 80%;
+    max-width: 100%;
+    padding: 1rem;
 }
+
+.top-div {
+    background-color: beige;
+    max-width: 100%;
+    margin: auto 0;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    margin-bottom: 5px;
+}
+
+.mid-div {
+    background-color: beige;
+    max-width: 100%;
+    margin: auto 0;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    margin-bottom: 5px;
+}
+
+.low-div {
+    background-color: beige;
+    max-width: 100%;
+    margin: auto 0;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    margin-bottom: 5px;
+    height: 200px;
+    vertical-align: bottom;
+}
+
 
 div.btn:hover {
     transform: translateY(-7px);
@@ -48,19 +72,12 @@ div.btn:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-h1 {
+.text {
     color: rgb(43, 4, 3);
     font-family: 'Metamorphous', cursive;
     font-size: 3rem !important;
     width: max-content;
 }
-
-h3 {
-    color: rgb(43, 4, 3);
-    font-size: 1.3rem;
-    font-family: 'Metamorphous', cursive;
-}
-
 
 
 /* font-family: 'Marcellus SC', serif;
