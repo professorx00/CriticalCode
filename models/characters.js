@@ -59,6 +59,10 @@ module.exports = function(sequelize, DataTypes) {
     skill: {
       type: DataTypes.JSON,
       allowNull: false
+    },
+    spells: {
+      type: DataTypes.JSON,
+      allowNull: false
     }
   });
   character.associate = function(models) {
@@ -73,11 +77,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
     character.belongsTo(models.weapon, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    character.belongsTo(models.spells, {
       foreignKey: {
         allowNull: false
       }

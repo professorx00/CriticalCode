@@ -1,3 +1,3 @@
 $(document).ready(function() {
-// might not be needed
+  // might not be needed
 });
