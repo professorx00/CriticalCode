@@ -12,18 +12,26 @@ module.exports = function (sequelize, DataTypes) {
         max: 12
       }
     },
+    dexMod: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: 0,
+        max: 4
+      }
+    },
     armorType: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ["Light", "Medium", "Heavy"]
+        isIn: ["Light", "Medium", "Heavy", "Shield"]
       }
     },
     armorName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ["Padded", "Leather", "Studded Leather", "Hide", "Chain Shirt", "Scale Mail", "Breastplate", "Half Plate", "Ring Mail", "Chain Mail", "Splint", "Plate"]
+        isIn: ["Padded", "Leather", "Studded Leather", "Hide", "Chain Shirt", "Scale Mail", "Breastplate", "Half Plate", "Ring Mail", "Chain Mail", "Splint", "Plate", "Shield"]
       }
     }
   });

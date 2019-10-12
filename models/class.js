@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const classes = sequelize.define("classes", {
     className: {
       type: DataTypes.STRING,
@@ -11,30 +11,25 @@ module.exports = function(sequelize, DataTypes) {
         min: 6,
         max: 12
       }
+    }, 
+    profBonus: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     primaryStatID: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        min: 1,
-        max: 6
+        isIn: ['str', 'dex', 'con', 'int', 'wis', 'char']
       }
     },
-    primarySaveID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 6
-      }
+    savingThrowProf1: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
-    secondarySaveID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 6
-      }
+    savingThrowProf2: {
+      type: DataTypes.STRING,
+      allowNull: true
     },
     allowArmorType: {
       type: DataTypes.JSON,
@@ -43,76 +38,6 @@ module.exports = function(sequelize, DataTypes) {
     allowWeaponsType: {
       type: DataTypes.JSON,
       allowNull: true
-    },
-    cantrips: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlOne: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlTwo: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlThree: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlFour: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlFive: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlSix: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlSeven: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlEight: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
-    },
-    spellLvlNine: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        max: 99
-      }
     },
     startingWealth: {
       type: DataTypes.INTEGER,
@@ -123,11 +48,11 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  classes.associate = function(models) {
-    classes.hasMany(models.character, {
-      onDelete: "cascade"
-    });
-  };
+classes.associate = function (models) {
+  classes.hasMany(models.character, {
+    onDelete: "cascade"
+  });
+};
 
-  return classes;
+return classes;
 };

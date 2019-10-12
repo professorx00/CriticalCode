@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
-        min: 6,
+        min: 1,
         max: 12
       }
     },
@@ -28,10 +28,17 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     dmgType: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Range"]
+        isIn: ["Bludgeoning", "Piercing", "Slashing"]
+      }
+    },
+    wepProperties: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isIn: ["Light", "Finesse", "Thrown", "Two-handed", "Versatile", "Ammunition", "Loading", "Heavy", "Reach", "Special"]
       }
     }
   });

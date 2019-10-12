@@ -1,11 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const race = sequelize.define("race", {
     raceName: {
       type: DataTypes.STRING,
       allowNull: false
     },
     abilityOne: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         min: 1,
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     abilityTwo: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
       validate: {
         min: 1,
@@ -55,11 +55,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     specialTraits: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: true
     }
   });
-  race.associate = function(models) {
+  race.associate = function (models) {
     race.hasMany(models.character, {
       onDelete: "cascade"
     });

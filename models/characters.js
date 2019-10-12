@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const character = sequelize.define("character", {
     characterName: {
       type: DataTypes.STRING,
@@ -59,9 +59,13 @@ module.exports = function(sequelize, DataTypes) {
     skill: {
       type: DataTypes.JSON,
       allowNull: false
+    },
+    spells: {
+      type: DataTypes.JSON,
+      allowNull: false
     }
   });
-  character.associate = function(models) {
+  character.associate = function (models) {
     character.belongsTo(models.armor, {
       foreignKey: {
         allowNull: false
@@ -73,11 +77,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
     character.belongsTo(models.weapon, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    character.belongsTo(models.spells, {
       foreignKey: {
         allowNull: false
       }

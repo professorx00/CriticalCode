@@ -55,7 +55,7 @@ app.use("/api", require("./routes/apiRoutes"));
 
 // Turn on that server!
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log("App listening on port 3000");
   });
