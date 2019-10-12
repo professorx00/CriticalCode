@@ -42,13 +42,17 @@ module.exports = function(passport) {
     console.log(id);
     db.user.findOne({ where: { id: id } }).then(result => {
       console.log(result);
-      let user = {
-        id: result.id,
-        name: result.name,
-        password: result.password,
-        email: result.email
-      };
-      done(null, user);
+      if (result.id) {
+        let user = {
+          id: result.id,
+          name: result.name,
+          password: result.password,
+          email: result.email
+        };
+        done(null, user);
+      } else {
+        done(null, false);
+      }
     });
 
     // db.user.findByID({ where: { id: id } }, function(err, user) {
