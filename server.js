@@ -5,7 +5,7 @@ const passport = require("passport");
 
 // Middleware
 const express = require("express");
-const expressLayouts = require('express-ejs-layouts');
+const expressLayouts = require("express-ejs-layouts");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 require("./config/passport")(passport);
@@ -19,7 +19,9 @@ app.set("view engine", "ejs");
 // ====================================================================
 
 // Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "views")));
@@ -56,7 +58,7 @@ app.use("/api", require("./routes/apiRoutes"));
 
 // Turn on that server!
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function () {
   app.listen(PORT, () => {
     console.log("App listening on port 3000");
   });

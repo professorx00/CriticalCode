@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { ensureAuthenticated } = require("../config/auth");
+const {
+  ensureAuthenticated
+} = require("../config/auth");
 const db = require("../models");
 const helper = require("../routes/getData")
 let userInfo = {}
@@ -15,8 +17,8 @@ router.get("/", (req, res) => {
 //Dashboard
 
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  console.log(req.user)
-  userInfo = {
+  console.log(req.user);
+  res.render("dashboard", {
     id: req.user.id,
     name: req.user.name,
     email: req.user.email
@@ -34,6 +36,13 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     userInfo.characters = characters
     res.render('dashboard',)
     
+  });
+});
+router.get("/character", ensureAuthenticated, (req, res) => {
+  console.log(req.user)
+  res.render("characterView", {
+    id: req.user.id,
+    name: req.user.name
   });
 });
 
