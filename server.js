@@ -54,7 +54,7 @@ app.use("/users", require("./routes/user.js"));
 
 // Turn on that server!
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, () => {
     console.log("App listening on port 3000");
   });
