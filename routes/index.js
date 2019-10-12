@@ -11,8 +11,10 @@ router.get("/", (req, res) => {
 //Dashboard
 
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
+  console.log(req.user)
   res.render("dashboard", {
-    id: req.user.id
+    id: req.user.id,
+    name: req.user.name
   });
 });
 
