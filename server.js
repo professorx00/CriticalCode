@@ -51,6 +51,7 @@ app.use((req, res, next) => {
 //routes
 app.use("/", require("./routes/index.js"));
 app.use("/users", require("./routes/user.js"));
+app.use("/api", require("./routes/apiRoutes"));
 
 // Turn on that server!
 

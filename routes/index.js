@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { ensureAuthenticated } = require("../config/auth");
+const db = require("../models");
 
 //welcome Page
 router.get("/", (req, res) => {
@@ -10,11 +11,9 @@ router.get("/", (req, res) => {
 //Dashboard
 
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  console.log("going to dashboard")
   res.render("dashboard", {
-    id: req.user.name
+    id: req.user.id
   });
-  res.send("hello")
 });
 
 module.exports = router;
