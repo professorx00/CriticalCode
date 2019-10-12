@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const classes = sequelize.define("classes", {
     className: {
       type: DataTypes.STRING,
@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         min: 6,
         max: 12
       }
-    }, 
+    },
     profBonus: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ['str', 'dex', 'con', 'int', 'wis', 'char']
+        isIn: ["str", "dex", "con", "int", "wis", "char"]
       }
     },
     savingThrowProf1: {
@@ -48,11 +48,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
-classes.associate = function (models) {
-  classes.hasMany(models.character, {
-    onDelete: "cascade"
-  });
-};
+  classes.associate = function(models) {
+    classes.hasMany(models.character, {
+      onDelete: "cascade"
+    });
+  };
 
-return classes;
+  return classes;
 };

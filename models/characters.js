@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const character = sequelize.define("character", {
     characterName: {
       type: DataTypes.STRING,
@@ -65,7 +65,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     }
   });
-  character.associate = function (models) {
+  character.associate = function(models) {
     character.belongsTo(models.armor, {
       foreignKey: {
         allowNull: false

@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const race = sequelize.define("race", {
     raceName: {
       type: DataTypes.STRING,
@@ -59,7 +59,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     }
   });
-  race.associate = function (models) {
+  race.associate = function(models) {
     race.hasMany(models.character, {
       onDelete: "cascade"
     });

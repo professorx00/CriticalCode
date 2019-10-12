@@ -5,7 +5,7 @@ const passport = require("passport");
 
 // Middleware
 const express = require("express");
-const expressLayouts = require('express-ejs-layouts');
+const expressLayouts = require("express-ejs-layouts");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 require("./config/passport")(passport);
@@ -55,7 +55,7 @@ app.use("/api", require("./routes/apiRoutes"));
 
 // Turn on that server!
 
-db.sequelize.sync().then(function () {
+db.sequelize.sync().then(function() {
   app.listen(PORT, () => {
     console.log("App listening on port 3000");
   });

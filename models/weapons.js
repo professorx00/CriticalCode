@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const weapon = sequelize.define("weapon", {
     weaponName: {
       type: DataTypes.STRING,
@@ -24,7 +24,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ["Simple Melee", "Simple Ranged", "Martial Melee", "Martial Range"]
+        isIn: [
+          "Simple Melee",
+          "Simple Ranged",
+          "Martial Melee",
+          "Martial Range"
+        ]
       }
     },
     dmgType: {
@@ -38,11 +43,22 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isIn: ["Light", "Finesse", "Thrown", "Two-handed", "Versatile", "Ammunition", "Loading", "Heavy", "Reach", "Special"]
+        isIn: [
+          "Light",
+          "Finesse",
+          "Thrown",
+          "Two-handed",
+          "Versatile",
+          "Ammunition",
+          "Loading",
+          "Heavy",
+          "Reach",
+          "Special"
+        ]
       }
     }
   });
-  weapon.associate = function (models) {
+  weapon.associate = function(models) {
     weapon.hasMany(models.character, {
       onDelete: "cascade"
     });

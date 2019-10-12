@@ -1,5 +1,3 @@
-$(document).ready(function () {
-
-    // on click event for button
-
+$(document).ready(function() {
+  // on click event for button
 });
