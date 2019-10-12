@@ -5,7 +5,7 @@ const passport = require("passport");
 
 // Middleware
 const express = require("express");
-const expressLayouts = require('express-ejs-layouts');
+const expressLayouts = require("express-ejs-layouts");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 require("./config/passport")(passport);

@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     abilityOne: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         min: 1,
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     abilityTwo: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
       validate: {
         min: 1,
@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     specialTraits: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: true
     }
   });
