@@ -1,4 +1,3 @@
-
 body {
     background: url("https://images.wallpaperscraft.com/image/mountains_peaks_clouds_148926_1280x800.jpg");
     background-color: black !important;
@@ -54,6 +53,12 @@ h1 {
     font-family: 'Metamorphous', cursive;
     font-size: 3rem !important;
     width: max-content;
+}
+
+h3 {
+    color: rgb(43, 4, 3);
+    font-size: 1.3rem;
+    font-family: 'Metamorphous', cursive;
 }
 
 
