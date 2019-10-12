@@ -91,10 +91,9 @@ router.get("/test", (req, res) => {
 
 // login handle
 router.post("/login", (req, res, next) => {
-  console.log("Post body");
   passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/users/test",
+    successRedirect: "/dashboard",
+    failureRedirect: "/users/login",
     failureFlash: true
   })(req, res, next);
 });

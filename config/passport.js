@@ -5,38 +5,54 @@ const db = require("../models");
 module.exports = function(passport) {
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-      //Match User
+      // Match user
       db.user
-        .findAll({ where: { email: email } })
-        .then(result => {
-          if (!result.user) {
+        .findOne({
+          where: {
+            email: email
+          }
+        })
+        .then(user => {
+          if (!user) {
             return done(null, false, {
-              message: "that email is not registered"
+              message: "That email is not registered"
             });
           }
 
-          //Match Password
-          bcrypt.compare(password, result.password, (err, isMatch) => {
+          // Match password
+          bcrypt.compare(password, user.password, (err, isMatch) => {
             if (err) {
               throw err;
             }
             if (isMatch) {
-              return done(null, result.user);
+              return done(null, user);
             } else {
-              return null, false, { message: "Password incorrect" };
+              return done(null, false, { message: "Password incorrect" });
             }
           });
-        })
-        .catch(err => console.log(err));
+        });
     })
   );
 
-  passport.serializeUser((user, done) => {
+  passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-      done(err, user);
+
+  passport.deserializeUser(function(id, done) {
+    console.log(id);
+    db.user.findOne({ where: { id: id } }).then(result => {
+      console.log(result);
+      let user = {
+        id: result.id,
+        name: result.name,
+        password: result.password,
+        email: result.email
+      };
+      done(null, user);
     });
+
+    // db.user.findByID({ where: { id: id } }, function(err, user) {
+    //   done(err, user);
+    // });
   });
 };
