@@ -37,7 +37,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     }
   });
 });
-router.get("/:user/:charID", ensureAuthenticated, (req, res) => {
+router.get("/log/:user/:charID", ensureAuthenticated, (req, res) => {
   if (req.user.id) {
     // res.render("characterView", {
     //   id: req.user.id,
