@@ -20,10 +20,10 @@ $(document).ready(function() {
   // const hitPoints = $("#hitPoints");
   // const hitDice = $("#hitDice")
   // const characterInfo = $("#character")
-  $("#dashboard").on("click", event => {
+  $("#dashboard").on("click", () => {
     document.location.href = "/dashboard";
   });
-  $("#logout").on("click", event => {
+  $("#logout").on("click", () => {
     document.location.href = "/users/logout";
   });
 

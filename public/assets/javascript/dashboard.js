@@ -15,7 +15,7 @@ $(document).ready(function() {
     document.location.href = `/log/${user}/${characterID}`;
   });
 
-  $("#logout").on("click", event => {
+  $("#logout").on("click", () => {
     document.location.href = "/logout";
   });
 });

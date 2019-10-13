@@ -10,8 +10,7 @@ router.get("/", (req, res) => {
 //Dashboard
 
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
-
-  console.log("starting Character search")
+  console.log("starting Character search");
   db.character
     .findAll({
       where: {
@@ -45,17 +44,15 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
 });
 router.get("/log/:user/:charID", (req, res) => {
   let user = req.user.id;
-  let name = req.user.name;
   let char = req.params.charID;
-  let email = req.user.email;
   if (user && char) {
     console.log("user found");
     res.render("characterView");
   } else {
-    // res.render("characterView", {
-    //   id: null,
-    //   name: null
-    // });
+    res.render("characterView", {
+      id: null,
+      name: null
+    });
     res.send("error");
   }
 });

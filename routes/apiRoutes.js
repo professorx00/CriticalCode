@@ -14,7 +14,7 @@ routes.get("/", (req, res) => {
       console.log(err);
     });
 });
-routes.get("/user/:id/:characterId?", (req, res) => {;
+routes.get("/user/:id/:characterId?", (req, res) => {
   if (req.params.characterId) {
     db.character
       .findAll({
