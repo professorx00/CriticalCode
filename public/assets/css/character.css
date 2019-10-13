@@ -46,6 +46,15 @@
     vertical-align: bottom;
 }
 
+.circle-div {
+    background-color: beige;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.underline {
+    text-decoration: underline;
+}
 
 div.btn:hover {
     transform: translateY(-7px);
