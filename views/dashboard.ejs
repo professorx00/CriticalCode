@@ -7,9 +7,7 @@
       </div>
     </div>
     <div class="col col-md-2 text-md-right text-sm-center">
-      <form action="/users/logout" method="GET">
         <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3">Logout</button>
-      </form>
     </div>
   </div>
 
@@ -17,7 +15,7 @@
     <div class="col col-md-12 text-center center">
       <h2>Welcome <%= name %>.</h2>
       <h3>Please add a new Character.</h3>
-      <div type="div" class="btn btn-primary button-character shadow addCharacterBtn" data-id="<%= id %>" id="newCharacterBtn">
+      <div type="div" class="btn btn-primary button-character shadow addCharacterBtn mt-3 mb-3" data-id="<%= id %>" id="newCharacterBtn">
         Create a New Character
       </div>
     </div>
@@ -26,8 +24,8 @@
   <% characters.forEach((element)=>{ %>
   <div class="row content">
     <div class="col col-md-12 text-center center">
-      <div type="div" class="btn btn-primary button-character shadow characterBtn" data-id="<%= element.id %>" data-user="<%= id %>" id="newCharacterBtn"> 
-        <%= element.characterName %>
+      <div type="div" class="btn btn-primary button-character shadow characterBtn mt-3 mb-3" data-id="<%= element.id %>" data-user="<%= id %>" id="newCharacterBtn"> 
+        <%= element.characterName %> -- <%= element.class.className %>
       </div>
     </div>
   </div>

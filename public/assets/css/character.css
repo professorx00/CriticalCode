@@ -60,13 +60,23 @@
 .underline {
     text-decoration: underline;
 }
-
+button.btnText{
+    color: white;
+    font-size: 1.5rem;
+}
 div.btn:hover {
     transform: translateY(-7px);
     width: 65%;
     cursor: pointer;
 }
-
+ul {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    
+    padding-left: 0;
+    
+}
 
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;

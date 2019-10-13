@@ -20,5 +20,12 @@ $(document).ready(function() {
   // const hitPoints = $("#hitPoints");
   // const hitDice = $("#hitDice")
   // const characterInfo = $("#character")
+  $("#dashboard").on("click", event => {
+    document.location.href = "/dashboard";
+  });
+  $("#logout").on("click", event => {
+    document.location.href = "/users/logout";
+  });
+
   console.log("Fun times");
 });
