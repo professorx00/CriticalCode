@@ -19,7 +19,6 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   const { name, email, password, password2 } = req.body;
   let errors = [];
-  console.log(name, email, password, password2);
   //check required fields
   if (!name || !email || !password || !password2) {
     errors.push({

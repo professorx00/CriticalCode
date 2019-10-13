@@ -9,15 +9,13 @@ routes.get("/", (req, res) => {
       include: [db.armor, db.weapon, db.race, db.classes]
     })
     .then(data => {
-      console.log(data);
       res.json(data);
     })
     .catch(err => {
       console.log(err);
     });
 });
-routes.get("/user/:id/:characterId?", (req, res) => {
-  console.log;
+routes.get("/user/:id/:characterId?", (req, res) => {;
   if (req.params.characterId) {
     db.character
       .findAll({
@@ -52,7 +50,6 @@ routes.get("/user/:id/:characterId?", (req, res) => {
   }
 });
 routes.get("/weapons/:id?", (req, res) => {
-  // console.log(req.params.userid);
   if (req.params.id) {
     db.weapon
       .findAll({
@@ -182,7 +179,6 @@ routes.post("/addCharacter", (req, res) => {
       weaponId: req.body.weaponId
     })
     .then(data => {
-      console.log(data);
       res.json(data);
     })
     .catch(err => {
