@@ -1,4 +1,17 @@
 $(document).ready(function () {
+
+    // $("#logout").on("click", function () {
+    //     $.ajax({
+    //             url: "/logout",
+    //             method: "GET",
+    //         })
+    //         .then(function (data) {
+    //             console.log(data);
+    //         });
+
+    // })
+
+
     let classes = $.ajax({
             url: "/api/classes",
             method: "GET",
