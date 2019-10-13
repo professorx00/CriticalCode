@@ -1,3 +1,4 @@
+const db = require("../models");
 const helper = {};
 
 helper.getArmor = function(id) {
@@ -63,28 +64,25 @@ helper.getRace = function(id) {
   });
 };
 helper.getClasses = function(id) {
-  return new Promise((resolve, reject) => {
-    db.classes
-      .findOne({ where: { id: id } })
-      .then(classes => {
-        classesObject = {
-          id: classes.id,
-          classesName: classes.classesName,
-          hitdice: classes.hitdice,
-          primaryStatID: classes.primaryStatID,
-          primarySaveID: classes.primarySaveID,
-          secondarySaveID: classes.secondarySaveID,
-          primarySaveID: classes.primarySaveID,
-          allowArmorType: classes.allowArmorType,
-          allowWeaponsType: classes.allowWeaponsType,
-          specialTraits: classes.specialTraits
-        };
-        resolve(classesObject);
-      })
-      .catch(err => {
-        reject(err);
-      });
-  });
+  db.classes
+    .findOne({ where: { id: id } })
+    .then(classes => {
+      classesObject = {
+        id: classes.id,
+        classesName: classes.className,
+        hitdice: classes.hitdice,
+        profBonus: classes.profBonus,
+        primaryStatID: classes.primaryStatID,
+        savingThrowProf1: classes.savingThrowProf1,
+        savingThrowProf2: classes.savingThrowProf2,
+        allowArmorType: classes.allowArmorType,
+        allowWeaponsType: classes.allowWeaponsType,
+        startingWealth: classes.startingWealth
+      };
+    })
+    .then(classesName => {
+      return classesName;
+    });
 };
 
 module.exports = helper;

@@ -9,7 +9,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+img#logo{
+    max-width:600px;
+}
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
