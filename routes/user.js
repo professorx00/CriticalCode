@@ -17,20 +17,31 @@ router.get("/register", (req, res) => {
 
 // Register Handle
 router.post("/register", (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const {
+    name,
+    email,
+    password,
+    password2
+  } = req.body;
   let errors = [];
   console.log(name, email, password, password2);
   //check required fields
   if (!name || !email || !password || !password2) {
-    errors.push({ msg: "Please Enter All Fields" });
+    errors.push({
+      msg: "Please Enter All Fields"
+    });
   }
   //check if passwords match
   if (password !== password2) {
-    errors.push({ msg: "Passwords Do Not Match" });
+    errors.push({
+      msg: "Passwords Do Not Match"
+    });
   }
   // check password is length
   if (password.length < 6) {
-    errors.push({ msg: "Passwords should be at least 6 characters" });
+    errors.push({
+      msg: "Passwords should be at least 6 characters"
+    });
   }
   if (errors.length > 0) {
     res.render("register", {
@@ -42,9 +53,15 @@ router.post("/register", (req, res) => {
     });
   } else {
     //validation Passed
-    db.user.findAll({ where: { email: email } }).then(result => {
+    db.user.findAll({
+      where: {
+        email: email
+      }
+    }).then(result => {
       if (result.email === email) {
-        errors.push({ msg: "Email is already registered." });
+        errors.push({
+          msg: "Email is already registered."
+        });
         res.render("register", {
           errors,
           name,
@@ -82,11 +99,6 @@ router.post("/register", (req, res) => {
       }
     });
   }
-});
-
-router.get("/test", (req, res) => {
-  console.log("monkey");
-  res.send("monkey");
 });
 
 // login handle

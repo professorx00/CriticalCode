@@ -1,32 +1,45 @@
 <div class="container">
   <div class="row header justify-content-center">
-    <div class="jumbotron headline-jumbo p-4 m-3">
-      <h1 class="headline text-center">VALHALLA</h1>
+    <div class="col col-md-2"></div>
+    <div class="col-md-8">
+      <div class="jumbotron headline-jumbo p-4 m-3">
+        <h1 class="headline text-center">VALHALLA</h1>
+      </div>
+    </div>
+    <div class="col col-md-2 text-md-right text-sm-center">
+      <form action="/logout" method="GET">
+        <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3">Logout</button>
+      </form>
     </div>
   </div>
 
   <div class="row content">
     <div class="col col-md-12 text-center center">
-      <br>
-      <h3>Welcome <%= name %>. Choose one of your characters.</h3>
-      <br>
-      <div type="div" class="btn btn-primary button-character shadow" data-id="<%= id %>">
+      <h2>Welcome <%= name %>.</h2>
+      <h3>Please add a new Character.</h3>
+      <div type="div" class="btn btn-primary button-character shadow addCharacterBtn" data-id="<%= id %>" id="newCharacterBtn">
+        Create a New Character
       </div>
-      <br>
-      <br>
-
-      <!-- some dummy buttons -->
-      <div type="div" class="btn btn-primary button-character" data-id="<%= id %>"></div>
-      <br>
-      <br>
-      <div type="div" class="btn btn-primary button-character" data-id="<%= id %>"></div>
-      <br>
-      <br>
-      <div type="div" class="btn btn-primary button-character" data-id="<%= id %>"></div>
-      <br>
-      <br>
-
-
-
     </div>
   </div>
+  <% if (characters!==null){ %>
+  <% characters.forEach((element)=>{ %>
+  <div class="row content">
+    <div class="col col-md-12 text-center center">
+      <div type="div" class="btn btn-primary button-character shadow characterBtn" data-id="<%= element.id %>" data-user="<%= id %>" id="newCharacterBtn"> 
+        <%= element.characterName %>
+      </div>
+    </div>
+  </div>
+ 
+  <% }); %>
+  <%}else{ %>
+  <div class="row content">
+    <div class="col col-md-12 text-center center">
+      <h3>Choose one of your characters.</h3>
+    </div>
+  </div>
+  <%} %>
+</div>
+
+<script src="/assets/javascript/dashboard.js"></script>

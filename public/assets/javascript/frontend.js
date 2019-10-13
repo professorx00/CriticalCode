@@ -21,12 +21,37 @@ $(document).ready(function () {
             console.log(data);
         });
 
-    $.when(spells, classes, skills, armor).done(function (resSpells, resClasses, resSkills, resArmor) {
+    // $("#logout").on("click", function () {
+    //     $.ajax({
+    //             url: "/logout",
+    //             method: "GET",
+    //         })
+    //         .then(function (data) {
+    //             console.log(data);
+    //         });
 
-        console.log(resSpells);
+    // })
+
+    let classes = $.ajax({
+        url: "/api/classes",
+        method: "GET"
+    }).then(function (data) {
+        console.log(data);
+    });
+    let armor = $.ajax({
+        url: "/api/armor",
+        method: "GET"
+    }).then(function (data) {
+        console.log(data);
+    });
+
+    $.when(classes, skills, armor).done(function (
+        resClasses,
+        resSkills,
+        resArmor
+    ) {
         console.log(resClasses);
         console.log(resSkills);
         console.log(resArmor);
     });
-
 });
