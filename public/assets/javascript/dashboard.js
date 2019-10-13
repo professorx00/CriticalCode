@@ -5,6 +5,7 @@ $(document).ready(function() {
   });
 
   $(".characterBtn").on("click", function(event) {
+    
     event.preventDefault();
     const target = $(event.target);
     const characterID = target.attr("data-id");

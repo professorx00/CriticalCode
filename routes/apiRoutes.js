@@ -3,7 +3,6 @@ let calculator = require("./calculator.js");
 let routes = require("express").Router();
 
 routes.get("/", (req, res) => {
-  // console.log(req.params.userid);
   db.character
     .findAll({
       include: [db.armor, db.weapon, db.race, db.classes]
@@ -77,7 +76,6 @@ routes.get("/weapons/:id?", (req, res) => {
   }
 });
 routes.get("/classes/:id?", (req, res) => {
-  // console.log(req.params.userid);
   if (req.params.id) {
     db.classes
       .findAll({
@@ -105,7 +103,6 @@ routes.get("/classes/:id?", (req, res) => {
   }
 });
 routes.get("/race/:id?", (req, res) => {
-  // console.log(req.params.userid);
   if (req.params.id) {
     db.race
       .findAll({

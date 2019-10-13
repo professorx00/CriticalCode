@@ -1,7 +1,6 @@
 calculatedData = {};
 
 calculatedData.abiityMod = function(num) {
-  console.log(num);
   if (num === 1) {
     return -5;
   } else if (num === 2 || num === 3) {
