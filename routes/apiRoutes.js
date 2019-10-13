@@ -6,7 +6,7 @@ routes.get("/", (req, res) => {
   // console.log(req.params.userid);
   db.character
     .findAll({
-      include: [db.armor, db.spells, db.weapon, db.race, db.classes]
+      include: [db.armor, db.weapon, db.race, db.classes]
     })
     .then(data => {
       console.log(data);
@@ -25,7 +25,7 @@ routes.get("/user/:id/:characterId?", (req, res) => {
           userid: req.params.id,
           id: req.params.characterId
         },
-        include: [db.armor, db.spells, db.weapon, db.race, db.classes]
+        include: [db.armor, db.weapon, db.race, db.classes]
       })
       .then(data => {
         console.log("Character Id Found");
@@ -72,34 +72,6 @@ routes.get("/weapons/:id?", (req, res) => {
       .findAll({})
       .then(data => {
         console.log("All Weapon");
-        res.json(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-});
-routes.get("/spells/:id?", (req, res) => {
-  // console.log(req.params.userid);
-  if (req.params.id) {
-    db.spells
-      .findAll({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(data => {
-        console.log("Specific Spells");
-        res.json(data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  } else {
-    db.spells
-      .findAll({})
-      .then(data => {
-        console.log("All Spells");
         res.json(data);
       })
       .catch(err => {
@@ -202,11 +174,11 @@ routes.post("/addCharacter", (req, res) => {
       wis: req.body.wis,
       char: req.body.char,
       equipment: req.body.equipment,
+      spells: req.body.spells,
       skill: req.body.skill,
       armorId: req.body.armorId,
       classId: req.body.classId,
       raceId: req.body.raceId,
-      spellId: req.body.spellId,
       weaponId: req.body.weaponId
     })
     .then(data => {
@@ -220,10 +192,13 @@ routes.post("/addCharacter", (req, res) => {
     });
 });
 
-routes.post("/cal/", (req, res) => {
-  res.json({
-    data: "Here is where an array of data will go after calculate it"
-  });
+routes.post("/cal/:command", (req, res) => {
+  if (req.body.command === "abilityMod") {
+    const abilityMod = calculator.abiityMod(req.stat);
+    res.send(abilityMod);
+  } else {
+    res.status(404);
+  }
 });
 
 module.exports = routes;
