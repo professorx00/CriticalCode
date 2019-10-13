@@ -1,6 +1,6 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<div class="container">
+<div class="container" id="character" data-charcterId="<%= id %>" data-characterName="<%=name =%>"" >
     <div class="row header justify-content-center">
         <div class="jumbotron headline-jumbo p-4 m-3">
             <h1 class="headline text-center">VALHALLA</h1>
@@ -52,7 +52,7 @@
                         <div id="race">number</div>Race
                     </div>
                     <div class="col col-md-3">
-                        <div id="alignment">number</div>Alignment
+                        <div id="">number</div>Alignment
                     </div>
                     <div class="col col-md-3">
                         <div id="experience">number</div>Experience
@@ -70,6 +70,8 @@
                         <div class="top-div">
                             Proficiency Bonus
                         </div>
+                        <div id="proficiencyBonus">number</div>
+
                         <br>
 
                         <div>
@@ -129,3 +131,4 @@
             </div>
         </div>
     </div>
+<script src="/assets/javascript/characterView.js"></script>
