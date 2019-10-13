@@ -5,15 +5,14 @@ $(document).ready(function() {
   });
 
   $(".characterBtn").on("click", function(event) {
+    
     event.preventDefault();
     const target = $(event.target);
     const characterID = target.attr("data-id");
-    // const user = target.attr("data-user");
-    console.log("Character Btn ");
-    console.log(target.attr("data-id"));
-    $.get(`/${characterID}`)
+    const user = target.attr("data-user");
+    $.get(`/log/${user}/${characterID}`)
       .then(data => {
-        console.log(data);
+        console.log("Successful Character ")
       })
       .catch(err => {
         console.log(err);

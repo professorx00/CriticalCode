@@ -22,7 +22,6 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
   db.character.findAll({ where: { userid: req.user.id } }).then(result => {
     let characters = [];
     result.forEach(element => {
-      console.log(element);
       let obj = {
         id: element.id,
         characterName: element.characterName
@@ -30,7 +29,6 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       characters.push(obj);
     });
     userInfo.characters = characters;
-    console.log(userInfo);
     if (userInfo.characters.length === 0) {
       userInfo.characters = null;
       res.render("dashboard", userInfo);
@@ -39,18 +37,21 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     }
   });
 });
-router.get("/log/:user/:charID", ensureAuthenticated, (req, res) => {
-  if (req.user.id) {
-    // res.render("characterView", {
-    //   id: req.user.id,
-    //   name: req.user.name
-    // });
-    res.send(`user:${req.user.name} userid: ${req.user.id}`);
+router.get("/log/:user/:charID", (req, res) => {
+  let user = req.user.id;
+  let name = req.user.name;
+  let char = req.params.charID;
+  let email = req.user.email;
+  console.log("character redirect " + user + char);
+  if (user && char) {
+    console.log("user found");
+    res.send("FILE")
   } else {
-    res.render("characterView", {
-      id: null,
-      name: null
-    });
+    // res.render("characterView", {
+    //   id: null,
+    //   name: null
+    // });
+    res.send("error");
   }
 });
 

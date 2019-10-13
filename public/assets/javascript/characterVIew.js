@@ -20,5 +20,5 @@ $(document).ready(function() {
   // const hitPoints = $("#hitPoints");
   // const hitDice = $("#hitDice")
   // const characterInfo = $("#character")
-  console.log("characters");
+  console.log("Fun times");
 });
