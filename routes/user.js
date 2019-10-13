@@ -101,11 +101,6 @@ router.post("/register", (req, res) => {
   }
 });
 
-router.get("/test", (req, res) => {
-  console.log("monkey");
-  res.send("monkey");
-});
-
 // login handle
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
