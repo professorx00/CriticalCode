@@ -77,7 +77,13 @@ ul {
     padding-left: 0;
     
 }
-
+.savthrow img{
+    max-width: 20px;
+}
+div.savthrow:{
+    display:flex !important;
+    flex-direction: column;
+}
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;
