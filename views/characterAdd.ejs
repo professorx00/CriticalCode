@@ -1,6 +1,6 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<div class="container" data-user="<%=user%>"><!--Keep the data-user in this container need for suppling database-->
+<div class="container"></div> <!--data-user="<%=user%>">Keep the data-user in this container need for suppling database-->
     <div class="row header justify-content-center">
         <img src="/assets/images/logo.png" class="logo">
     </div>
@@ -29,8 +29,9 @@
       </div>
       <div class="col col-sm-12 col-md-6 text-center">
           <br>
-          <h3 id="characterName"></h3>
+          <h3 ></h3>
           <h3>Character Name</h3>
+          <input id="characterNameInput" type="text">
       </div>
   </div>
   <br>
@@ -71,12 +72,14 @@
               </div>
               <div class="col col-md-3">
                   <div><span id="background"></span></div>Background
+                  <input id="backgroundInput" type="text">
               </div>
               <div class="col col-md-3">
                   <div><span id="player"></span></div>Player Name
               </div>
               <div class="col col-md-3">
                   <div><span id="faction"></span></div>Faction
+                  <input id="factionInput" type="text">
               </div>
           </div>
           <div class="row top-div">
@@ -85,9 +88,11 @@
               </div>
               <div class="col col-md-3">
                   <div><span id="alignment"></span></div>Alignment
+                  <input id="alignmentInput" type="text">
               </div>
               <div class="col col-md-3">
                   <div><span id="experience"></span></div>Experience
+                  <input id="experienceInput" type="text">
               </div>
           </div>
           <div class="row">
@@ -138,58 +143,87 @@
                   <div class="row">
                       <div class="col col-md-6">
                           <div>
-                              <div id="acrobatics" class="underline">number</div>Acrobatics
+                              <div id="acrobatics" class="underline">Acrobatics</div>
+                              <input id="acrobaticsInput" type="number">
                           </div>
                           <div>
-                              <div id="animalHandling" class="underline">number</div>Animal Handling
+                              <div id="animalHandling" class="underline">Animal Handling</div>
+                              <input id="animalHInput" type="number">
                           </div>
                           <div>
-                              <div id="arcana" class="underline">number</div>Arcana
+                              <div id="arcana" class="underline">Arcana</div>
+                              <input id="arcanaInput" type="number">
                           </div>
                           <div>
-                              <div id="athletics" class="underline">number</div>Athletics
+                              <div id="athletics" class="underline">Athletics</div>
+                              <input id="athleticsInput" type="number">
                           </div>
                           <div>
-                              <div id="deception" class="underline">number</div>Deception
+                              <div id="deception" class="underline">Deception</div>
+                              <input id="deceptionInput" type="number">
+
                           </div>
                           <div>
-                              <div id="history" class="underline">number</div>History
+                              <div id="history" class="underline">History</div>
+                              <input id="historyInput" type="number">
                           </div>
                           <div>
-                              <div id="insight" class="underline">number</div>Insight
+                              <div id="insight" class="underline">Insight</div>
+                              <input id="insightInput" type="number">
+
                           </div>
                           <div>
-                              <div id="intimidation" class="underline">number</div>Intimidation
+                              <div id="intimidation" class="underline">Intimidation</div>
+                              <input id="intimidationInput" type="number">
+
                           </div>
                           <div>
-                              <div id="investigation" class="underline">number</div>Investigation
+                              <div id="investigation" class="underline">Investigation</div>
+                              <input id="investigationInput" type="number">
+
                           </div>
                           <br>
                       </div>
                       <div class="col col-md-6">
                           <div>
-                              <div id="medicine" class="underline">number</div>Medicine
+                              <div id="medicine" class="underline">Medicine</div>
+                              <input id="medicineInput" type="number">
+
                           </div>
                           <div>
-                              <div id="nature" class="underline">number</div>Nature
+                              <div id="nature" class="underline">Nature</div>
+                              <input id="natureInput" type="number">
+
                           </div>
                           <div>
-                              <div id="perception" class="underline">number</div>Perception
+                              <div id="perception" class="underline">Perception</div>
+                              <input id="perceptionInput" type="number">
+
                           </div>
                           <div>
-                              <div id="performance" class="underline">number</div>Performance
+                              <div id="performance" class="underline">Performance</div>
+                              <input id="performanceInput" type="number">
+
                           </div>
                           <div>
-                              <div id="religion" class="underline">number</div>Religion
+                              <div id="religion" class="underline">Religion</div>
+                              <input id="religionInput" type="number">
+
                           </div>
                           <div>
-                              <div id="sleightOfHand" class="underline">number</div>Sleight of Hand
+                              <div id="sleightOfHand" class="underline">Sleight of Hand</div>
+                              <input id="sleightOfHandInput" type="number">
+
                           </div>
                           <div>
-                              <div id="stealth" class="underline">number</div>Stealth
+                              <div id="stealth" class="underline">Stealth</div>
+                              <input id="stealthInput" type="number">
+
                           </div>
                           <div>
-                              <div id="survival" class="underline">number</div>Survival
+                              <div id="survival" class="underline">Survival</div>
+                              <input id="survivalInput" type="number">
+
                           </div>
                           <br>
                       </div>
