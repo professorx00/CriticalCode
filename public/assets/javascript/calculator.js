@@ -1,6 +1,4 @@
-calculatedData = {};
-
-calculatedData.abiltyMod = function(num) {
+abiltyMod = function(num) {
   if (num === 1) {
     return -5;
   } else if (num === 2 || num === 3) {
@@ -37,14 +35,13 @@ calculatedData.abiltyMod = function(num) {
     return 666;
   }
 };
-calculatedData.calculateStatBlock = function(str, dex, con, int, wis, chr) {
-  let strength = this.abiltyMod(str);
-  let dexterity = this.abilityMod(dex);
-  let consitution = this.abiltyMod(con);
-  let intelligence = this.abilityMod(int);
-  let wisdom = this.abilityMod(wis);
-  let charisma = this.abilityMod(chr);
+calculateStatBlock = function(str, dex, con, int, wis, chr) {
+  let strength = abiltyMod(str);
+  let dexterity = abilityMod(dex);
+  let consitution = abiltyMod(con);
+  let intelligence = abilityMod(int);
+  let wisdom = abilityMod(wis);
+  let charisma = abilityMod(chr);
 
   return [strength, dexterity, consitution, intelligence, wisdom, charisma];
 };
-module.exports = calculatedData;

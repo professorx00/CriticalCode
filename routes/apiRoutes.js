@@ -22,7 +22,7 @@ routes.get("/user/:id/:characterId?", (req, res) => {
           userid: req.params.id,
           id: req.params.characterId
         },
-        include: [db.armor, db.weapon, db.race, db.classes]
+        include: [db.armor, db.weapon, db.race, db.classes, db.user]
       })
       .then(data => {
         console.log("Character Id Found");

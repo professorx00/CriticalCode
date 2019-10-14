@@ -43,11 +43,12 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     });
 });
 router.get("/log/:user/:charID", (req, res) => {
-  let user = req.user.id;
+  let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
+    let data = { user: user, char: char };
     console.log("user found");
-    res.render("characterView");
+    res.render("characterView", data);
   } else {
     res.render("characterView", {
       id: null,
