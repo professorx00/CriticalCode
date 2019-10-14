@@ -28,6 +28,7 @@ img.logo{
     border: 3px outset rgba(91, 36, 23, 0.66);
     border-radius: 21px 21px 21px 21px;
     max-width: 80%;
+    margin: 0 auto;
 }
 
 div.btn:hover {
