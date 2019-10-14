@@ -1,7 +1,19 @@
-<div class="container" data-user="<%=user%>"><!--Keep the data-user in this container need for suppling database-->
+<link rel=" stylesheet" href="/assets/css/character.css">
+
+<div class="container"></div> <!--data-user="<%=user%>">Keep the data-user in this container need for suppling database-->
     <div class="row header justify-content-center">
         <img src="/assets/images/logo.png" class="logo">
     </div>
+    <div class="col col-md-2 text-md-right text-sm-center">
+      <ul class="list-group">
+          <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="dashboard"
+                  class="btn text-center btnText">Dashboard</button></li>
+          <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
+                  class="btn text-center btnText">Logout</button></li>
+      </ul>
+
+
+  </div>
     <div class="row">
       <div class="col">
         Hello World! Add Character File!
@@ -9,4 +21,255 @@
     </div>
 </div>
 
+<div class="container">
+  <div class="row img-div">
+      <div class="col col-sm-12 col-md-6 text-center">
+          <!-- Image URL to put in pic of character -->
+          <img src="/assets/images/default.png" alt="" class="imgLogo">
+      </div>
+      <div class="col col-sm-12 col-md-6 text-center">
+          <br>
+          <h3 ></h3>
+          <h3>Character Name</h3>
+          <input id="characterNameInput" type="text">
+      </div>
+  </div>
+  <br>
+  <div class="row text-center">
+      <!--Stat Block area-->
+      <div class="col col-md-3">
+          <div id="stats" class="col col-md-12">
+              <div class="stats-div">
+                  <div><span id="strength"></span></div>Strength<div class="circle-div"><span id="strAblMod"></span>
+                  </div>
+              </div><br>
+              <div class="stats-div">
+                  <div><span id="dexterity"></span></div>Dexterity<div class="circle-div"><span id="dexAblMod"></span>
+                  </div>
+              </div><br>
+              <div class="stats-div">
+                  <div><span id="constitution"></span></div>Constitution<div class="circle-div"><span
+                          id="conAblMod"></span></div>
+              </div><br>
+              <div class="stats-div">
+                  <div><span id="intelligence"></span></div>Intelligence<div class="circle-div"><span
+                          id="intAblMod"></span></div>
+              </div><br>
+              <div class="stats-div">
+                  <div><span id="wisdom"></span></div>Wisdom<div class="circle-div"><span id="wisAblMod"></span></div>
+              </div><br>
+              <div class="stats-div">
+                  <div><span id="charisma"></span></div>Charisma<div class="circle-div"><span id="charAblMod"></span>
+                  </div>
+              </div><br>
+          </div>
+      </div>
+      <!--Character Information-->
+      <div class="col col-md-8 stats-div">
+          <div class="row top-div">
+              <div class="col col-md-3">
+                  <div><span id="className"></span></div>Class
+              </div>
+              <div class="col col-md-3">
+                  <div><span id="background"></span></div>Background
+                  <input id="backgroundInput" type="text">
+              </div>
+              <div class="col col-md-3">
+                  <div><span id="player"></span></div>Player Name
+              </div>
+              <div class="col col-md-3">
+                  <div><span id="faction"></span></div>Faction
+                  <input id="factionInput" type="text">
+              </div>
+          </div>
+          <div class="row top-div">
+              <div class="col col-md-3">
+                  <div><span id="race"></span></div>Race
+              </div>
+              <div class="col col-md-3">
+                  <div><span id="alignment"></span></div>Alignment
+                  <input id="alignmentInput" type="text">
+              </div>
+              <div class="col col-md-3">
+                  <div><span id="experience"></span></div>Experience
+                  <input id="experienceInput" type="text">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col col-md-4">
+                  <!-- st stands for Saving Throws, to differentiate this section form the stats -->
+                  <br>
+                  <h3>Saving Throws</h3>
+                  <br>
+                  <div class="savthrow row">
+                      <div id="StrengthSavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Strength </div> 
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="strSavThrowPro"></div>
+                  </div>
+                  <div class="savthrow row">
+                      <div id="DexeritySavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Dexterity</div> 
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="dexSavThrowPro"></div>
+                  </div>
+                  <div class="savthrow row">
+                      <div id="ConstitutionSavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Constitution</div> 
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="conSavThrowPro"></div>
+                  </div>
+                  <div class="savthrow row">
+                      <div id="IntelligenceSavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Intelligence</div> 
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="intSavThrowPro"></div>
+                  </div>
+                  <div class="savthrow row">
+                      <div id="WisdomSavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Wisdom</div> 
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="wisSavThrowPro"></div>
+                  </div>
+                  <div class="savthrow row">
+                      <div id="CharismaSavThrow" class="underline col-md-1"></div>
+                      <div class="col-md-6">Charisma </div>
+                      <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="charSavThrowPro"></div>
+                  </div>
+                  <br>
+              </div>
+              <div class="col col-md-8">
+                  <div class="row">
+                      <div class="col col-md-12">
+                          <br>
+                          <h3>Skills</h3><br>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col col-md-6">
+                          <div>
+                              <div id="acrobatics" class="underline">Acrobatics</div>
+                              <input id="acrobaticsInput" type="number">
+                          </div>
+                          <div>
+                              <div id="animalHandling" class="underline">Animal Handling</div>
+                              <input id="animalHInput" type="number">
+                          </div>
+                          <div>
+                              <div id="arcana" class="underline">Arcana</div>
+                              <input id="arcanaInput" type="number">
+                          </div>
+                          <div>
+                              <div id="athletics" class="underline">Athletics</div>
+                              <input id="athleticsInput" type="number">
+                          </div>
+                          <div>
+                              <div id="deception" class="underline">Deception</div>
+                              <input id="deceptionInput" type="number">
 
+                          </div>
+                          <div>
+                              <div id="history" class="underline">History</div>
+                              <input id="historyInput" type="number">
+                          </div>
+                          <div>
+                              <div id="insight" class="underline">Insight</div>
+                              <input id="insightInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="intimidation" class="underline">Intimidation</div>
+                              <input id="intimidationInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="investigation" class="underline">Investigation</div>
+                              <input id="investigationInput" type="number">
+
+                          </div>
+                          <br>
+                      </div>
+                      <div class="col col-md-6">
+                          <div>
+                              <div id="medicine" class="underline">Medicine</div>
+                              <input id="medicineInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="nature" class="underline">Nature</div>
+                              <input id="natureInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="perception" class="underline">Perception</div>
+                              <input id="perceptionInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="performance" class="underline">Performance</div>
+                              <input id="performanceInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="religion" class="underline">Religion</div>
+                              <input id="religionInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="sleightOfHand" class="underline">Sleight of Hand</div>
+                              <input id="sleightOfHandInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="stealth" class="underline">Stealth</div>
+                              <input id="stealthInput" type="number">
+
+                          </div>
+                          <div>
+                              <div id="survival" class="underline">Survival</div>
+                              <input id="survivalInput" type="number">
+
+                          </div>
+                          <br>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col col-md-6">
+                  <div class="top-div">
+                      <div id="proficiencyBonus"></div>
+                      Proficiency Bonus
+                  </div>
+              </div>
+              <div class="col col-md-6">
+                  <div class="top-div">
+                      <div id="inspiration"></div>
+                      Inspiration
+                  </div>
+              </div>
+          </div>
+          <div class="col col-md-12">
+              <div class="row">
+                  <div class="col col-md-4 mid-div">
+                      <div id="armor"> </div>Armor Class
+                  </div>
+                  <div class="col col-md-4 mid-div">
+                      <div id="initiative"></div>Initiative
+                  </div>
+                  <div class="col col-md-4 mid-div">
+                      <div id="speed"></div>Speed
+                  </div>
+              </div>
+              <div class="row top-div">
+                  <div class="col-md-6">Hit Points: <span id="hitPoints"></span></div>
+                  <div class="col-md-6">Hit Die: <span id="hitDice">1d</span></div>
+              </div>
+              <div class="row">
+                  <div class="col col-md-12 low-div">
+                  </div>
+              </div>
+              <div class="row">
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+</div>
+<script src="/assets/javascript/calculator.js"></script>
+<script src="/assets/javascript/characterView.js"></script>
