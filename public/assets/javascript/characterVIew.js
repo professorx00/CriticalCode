@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // let helper = require("../../../routes/calculator");
 $(document).ready(function() {
   abiltyMod = function(num) {
@@ -55,7 +56,7 @@ $(document).ready(function() {
   const charClass = $("#className");
   // const background = $("#back");
   const player = $("#player");
-  const charName = $("#characterName");;
+  const charName = $("#characterName");
   // const faction = $("#faction");
   const race = $("#race");
   // const alignment = $("#alignment");
@@ -66,7 +67,7 @@ $(document).ready(function() {
   const initiative = $("#initiative");
   const speed = $("#speed");
   const hitPoints = $("#hitPoints");
-  const hitDice = $("#hitDice")
+  const hitDice = $("#hitDice");
   const characterInfo = $("#character");
 
   const user = characterInfo.attr("data-user");
@@ -74,7 +75,7 @@ $(document).ready(function() {
   console.log(user, char);
   $.ajax(`/api/user/${user}/${char}`).then(data => {
     let character = data[0];
-    console.log(character);;
+    console.log(character);
     // eslint-disable-next-line prettier/prettier
     let abilityMods = calculateStatBlock(character.str, character.dex, character.con, character.int, character.wis, character.char);
     strength.append(character.str);
@@ -218,10 +219,10 @@ $(document).ready(function() {
     }
     armor.append(character.armor.AC);
     initiative.append(abilityMods[1]+10);
-    speed.append(character.race.speed)
-    race.append(character.race.raceName)
-    hitPoints.append(character.class.hitdice)
-    hitDice.append(character.class.hitdice)
+    speed.append(character.race.speed);
+    race.append(character.race.raceName);
+    hitPoints.append(character.class.hitdice);
+    hitDice.append(character.class.hitdice);
   });
 
   //EventListeners
