@@ -65,7 +65,12 @@
     border-radius: 60%;
     margin-top: 10px;
 }
-
+#CharismaSavThrow,#WisdomSavThrow,#IntelligenceSavThrow,#ConstitutionSavThrow,#DexeritySavThrow,#StrengthSavThrow{
+    /* border-bottom: black 1px solid;
+    border-top: black 1px solid; */
+    border-right: black 1px solid;
+    border-radius: 40%;
+}
 .underline {
     text-decoration: underline;
 }
@@ -82,15 +87,10 @@ ul#menu {
     list-style: none;
     display:flex;
     flex-direction: row;
-    
     padding-left: 0;
-    
 }
 img.imgLogo{
     max-width: 150px;
-}
-.savthrow img{
-    max-width: 20px;
 }
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;

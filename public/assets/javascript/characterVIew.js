@@ -52,7 +52,7 @@ $(document).ready(function () {
     let armorSpan = $("<span>").attr("id", "armorSpan");
     armor.forEach(element => {
       armorSpan.append(element);
-      armorSpan.append(", ")
+      armorSpan.append(", ");
     }); 
     $("#armorPro").append(armorSpan);  
   };
@@ -60,7 +60,7 @@ $(document).ready(function () {
     let weaponSpan = $("<span>").attr("id", "weaponSpan");
     weapon.forEach(element => {
       weaponSpan.append(element);
-      weaponSpan.append(", ")
+      weaponSpan.append(", ");
     }); 
     $("#weaponPro").append(weaponSpan);   
   };
@@ -116,123 +116,87 @@ $(document).ready(function () {
     //assigns the proficence
     for (let x = 0; x < 6; x++) {
       switch (x) {
-        case 0:
-          if ("str" === character.class.savingThrowProf1) {
-            $("#StrengthSavThrow").append(character.class.profBonus);
-            $("#strSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 1:
-          if ("dex" === character.class.savingThrowProf1) {
-            $("#DexeritySavThrow").append(character.class.profBonus);
-            $("#dexSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 2:
-          if ("con" === character.class.savingThrowProf1) {
-            $("#ConstitutionSavThrow").append(character.class.profBonus);
-            $("#conSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 3:
-          if ("int" === character.class.savingThrowProf1) {
-            $("#IntelligenceSavThrow").append(character.class.profBonus);
-            $("#intSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 4:
-          if ("wis" === character.class.savingThrowProf1) {
-            $("#WisdomSavThrow").append(character.class.profBonus);
-            $("#wisSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 5:
-          if ("char" === character.class.savingThrowProf1) {
-            $("#CharismaSavThrow").append(character.class.profBonus);
-            $("#charSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        default:
-          console.log(error);
+      case 0:
+        if ("str" === character.class.savingThrowProf1) {
+          $("#StrengthSavThrow").prepend(character.class.profBonus);
+          $("#strSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 1:
+        if ("dex" === character.class.savingThrowProf1) {
+          $("#DexeritySavThrow").prepend(character.class.profBonus);
+          $("#dexSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 2:
+        if ("con" === character.class.savingThrowProf1) {
+          $("#ConstitutionSavThrow").prepend(character.class.profBonus);
+          $("#conSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 3:
+        if ("int" === character.class.savingThrowProf1) {
+          $("#IntelligenceSavThrow").prepend(character.class.profBonus);
+          $("#intSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 4:
+        if ("wis" === character.class.savingThrowProf1) {
+          $("#WisdomSavThrow").prepend(character.class.profBonus);
+          $("#wisSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 5:
+        if ("char" === character.class.savingThrowProf1) {
+          $("#CharismaSavThrow").prepend(character.class.profBonus);
+          $("#charSavThrowPro").prop("checked", true);
+        }
+        break;
+      default:
+        console.log(error);
       }
     }
 
     for (let x = 0; x < 6; x++) {
       switch (x) {
-        case 0:
-          if ("str" === character.class.savingThrowProf2) {
-            $("#StrengthSavThrow").append(character.class.profBonus);
-            $("#strSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 1:
-          if ("dex" === character.class.savingThrowProf2) {
-            $("#DexeritySavThrow").append(character.class.profBonus);
-            $("#dexSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 2:
-          if ("con" === character.class.savingThrowProf2) {
-            $("#ConstitutionSavThrow").append(character.class.profBonus);
-            $("#conSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 3:
-          if ("int" === character.class.savingThrowProf2) {
-            $("#IntelligenceSavThrow").append(character.class.profBonus);
-            $("#intSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 4:
-          if ("wis" === character.class.savingThrowProf2) {
-            $("#WisdomSavThrow").append(character.class.profBonus);
-            $("#wisSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        case 5:
-          if ("char" === character.class.savingThrowProf2) {
-            $("#CharismaSavThrow").append(character.class.profBonus);
-            $("#charSavThrowPro").attr(
-              "src",
-              "/assets/images/checkboxCheck.png"
-            );
-          }
-          break;
-        default:
-          console.log(error);
+      case 0:
+        if ("str" === character.class.savingThrowProf2) {
+          $("#StrengthSavThrow").prepend(character.class.profBonus);
+          $("#strSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 1:
+        if ("dex" === character.class.savingThrowProf2) {
+          $("#DexeritySavThrow").prepend(character.class.profBonus);
+          $("#dexSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 2:
+        if ("con" === character.class.savingThrowProf2) {
+          $("#ConstitutionSavThrow").prepend(character.class.profBonus);
+          $("#conSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 3:
+        if ("int" === character.class.savingThrowProf2) {
+          $("#IntelligenceSavThrow").prepend(character.class.profBonus);
+          $("#intSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 4:
+        if ("wis" === character.class.savingThrowProf2) {
+          $("#WisdomSavThrow").prepend(character.class.profBonus);
+          $("#wisSavThrowPro").prop("checked", true);
+        }
+        break;
+      case 5:
+        if ("char" === character.class.savingThrowProf2) {
+          $("#charSavThrowPro").prop("checked", true);
+          $("#CharismaSavThrow").prepend(character.class.profBonus);
+        }
+        break;
+      default:
+        console.log(error);
       }
     }
     armor.append(character.armor.AC);
