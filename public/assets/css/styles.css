@@ -9,7 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-img#logo{
+img.logo{
     max-width:600px;
 }
 .headline-jumbo {
