@@ -1,13 +1,13 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<div class="container" id="character" data-user="<%= user%>" data-char="<%= char %>">
+<div class="container" id="characterInfo" data-user="<%= user%>" data-char="<%= char %>">
     <div class=" row header justify-content-center">
         <div class="col col-md-2"></div>
         <div class="col-md-8">
             <img src="/assets/images/logo.png" alt="" class="logo">
         </div>
         <div class="col col-md-2 text-md-right text-sm-center">
-            <ul class="list-group">
+            <ul id="menu" class="list-group">
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="dashboard"
                         class="btn text-center btnText">Dashboard</button></li>
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
@@ -60,6 +60,7 @@
                     </div>
                 </div><br>
             </div>
+         
         </div>
         <!--Character Information-->
         <div class="col col-md-8 stats-div">
@@ -87,45 +88,53 @@
                 <div class="col col-md-3">
                     <div><span id="experience"></span></div>Experience
                 </div>
+                <div class="col col-md-3">
+                        <div><span id="language"></span></div>Languages
+                    </div>
             </div>
             <div class="row">
                 <div class="col col-md-4">
                     <!-- st stands for Saving Throws, to differentiate this section form the stats -->
                     <br>
                     <h3>Saving Throws</h3>
-                    <br>
-                    <div class="savthrow row">
-                        <div id="StrengthSavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Strength </div> 
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="strSavThrowPro"></div>
+                    <hr size="3">
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="StrengthSavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"> <input type="checkbox" id="strSavThrowPro" disabled> Strength</div>
                     </div>
-                    <div class="savthrow row">
-                        <div id="DexeritySavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Dexterity</div> 
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="dexSavThrowPro"></div>
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="DexeritySavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"><input type="checkbox" id="dexSavThrowPro" disabled> Dexterity </div>
                     </div>
-                    <div class="savthrow row">
-                        <div id="ConstitutionSavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Constitution</div> 
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="conSavThrowPro"></div>
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="ConstitutionSavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"> <input type="checkbox" id="conSavThrowPro" disabled> Constitution</div>
                     </div>
-                    <div class="savthrow row">
-                        <div id="IntelligenceSavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Intelligence</div> 
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="intSavThrowPro"></div>
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="IntelligenceSavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"><input type="checkbox" id="intSavThrowPro" disabled> Intelligence </div>
                     </div>
-                    <div class="savthrow row">
-                        <div id="WisdomSavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Wisdom</div> 
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="wisSavThrowPro"></div>
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="WisdomSavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"><input type="checkbox" id="wisSavThrowPro" disabled> Wisdom </div>
                     </div>
-                    <div class="savthrow row">
-                        <div id="CharismaSavThrow" class="underline col-md-1"></div>
-                        <div class="col-md-6">Charisma </div>
-                        <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="charSavThrowPro"></div>
+                    <div class="savthrow row small-low-div text-left ml-3">
+                        <div id="CharismaSavThrow" class="col-md-1"></div>
+                        <div class="col pl-1"><input type="checkbox" id="charSavThrowPro" disabled> Charisma </div>
                     </div>
                     <br>
+                    <div class="col col-md-12">
+                            <div  class="row m-0 p-2">
+                                <div class="small-low-div p-1" id="weaponPro">Weapon Proficiency:<hr class="p-0 m-0"></div>
+                            </div>
+                    </div>
+                    <div class="col col-md-12">
+                            <div  class="row m-0 p-2">
+                                    <div class="small-low-div p-1" id="armorPro">Armor Proficiency:<hr class="p-0 m-0"></div>
+                                </div>
+                    </div>
                 </div>
+
                 <div class="col col-md-8">
                     <div class="row">
                         <div class="col col-md-12">
@@ -226,6 +235,8 @@
                 </div>
                 <div class="row">
                     <div class="col col-md-12 low-div">
+                        <div id="wealth">Starting Wealth: </div>
+                        <div >Equipment: <span id="equipment"></span></div>
                     </div>
                 </div>
                 <div class="row">

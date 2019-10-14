@@ -61,14 +61,7 @@ router.get("/add/:user", (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = { user: user };
-    console.log("user found");
     res.render("characterAdd", data);
-  } else {
-    res.render("characterAdd", {
-      id: null,
-      name: null
-    });
-    res.send("error");
   }
 });
 router.get("/update/:user", (req, res) => {

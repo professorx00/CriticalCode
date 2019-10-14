@@ -64,6 +64,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.JSON,
       allowNull: false
     }
+    //add wealth,add all the skills
   });
   character.associate = function(models) {
     character.belongsTo(models.armor, {
