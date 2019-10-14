@@ -77,6 +77,9 @@ ul {
     padding-left: 0;
     
 }
+img.imgLogo{
+    max-width: 150px;
+}
 .savthrow img{
     max-width: 20px;
 }
