@@ -64,6 +64,16 @@ $(document).ready(function () {
     }); 
     $("#weaponPro").append(weaponSpan);   
   };
+  addLanguages = function(lang){
+    for(let i=0;i<lang.length;i++) {
+      if(i<lang.length-1){
+        $("#language").append(lang[i]).append(",");
+      }else{
+        $("#language").append(lang[i])
+      }
+      
+    };
+  };
 
   const strength = $("#strength");
   const dexterity = $("#dexterity");
@@ -207,7 +217,13 @@ $(document).ready(function () {
     hitDice.append(character.class.hitdice);
     addArmor(character.class.allowArmorType.armor);
     addWeapon(character.class.allowWeaponsType.weapon);
+    addLanguages(character.race.language.language)
     $("#inspiration").append(0);
+    $("#experience").append(0);
+    $("#alignment").append("Lawful Good")
+    $("#background").append("Rich Prince")
+    $("#wealth").append("250");
+    addEquipment();
   });
 
   //EventListeners

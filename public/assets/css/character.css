@@ -83,7 +83,7 @@ div.btn:hover {
     width: 65%;
     cursor: pointer;
 }
-ul#menu {
+ul {
     list-style: none;
     display:flex;
     flex-direction: row;
