@@ -61,14 +61,7 @@ router.get("/add/:user", (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = { user: user };
-    console.log("user found");
     res.render("characterAdd", data);
-  } else {
-    res.render("characterAdd", {
-      id: null,
-      name: null
-    });
-    res.send("error");
   }
 });
 router.get("/update/:user", (req, res) => {
@@ -99,6 +92,78 @@ router.get("/delete/:user", (req, res) => {
     });
     res.send("error");
   }
+});
+router.get("/randomName/male/:offset?", (req, res) => {
+  let offsetNum = 0;
+  if (!req.params.offset) {
+    offsetNum = Math.floor(Math.random() * Math.floor(Math.random() * 800));
+  } else {
+    offsetNum = parseInt(req.params.offset);
+  }
+  let names = {
+    offset: offsetNum
+  };
+  db.characterName
+    .findAll({
+      where: { gender: "Male" },
+      offset: offsetNum,
+      limit: 10
+    })
+    .then(data => {
+      data.forEach(element => {
+        names[element.id] = element.name;
+      });
+      console.log(names);
+      res.json(names);
+    });
+});
+router.get("/randomName/female/:offset?", (req, res) => {
+  let offsetNum = 0;
+  if (!req.params.offset) {
+    offsetNum = Math.floor(Math.random() * Math.floor(Math.random() * 800));
+  } else {
+    offsetNum = parseInt(req.params.offset);
+  }
+  let names = {
+    offset: offsetNum
+  };
+  db.characterName
+    .findAll({
+      where: { gender: "Female" },
+      offset: offsetNum,
+      limit: 10
+    })
+    .then(data => {
+      data.forEach(element => {
+        names[element.id] = element.name;
+      });
+      console.log(names);
+      res.json(names);
+    });
+});
+
+router.get("/randomName/:offset?", (req, res) => {
+  let offsetNum = 0;
+  if (!req.params.offset) {
+    offsetNum = Math.floor(Math.random() * Math.floor(Math.random() * 800));
+  } else {
+    offsetNum = parseInt(req.params.offset);
+  }
+  let names = {
+    offset: offsetNum
+  };
+  db.characterName
+    .findAll({
+      offset: offsetNum,
+      limit: 10
+    })
+    .then(data => {
+      data.forEach(element => {
+        names[element.id] = element.name;
+      });
+      console.log(names);
+      res.json(names);
+    });
 });
 
 module.exports = router;

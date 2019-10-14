@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // let helper = require("../../../routes/calculator");
-$(document).ready(function() {
-  abiltyMod = function(num) {
+$(document).ready(function () {
+  abiltyMod = function (num) {
     if (num === 1) {
       return -5;
     } else if (num === 2 || num === 3) {
@@ -38,7 +38,7 @@ $(document).ready(function() {
       return 666;
     }
   };
-  calculateStatBlock = function(str, dex, con, int, wis, chr) {
+  calculateStatBlock = function (str, dex, con, int, wis, chr) {
     let strength = abiltyMod(str);
     let dexterity = abiltyMod(dex);
     let consitution = abiltyMod(con);
@@ -47,6 +47,34 @@ $(document).ready(function() {
     let charisma = abiltyMod(chr);
     return [strength, dexterity, consitution, intelligence, wisdom, charisma];
   };
+
+  addArmor = function (armor) {
+    let armorSpan = $("<span>").attr("id", "armorSpan");
+    armor.forEach(element => {
+      armorSpan.append(element);
+      armorSpan.append(", ");
+    }); 
+    $("#armorPro").append(armorSpan);  
+  };
+  addWeapon = function (weapon) {
+    let weaponSpan = $("<span>").attr("id", "weaponSpan");
+    weapon.forEach(element => {
+      weaponSpan.append(element);
+      weaponSpan.append(", ");
+    }); 
+    $("#weaponPro").append(weaponSpan);   
+  };
+  addLanguages = function(lang){
+    for(let i=0;i<lang.length;i++) {
+      if(i<lang.length-1){
+        $("#language").append(lang[i]).append(",");
+      }else{
+        $("#language").append(lang[i])
+      }
+      
+    };
+  };
+
   const strength = $("#strength");
   const dexterity = $("#dexterity");
   const constitution = $("#constitution");
@@ -68,7 +96,7 @@ $(document).ready(function() {
   const speed = $("#speed");
   const hitPoints = $("#hitPoints");
   const hitDice = $("#hitDice");
-  const characterInfo = $("#character");
+  const characterInfo = $("#characterInfo");
 
   const user = characterInfo.attr("data-user");
   const char = characterInfo.attr("data-char");
@@ -100,56 +128,38 @@ $(document).ready(function() {
       switch (x) {
       case 0:
         if ("str" === character.class.savingThrowProf1) {
-          $("#StrengthSavThrow").append(character.class.profBonus);
-          $("#strSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#StrengthSavThrow").prepend(character.class.profBonus);
+          $("#strSavThrowPro").prop("checked", true);
         }
         break;
       case 1:
         if ("dex" === character.class.savingThrowProf1) {
-          $("#DexeritySavThrow").append(character.class.profBonus);
-          $("#dexSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#DexeritySavThrow").prepend(character.class.profBonus);
+          $("#dexSavThrowPro").prop("checked", true);
         }
         break;
       case 2:
         if ("con" === character.class.savingThrowProf1) {
-          $("#ConstitutionSavThrow").append(character.class.profBonus);
-          $("#conSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#ConstitutionSavThrow").prepend(character.class.profBonus);
+          $("#conSavThrowPro").prop("checked", true);
         }
         break;
       case 3:
         if ("int" === character.class.savingThrowProf1) {
-          $("#IntelligenceSavThrow").append(character.class.profBonus);
-          $("#intSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#IntelligenceSavThrow").prepend(character.class.profBonus);
+          $("#intSavThrowPro").prop("checked", true);
         }
         break;
       case 4:
         if ("wis" === character.class.savingThrowProf1) {
-          $("#WisdomSavThrow").append(character.class.profBonus);
-          $("#wisSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#WisdomSavThrow").prepend(character.class.profBonus);
+          $("#wisSavThrowPro").prop("checked", true);
         }
         break;
       case 5:
         if ("char" === character.class.savingThrowProf1) {
-          $("#CharismaSavThrow").append(character.class.profBonus);
-          $("#charSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#CharismaSavThrow").prepend(character.class.profBonus);
+          $("#charSavThrowPro").prop("checked", true);
         }
         break;
       default:
@@ -161,56 +171,38 @@ $(document).ready(function() {
       switch (x) {
       case 0:
         if ("str" === character.class.savingThrowProf2) {
-          $("#StrengthSavThrow").append(character.class.profBonus);
-          $("#strSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#StrengthSavThrow").prepend(character.class.profBonus);
+          $("#strSavThrowPro").prop("checked", true);
         }
         break;
       case 1:
         if ("dex" === character.class.savingThrowProf2) {
-          $("#DexeritySavThrow").append(character.class.profBonus);
-          $("#dexSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#DexeritySavThrow").prepend(character.class.profBonus);
+          $("#dexSavThrowPro").prop("checked", true);
         }
         break;
       case 2:
         if ("con" === character.class.savingThrowProf2) {
-          $("#ConstitutionSavThrow").append(character.class.profBonus);
-          $("#conSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#ConstitutionSavThrow").prepend(character.class.profBonus);
+          $("#conSavThrowPro").prop("checked", true);
         }
         break;
       case 3:
         if ("int" === character.class.savingThrowProf2) {
-          $("#IntelligenceSavThrow").append(character.class.profBonus);
-          $("#intSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#IntelligenceSavThrow").prepend(character.class.profBonus);
+          $("#intSavThrowPro").prop("checked", true);
         }
         break;
       case 4:
         if ("wis" === character.class.savingThrowProf2) {
-          $("#WisdomSavThrow").append(character.class.profBonus);
-          $("#wisSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#WisdomSavThrow").prepend(character.class.profBonus);
+          $("#wisSavThrowPro").prop("checked", true);
         }
         break;
       case 5:
         if ("char" === character.class.savingThrowProf2) {
-          $("#CharismaSavThrow").append(character.class.profBonus);
-          $("#charSavThrowPro").attr(
-            "src",
-            "/assets/images/checkboxCheck.png"
-          );
+          $("#charSavThrowPro").prop("checked", true);
+          $("#CharismaSavThrow").prepend(character.class.profBonus);
         }
         break;
       default:
@@ -218,11 +210,20 @@ $(document).ready(function() {
       }
     }
     armor.append(character.armor.AC);
-    initiative.append(abilityMods[1]+10);
+    initiative.append(abilityMods[1] + 10);
     speed.append(character.race.speed);
     race.append(character.race.raceName);
     hitPoints.append(character.class.hitdice);
     hitDice.append(character.class.hitdice);
+    addArmor(character.class.allowArmorType.armor);
+    addWeapon(character.class.allowWeaponsType.weapon);
+    addLanguages(character.race.language.language)
+    $("#inspiration").append(0);
+    $("#experience").append(0);
+    $("#alignment").append("Lawful Good")
+    $("#background").append("Rich Prince")
+    $("#wealth").append("250");
+    addEquipment();
   });
 
   //EventListeners
