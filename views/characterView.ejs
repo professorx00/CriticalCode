@@ -1,13 +1,13 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<div class="container" id="character" data-user="<%= user%>" data-char="<%= char %>">
+<div class="container" id="characterInfo" data-user="<%= user%>" data-char="<%= char %>">
     <div class=" row header justify-content-center">
         <div class="col col-md-2"></div>
         <div class="col-md-8">
             <img src="/assets/images/logo.png" alt="" class="logo">
         </div>
         <div class="col col-md-2 text-md-right text-sm-center">
-            <ul class="list-group">
+            <ul id="menu" class="list-group">
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="dashboard"
                         class="btn text-center btnText">Dashboard</button></li>
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
@@ -60,6 +60,7 @@
                     </div>
                 </div><br>
             </div>
+         
         </div>
         <!--Character Information-->
         <div class="col col-md-8 stats-div">
@@ -125,7 +126,18 @@
                         <div class="col-md-1"><img src="/assets/images/checkboxUncheck.png" alt="unchecked" id="charSavThrowPro"></div>
                     </div>
                     <br>
+                    <div class="col col-md-12">
+                            <div  class="row m-0 p-2">
+                                <div class="small-low-div p-1" id="weaponPro">Weapon Proficiency:<hr class="p-0 m-0"></div>
+                            </div>
+                    </div>
+                    <div class="col col-md-12">
+                            <div  class="row m-0 p-2">
+                                    <div class="small-low-div p-1" id="armorPro">Armor Proficiency:<hr class="p-0 m-0"></div>
+                                </div>
+                    </div>
                 </div>
+
                 <div class="col col-md-8">
                     <div class="row">
                         <div class="col col-md-12">

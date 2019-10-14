@@ -39,7 +39,9 @@
     border: 3px solid rgba(91, 36, 23, 0.66);
     margin-bottom: 5px;
 }
-
+#weaponSpan, #armorSpan{
+    font-size:1rem;
+}
 .low-div {
     background-color: beige;
     max-width: 100%;
@@ -50,10 +52,17 @@
     height: 200px;
     vertical-align: bottom;
 }
+.small-low-div {
+    background-color: beige;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    vertical-align: bottom;
+}
 
 .circle-div {
     background-color: beige;
-    border-radius: 50%;
+    border-radius: 60%;
     margin-top: 10px;
 }
 
@@ -69,7 +78,7 @@ div.btn:hover {
     width: 65%;
     cursor: pointer;
 }
-ul {
+ul#menu {
     list-style: none;
     display:flex;
     flex-direction: row;
