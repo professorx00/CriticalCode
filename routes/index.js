@@ -4,7 +4,7 @@ const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
-  res.render("welcome", {});
+  res.render("login", {});
 });
 
 //Dashboard
@@ -51,6 +51,49 @@ router.get("/log/:user/:charID", (req, res) => {
     res.render("characterView", data);
   } else {
     res.render("characterView", {
+      id: null,
+      name: null
+    });
+    res.send("error");
+  }
+});
+router.get("/add/:user", (req, res) => {
+  let user = req.params.user;
+  if (user) {
+    let data = { user: user };
+    console.log("user found");
+    res.render("characterAdd", data);
+  } else {
+    res.render("characterAdd", {
+      id: null,
+      name: null
+    });
+    res.send("error");
+  }
+});
+router.get("/update/:user", (req, res) => {
+  let user = req.params.user;
+  let char = req.params.charID;
+  if (user && char) {
+    let data = { user: user, char: char };
+    console.log("user found");
+    res.render("characterUpdate", data);
+  } else {
+    res.render("characterUpdate", {
+      id: null,
+      name: null
+    });
+    res.send("error");
+  }
+});
+router.get("/delete/:user", (req, res) => {
+  let user = req.params.user;
+  if (user) {
+    let data = { user: user, char: char };
+    console.log("user found");
+    res.render("characterAdd", data);
+  } else {
+    res.render("characterAdd", {
       id: null,
       name: null
     });
