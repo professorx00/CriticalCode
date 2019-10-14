@@ -4,7 +4,7 @@ $(document).ready(function() {
     const target = $(event.target);
     const user = target.attr("data-user");
     console.log("add Character Btn");
-    document.location.href = `/addNewCharacter/${user}`;
+    document.location.href = `/add/${user}/`;
   });
 
   $(".characterBtn").on("click", function(event) {
