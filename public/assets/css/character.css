@@ -39,7 +39,9 @@
     border: 3px solid rgba(91, 36, 23, 0.66);
     margin-bottom: 5px;
 }
-
+#weaponSpan, #armorSpan{
+    font-size:1rem;
+}
 .low-div {
     background-color: beige;
     max-width: 100%;
@@ -50,24 +52,46 @@
     height: 200px;
     vertical-align: bottom;
 }
+.small-low-div {
+    background-color: beige;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    vertical-align: bottom;
+}
 
 .circle-div {
     background-color: beige;
-    border-radius: 50%;
+    border-radius: 60%;
     margin-top: 10px;
 }
-
+#CharismaSavThrow,#WisdomSavThrow,#IntelligenceSavThrow,#ConstitutionSavThrow,#DexeritySavThrow,#StrengthSavThrow{
+    /* border-bottom: black 1px solid;
+    border-top: black 1px solid; */
+    border-right: black 1px solid;
+    border-radius: 40%;
+}
 .underline {
     text-decoration: underline;
 }
-
+button.btnText{
+    color: white;
+    font-size: 1.5rem;
+}
 div.btn:hover {
     transform: translateY(-7px);
     width: 65%;
     cursor: pointer;
 }
-
-
+ul {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    padding-left: 0;
+}
+img.imgLogo{
+    max-width: 150px;
+}
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;

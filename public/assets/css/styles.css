@@ -9,7 +9,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+img.logo{
+    max-width:600px;
+}
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
@@ -26,6 +28,7 @@ body {
     border: 3px outset rgba(91, 36, 23, 0.66);
     border-radius: 21px 21px 21px 21px;
     max-width: 80%;
+    margin: 0 auto;
 }
 
 div.btn:hover {

@@ -14,7 +14,7 @@ routes.get("/", (req, res) => {
       console.log(err);
     });
 });
-routes.get("/user/:id/:characterId?", (req, res) => {;
+routes.get("/user/:id/:characterId?", (req, res) => {
   if (req.params.characterId) {
     db.character
       .findAll({
@@ -22,7 +22,7 @@ routes.get("/user/:id/:characterId?", (req, res) => {;
           userid: req.params.id,
           id: req.params.characterId
         },
-        include: [db.armor, db.weapon, db.race, db.classes]
+        include: [db.armor, db.weapon, db.race, db.classes, db.user]
       })
       .then(data => {
         console.log("Character Id Found");
