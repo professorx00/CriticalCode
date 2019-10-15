@@ -69,10 +69,10 @@ $(document).ready(function () {
       if(i<lang.length-1){
         $("#language").append(lang[i]).append(",");
       }else{
-        $("#language").append(lang[i])
+        $("#language").append(lang[i]);
       }
       
-    };
+    }
   };
 
   const strength = $("#strength");
@@ -217,11 +217,11 @@ $(document).ready(function () {
     hitDice.append(character.class.hitdice);
     addArmor(character.class.allowArmorType.armor);
     addWeapon(character.class.allowWeaponsType.weapon);
-    addLanguages(character.race.language.language)
+    addLanguages(character.race.language.language);
     $("#inspiration").append(0);
     $("#experience").append(0);
-    $("#alignment").append("Lawful Good")
-    $("#background").append("Rich Prince")
+    $("#alignment").append("Lawful Good");
+    $("#background").append("Rich Prince");
     $("#wealth").append("250");
     addEquipment();
   });
