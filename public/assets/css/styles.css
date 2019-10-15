@@ -10,6 +10,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+button.dashboardBtn{
+    color: white;
+}
 img.logo{
     max-width:600px;
 }
@@ -65,7 +68,10 @@ a.btnText:hover{
     border: 2px solid black;
     border-radius: 5%;
 }
-
+.error{
+    color:Red;
+    Background:white;
+}
 .button-character {
     background: url("../../assets/images/wood.jpg") !important;
     border: none;
