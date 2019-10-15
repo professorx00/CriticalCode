@@ -133,6 +133,7 @@ $(document).ready(function() {
 
   let files; // object to put files in
   let $imgDiv = $("div.imgLogo");
+  let newURL;
 
   // feedback method for updating text inside of input elem with name of picture upon input
   update = () => {
@@ -144,10 +145,7 @@ $(document).ready(function() {
     // img elem with preview photo
     // You can use this to provide feedback to the user that their photo has been sucessfully selected in the browser
     // may or may not be feasible depending on form space resources
-    let newURL = window.URL.createObjectURL(files[0]);
-    $imgDiv.css({
-      background: `center / cover no-repeat url("${newURL}")`
-    });
+    newURL = window.URL.createObjectURL(files[0]);
   };
 
   $("#imageUploadButton").on("click", event => {
@@ -172,6 +170,9 @@ $(document).ready(function() {
     })
       .then(data => {
         console.log("ajax Finished for image");
+        $imgDiv.css({
+          background: `center / cover no-repeat url("${newURL}")`
+        });
         fileInfoSubmit = data;
       })
       .catch(err => {
