@@ -9,9 +9,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-img.logo{
-    max-width:600px;
+
+img.logo {
+    max-width: 600px;
 }
+
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
@@ -67,6 +69,23 @@ h3 {
     color: rgb(43, 4, 3);
     font-size: 1.3rem;
     font-family: 'Metamorphous', cursive;
+}
+
+.opener {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("https://images.wallpaperscraft.com/image/legend_of_grimrock_2_wizard_hero_mantle_wood_98706_1280x720.jpg");
+    background-size: cover;
+    z-index: 3;
+    display: block
+}
+
+.backLogo {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-top: 200px;
 }
 
 

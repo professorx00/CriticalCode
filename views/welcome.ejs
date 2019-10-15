@@ -1,1 +1,11 @@
-Welcome Page
+<div class="opener"></div>
+
+<h1 class="backLogo">Critical Code</h1>
+
+<script>
+    $("body").css("background", "none");
+    $(".opener").addClass("animated fadeOut delay-2s");
+    setTimeout(function () {
+        window.location.href = "/users/login";
+    }, 3500)
+</script>

@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { ensureAuthenticated } = require("../config/auth");
+const {
+  ensureAuthenticated
+} = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
-  res.render("login", {});
+  res.render("welcome", {});
 });
 
 //Dashboard
@@ -46,7 +48,10 @@ router.get("/log/:user/:charID", (req, res) => {
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
-    let data = { user: user, char: char };
+    let data = {
+      user: user,
+      char: char
+    };
     console.log("user found");
     res.render("characterView", data);
   } else {
@@ -60,7 +65,9 @@ router.get("/log/:user/:charID", (req, res) => {
 router.get("/add/:user", (req, res) => {
   let user = req.params.user;
   if (user) {
-    let data = { user: user };
+    let data = {
+      user: user
+    };
     res.render("characterAdd", data);
   }
 });
@@ -68,7 +75,10 @@ router.get("/update/:user", (req, res) => {
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
-    let data = { user: user, char: char };
+    let data = {
+      user: user,
+      char: char
+    };
     console.log("user found");
     res.render("characterUpdate", data);
   } else {
@@ -82,7 +92,10 @@ router.get("/update/:user", (req, res) => {
 router.get("/delete/:user", (req, res) => {
   let user = req.params.user;
   if (user) {
-    let data = { user: user, char: char };
+    let data = {
+      user: user,
+      char: char
+    };
     console.log("user found");
     res.render("characterAdd", data);
   } else {
@@ -105,7 +118,9 @@ router.get("/randomName/male/:offset?", (req, res) => {
   };
   db.characterName
     .findAll({
-      where: { gender: "Male" },
+      where: {
+        gender: "Male"
+      },
       offset: offsetNum,
       limit: 10
     })
@@ -129,7 +144,9 @@ router.get("/randomName/female/:offset?", (req, res) => {
   };
   db.characterName
     .findAll({
-      where: { gender: "Female" },
+      where: {
+        gender: "Female"
+      },
       offset: offsetNum,
       limit: 10
     })
