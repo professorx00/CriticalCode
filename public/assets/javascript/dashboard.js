@@ -1,10 +1,10 @@
 $(document).ready(function() {
   $("#newCharacterBtn").on("click", function(event) {
     event.preventDefault();
-    console.log(event.target)
+    console.log(event.target);
     const target = $(event.target);
     const user = target.attr("data-id");
-    console.log(target.attr("data-id"))
+    console.log(target.attr("data-id"));
     console.log("add Character Btn");
     document.location.href = `/add/${user}/`;
   });

@@ -93,7 +93,7 @@ $(document).ready(function() {
   }
   function checkFormRequirements() {
     let error = [];
-    console.log(typeof $("#raceSelect").val())
+    console.log(typeof $("#raceSelect").val());
     if (
       $("#characterNameInput").val() === "" ||
       $("#characterNameInput").val() === "Mighty Moose"
@@ -132,6 +132,7 @@ $(document).ready(function() {
   // console.log(inputLabel[0].textContent); //debugging
 
   let files; // object to put files in
+  let $imgDiv = $("div.imgLogo");
 
   // feedback method for updating text inside of input elem with name of picture upon input
   update = () => {
@@ -143,8 +144,10 @@ $(document).ready(function() {
     // img elem with preview photo
     // You can use this to provide feedback to the user that their photo has been sucessfully selected in the browser
     // may or may not be feasible depending on form space resources
-    $img.attr("src", window.URL.createObjectURL(files[0]));
-    console.log("newURL", window.URL.createObjectURL(files[0])); //debugging
+    let newURL = window.URL.createObjectURL(files[0]);
+    $imgDiv.css({
+      background: `center / cover no-repeat url("${newURL}")`
+    });
   };
 
   $("#imageUploadButton").on("click", event => {
@@ -241,7 +244,9 @@ $(document).ready(function() {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
       });
-      $("#error").append("Please check your answers").addClass("error");
+      $("#error")
+        .append("Please check your answers")
+        .addClass("error");
     }
   });
 
