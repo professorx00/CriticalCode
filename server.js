@@ -6,15 +6,22 @@ const passport = require("passport");
 // Middleware
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const expressFileUpload = require('express-fileupload');
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 require("./config/passport")(passport);
 const app = express();
+
 //Database Models:
 var db = require("./models");
-//handlebar
+
+//handlebars
 app.use(expressLayouts);
 app.set("view engine", "ejs");
+
+//file upload helper middleware
+app.use(expressFileUpload());
+
 
 // ====================================================================
 
