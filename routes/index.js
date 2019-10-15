@@ -4,9 +4,7 @@ const router = express.Router();
 //awsUpload module
 const photoUpload = require("../config/awsFileUpload");
 
-const {
-  ensureAuthenticated
-} = require("../config/auth");
+const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
@@ -172,11 +170,11 @@ router.get("/randomName/:offset?", (req, res) => {
     });
 });
 
-router.post('/photoUpload', (req, res) => {
+router.post("/photoUpload", (req, res) => {
   console.log(req.files);
   // res.send("yep, got it");
   if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.');
+    return res.status(400).send("No files were uploaded.");
   }
 
   photoUpload(req, res);
