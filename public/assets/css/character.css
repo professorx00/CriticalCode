@@ -42,6 +42,9 @@
 #weaponSpan, #armorSpan{
     font-size:1rem;
 }
+*.bgBlack{
+    background: black;
+}
 .low-div {
     background-color: beige;
     max-width: 100%;
