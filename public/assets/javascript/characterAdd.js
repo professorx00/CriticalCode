@@ -93,20 +93,26 @@ $(document).ready(function() {
   }
   function checkFormRequirements() {
     let error = [];
+    console.log(typeof $("#raceSelect").val())
     if (
       $("#characterNameInput").val() === "" ||
       $("#characterNameInput").val() === "Mighty Moose"
     ) {
       error.push("characterLabel");
-    } else if ($("#raceSelect").val() === 99) {
+    }
+    if ($("#raceSelect").val() === "99") {
       error.push("race");
-    } else if ($("#armorSelect").val() === 99) {
+    }
+    if ($("#armorSelect").val() === "99") {
       error.push("armor");
-    } else if ($("#weaponSelect").val() === 99) {
+    }
+    if ($("#weaponSelect").val() === "99") {
       error.push("weapon");
-    } else if ($("#classSelect").val() === 99) {
+    }
+    if ($("#classSelect").val() === "99") {
       error.push("className");
-    } else if ($("#alignmentSelect").val() === "null") {
+    }
+    if ($("#alignmentSelect").val() === "null") {
       error.push("alignment");
     }
     return error;
@@ -235,6 +241,7 @@ $(document).ready(function() {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
       });
+      $("#error").append("Please check your answers").addClass("error");
     }
   });
 
