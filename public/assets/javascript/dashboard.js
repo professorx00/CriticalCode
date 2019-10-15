@@ -17,6 +17,15 @@ $(document).ready(function() {
     document.location.href = `/log/${user}/${characterID}`;
   });
 
+  $(".updateCracterBtn").on("clicl", function(event){
+    event.preventDefault();
+    const target = $(event.target);
+    const characterID = target.attr("data-id");
+    const user = target.attr("data-user");
+    console.log("Update Button");
+    document.location.href = `/update/${user}/${characterID}`;
+  });
+
   $("#logout").on("click", () => {
     document.location.href = "/users/logout";
   });

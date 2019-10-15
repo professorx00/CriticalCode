@@ -93,7 +93,7 @@ $(document).ready(function() {
   }
   function checkFormRequirements() {
     let error = [];
-    console.log(typeof $("#raceSelect").val())
+    console.log(typeof $("#raceSelect").val());
     if (
       $("#characterNameInput").val() === "" ||
       $("#characterNameInput").val() === "Mighty Moose"
@@ -120,8 +120,6 @@ $(document).ready(function() {
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
-  console.log(user);
-  console.log($("#userInfo"));
   let fileInfoSubmit = null;
 
   console.log("scripts loaded!"); // debugging
@@ -245,5 +243,9 @@ $(document).ready(function() {
     }
   });
 
+  $("#dashboard").on("click", event => {
+    event.preventDefault();
+    document.location.href = "/dashboard";
+  });
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 });
