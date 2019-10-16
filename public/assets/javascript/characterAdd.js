@@ -137,7 +137,7 @@ $(document).ready(function() {
       silver: parseInt($("#silverInput").val()),
       platinum: parseInt($("#platinumInput").val()),
       experience: parseInt($("#experienceInput").val()),
-      faction: $("#factionInput"),
+      faction: $("#factionInput").val(),
       alignment: getAlignment($("#alignmentSelect").val()),
       bonusLanguage: getLanguages($("#languagesInput")),
       background: $("#backstoryInput").val(),
@@ -165,19 +165,25 @@ $(document).ready(function() {
       sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
       stealth: skillCheck(parseInt($("#stealthInput").val())),
       survival: skillCheck(parseInt($("#survivalInput").val())),
-      imgURL: fileCheck(fileInfoSubmit),
+      imgURL: fileCheck(profileImgURL),
       armorId: parseInt($("#armorSelect").val()),
-      userId: parseInt(user),
+      userId: parseInt($("#userInfo").attr("data-user")),
       weaponId: parseInt($("#weaponSelect").val()),
       raceId: parseInt($("#armorSelect").val()),
       classId: parseInt($("#armorSelect").val())
     };
+    console.log("user: " + parseInt($("#userInfo").attr("data-user")));
+    console.log("armor: " + parseInt($("#armorSelect").val()));
+    console.log("weapon: " + parseInt($("#weaponSelect").val()));
+    console.log("race: " + parseInt($("#armorSelect").val()));
+    console.log("class: " + parseInt($("#armorSelect").val()));
+    console.log(character);
     return character;
   }
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
-  let fileInfoSubmit = null;
+  console.log("User ID: " + user);
 
   console.log("scripts loaded!"); // debugging
 
@@ -244,12 +250,10 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", { data: charData }, function(
-        data,
-        status,
-        xhr
-      ) {
-        $("p").append("status: " + status + ", data: " + data);
+      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+        console.log(data);
+        console.log(status);
+        console.log(xhr);
       })
         .done(function() {
           alert("Request done!");
