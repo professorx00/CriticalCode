@@ -22,7 +22,7 @@
 
   <!--- Form Group for Character Name -->
   <div class="row stats-div">
-
+    
     <form id="characterAddMasterForm">
       <div class="form-group">
         <!--#####################Character Name Start#####################-->
@@ -37,17 +37,16 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Character Name</span>
               </div>
-              <textarea id="characterNameInput" class="form-control" aria-label="With textarea"
-                value="Monty Moose"><%= charData.characterName %></textarea>
+              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"><%= charData.characterName %></textarea>
               <div class="input-group-append">
                 <div class="custom-file">
-                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input"
-                    id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input" id="inputGroupFile04"
+                      aria-describedby="inputGroupFileAddon04">
                   <label class="custom-file-label" for="inputGroupFile04">Upload New Character Image</label>
-                </div>
-                <div class="input-group-append">
+              </div>
+              <div class="input-group-append">
                   <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
-                </div>
+              </div>
 
                 <button class="btn btn-warning " type="button" id="randomNameBtn">Randomize</button>
               </div>
@@ -244,28 +243,23 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <label for="copperInput" class="input-group-text">Copper </label>
-                  <input id="copperInput" type="number" value="<%= charData.copper %>" placeholder="0"
-                    class="form-control" aria-label="With textarea"></input>
+                  <input id="copperInput" type="number" value="<%= charData.copper %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="silverInput">Silver </label>
-                  <input id="silverInput" type="number" value="<%= charData.silver %>" placeholder="0"
-                    class="form-control" aria-label="With textarea"></input>
+                  <input id="silverInput" type="number" value="<%= charData.silver %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label for="ElectrumInput" class="input-group-text">Electrum </label>
-                  <input id="ElectrumInput" type="number" value="<%= charData.silver %>" placeholder="0"
-                    class="form-control" aria-label="With textarea"></input>
+                  <input id="ElectrumInput" type="number" value="<%= charData.silver %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="GoldInput">Gold </label>
-                  <input id="GoldInput" type="number" value="<%= charData.gold %>" placeholder="0" class="form-control"
-                    aria-label="With textarea"></input>
+                  <input id="GoldInput" type="number" value="<%= charData.gold %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="PlatinumInput">Platinum </label>
-                  <input id="PlatinumInput" type="number" value="<%= charData.platinum %>" placeholder="0"
-                    class="form-control" aria-label="With textarea"></input>
+                  <input id="PlatinumInput" type="number" value="<%= charData.platinum %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
               </div>
             </div>
@@ -285,16 +279,13 @@
                 Strength <button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strAbility" value="<%= charData.str %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="strAbility" value="<%= charData.str %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollmod" value="<%= charData.strAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="strRollmod" value="<%= charData.strAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollResult" value="<%= charData.str + charData.strAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="strRollResult" value="<%= charData.str + charData.strAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -310,16 +301,13 @@
                 Dexterity<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexAbility" value="<%= charData.dex %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="dexAbility" value="<%= charData.dex %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollmod" value="<%= charData.dexAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="dexRollmod" value="<%= charData.dexAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollResult" value="<%= charData.dex + charData.dexAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexRollResult" value="<%= charData.dex + charData.dexAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -335,16 +323,13 @@
                 Constitution<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conAbility" value="<%= charData.con %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="conAbility" value="<%= charData.con %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conRollmod" value="<%= charData.conAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="conRollmod" value="<%= charData.conAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conRollResult" value="<%= charData.con + charData.conAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="conRollResult" value="<%= charData.con + charData.conAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -362,16 +347,13 @@
                 Intelligence<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intAbility" value="<%= charData.int %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="intAbility" value="<%= charData.int %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intRollmod" value="<%= charData.intAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="intRollmod" value="<%= charData.intAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intRollResult" value="<%= charData.int + charData.intAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="intRollResult" value="<%= charData.int + charData.intAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -387,16 +369,13 @@
                 Wisdom<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisAbility" value="<%= charData.wis %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="wisAbility" value="<%= charData.wis %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisRollmod" value="<%= charData.wisAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="wisRollmod" value="<%= charData.wisAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisRollResult" value="<%= charData.wis + charData.wisAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="wisRollResult" value="<%= charData.wis + charData.wisAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -412,16 +391,13 @@
                 Charisma<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charAbility" value="<%= charData.char %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="charAbility" value="<%= charData.char %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charRollmod" value="<%= charData.charAdditional %>" placeholder="0"
-                  class="form-control input-sm">
+                <input type="number" id="charRollmod" value="<%= charData.charAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charRollResult" value="<%= charData.char + charData.charAdditional %>"
-                  placeholder="0" class="form-control input-sm">
+                <input type="number" id="charRollResult" value="<%= charData.char + charData.charAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -441,50 +417,31 @@
             <!--Skills-->
             <div class="row">
               <div class="col col-md-6">
-                <!--todo: implement partials for skills-->
-                <!-- <div>
-                  <% allSkillsArray.forEach(function(skill){ %>
-                  <%- include('./partials/skills',{skill: skill}); %>
-                  <% }) %>
-                </div> -->
                 <div>
                   <div id="acrobatics" class="underline">Acrobatics</div>
-                  <% if (charData.acrobatics > 0) {%>
-                  <input id="acrobaticsCheck" type="checkbox" checked>
-                  <input id="acrobaticsInput" type="number" value="<%= charData.acrobatics %>" placeholder="0">
-                  <% } else { %>
                   <input id="acrobaticsCheck" type="checkbox">
                   <input id="acrobaticsInput" type="number" value="0" placeholder="0">
-                  <% } %>
                 </div>
+
                 <div>
                   <div id="animalHandling" class="underline">Animal Handling</div>
-                  <% if (charData.animalHandling > 0) {%>
                   <input id="animalHandlingCheck" type="checkbox">
                   <input id="animalHandlingInput" type="number" value="0" placeholder="0">
-                  <% } else {%>
-                  }
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="arcana" class="underline">Arcana</div>
                   <input id="arcanaCheck" type="checkbox">
                   <input id="arcanasInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="athletics" class="underline">Athletics</div>
                   <input id="athleticsCheck" type="checkbox">
                   <input id="athleticsInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="deception" class="underline">Deception</div>
                   <input id="deceptionCheck" type="checkbox">
                   <input id="deceptionInput" type="number" value="0" placeholder="0">
@@ -494,40 +451,30 @@
               </div>
               <div class="col col-md-6">
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="history" class="underline">History</div>
                   <input id="historyCheck" type="checkbox">
                   <input id="historyInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="insight" class="underline">Insight</div>
                   <input id="insightCheck" type="checkbox">
-                  <input id="insightInput" type="number" value="0" placeholder="0">
+                  <input id="insightInput" type="number" value="0" placeholder="0" >
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="intimidation" class="underline">Intimidation</div>
                   <input id="intimidationCheck" type="checkbox">
                   <input id="intimidationInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="investigation" class="underline">Investigation</div>
                   <input id="investigationCheck" type="checkbox">
                   <input id="investigationInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="medicine" class="underline">Medicine</div>
                   <input id="medicineCheck" type="checkbox">
                   <input id="medicineInput" type="number" value="0" placeholder="0">
@@ -537,40 +484,30 @@
               </div>
               <div class="col col-md-6">
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="nature" class="underline">Nature</div>
                   <input id="natureCheck" type="checkbox">
                   <input id="natureInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="perception" class="underline">Perception</div>
                   <input id="perceptionCheck" type="checkbox">
                   <input id="perceptionInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="performance" class="underline">Performance</div>
                   <input id="performanceCheck" type="checkbox">
                   <input id="performanceInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="religion" class="underline">Religion</div>
                   <input id="religionCheck" type="checkbox">
                   <input id="religionInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="sleightOfHand" class="underline">Sleight of Hand</div>
                   <input id="sleightOfHandCheck" type="checkbox">
                   <input id="sleightofHandInput" type="number" value="0" placeholder="0">
@@ -580,16 +517,12 @@
               </div>
               <div class="col col-md-6">
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="stealth" class="underline">Stealth</div>
                   <input id="stealthCheck" type="checkbox">
                   <input id="stealthInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
-                    <% if (charData.acrobatics > 0) {%>
-
                   <div id="survival" class="underline">Survival</div>
                   <input id="survivalCheck" type="checkbox">
                   <input id="survivalInput" type="number" value="0" placeholder="0">
@@ -608,23 +541,19 @@
           <div class="input-group col col-md-8">
             <div class="form-group row">
               <label class="input-group-text">Spells input, separate by commas please:</label>
-              <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None"
-                placeholder="None"></textarea>
+              <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="" placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Special Languages, separate by commas please:</label>
-              <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None"
-                placeholder="None"></textarea>
+              <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Equipment Input, separate by commas please:</label>
-              <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None"
-                placeholder="None"></textarea>
+              <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Backstory goes here:</label>
-              <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None"
-                placeholder="None"></textarea>
+              <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
             </div>
           </div>
         </div>
@@ -645,4 +574,4 @@
 
 
 <script src="/assets/javascript/calculator.js"></script>
-<script src="/assets/javascript/characterAdd.js"></script>
+<script src="/assets/javascript/characterUpdate.js"></script>

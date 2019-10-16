@@ -93,8 +93,6 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
           weaponData: result.dataValues.weapon.dataValues,
           raceData: result.dataValues.race.dataValues,
           armorData: result.dataValues.armor.dataValues,
-          //this is to make building the ejs skills elements easaier:
-          allSkillsArray: ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Stealth", "Perception", "Performance", "Religion", "Sleight of Hand", "Stealth", "Survival"]
          };
         console.log("user found, character found");
         res.render("characterUpdate", data);

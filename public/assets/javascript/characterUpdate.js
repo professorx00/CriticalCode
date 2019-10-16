@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
@@ -279,6 +279,40 @@ $(document).ready(function() {
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
+  const char = $("#userInfo").attr("data-char");
+  let skills;
+  let equipment;
+  let spells;
+  let language;
+  let background;
+
+  $.ajax(`/api/user/${user}/${char}`).then(data => {
+
+    let character = data[0];
+    skills = character.skill;
+    skills.map(skill => {
+      let s = skill;
+      $(`#${skill}Check`).attr("checked", "true");
+      $(`#${skill}Input`).attr("value", character[skill]);
+    })
+
+    equipment = character.equipment; //array
+    spells = character.spells.spells; //array
+    language = character.bonusLanguage.language; //array
+    background = character.background; //string
+
+    $(`#spellsInput`).text(spells.join());
+    $(`#languagesInput`).text(language.join());
+    $(`#equipmentInput`).text(equipment.join());
+    $(`#backstoryInput`).text(background);
+
+
+
+    console.log(character);
+  });
+
+
+
   console.log("User ID: " + user);
 
   console.log("scripts loaded!"); // debugging
@@ -346,7 +380,7 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+      $.post("/api/addCharacter", charData, function (data, status, xhr) {
         console.log(status);
         document.location.href("/dashboard");
       });
