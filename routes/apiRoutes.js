@@ -157,26 +157,63 @@ routes.get("/armor/:id?", (req, res) => {
   }
 });
 routes.post("/addCharacter", (req, res) => {
+  let character = req.body;
+  console.log(character);
   db.character
     .create({
-      userId: req.body.userid,
-      characterName: req.body.characterName,
-      str: req.body.str,
-      dex: req.body.dex,
-      con: req.body.con,
-      int: req.body.int,
-      wis: req.body.wis,
-      char: req.body.char,
-      equipment: req.body.equipment,
-      spells: req.body.spells,
-      skill: req.body.skill,
-      armorId: req.body.armorId,
-      classId: req.body.classId,
-      raceId: req.body.raceId,
-      weaponId: req.body.weaponId
+      characterName: character.characterName,
+      str: character.str,
+      dex: character.dex,
+      con: character.con,
+      int: character.int,
+      wis: character.wis,
+      char: character.char,
+      equipment: character.equipment,
+      skill: character.skill,
+      spells: character.spells,
+      gold: character.gold,
+      copper: character.copper,
+      electrum: character.electrum,
+      silver: character.silver,
+      platinum: character.platinum,
+      experience: character.experience,
+      faction: character.faction,
+      alignment: character.alignment,
+      bonusLanguage: character.bonusLanguage,
+      background: character.background,
+      strAdditional: character.strAdditional,
+      dexAdditional: character.dexAdditional,
+      conAdditional: character.conAdditional,
+      intAdditional: character.intAdditional,
+      wisAdditional: character.wisAdditional,
+      charAdditional: character.charAdditional,
+      inspiration: character.inspiration,
+      acrobatics: character.acrobatics,
+      animalHandling: character.animalHandling,
+      arcana: character.arcana,
+      athletics: character.athletics,
+      deception: character.deception,
+      history: character.history,
+      insight: character.insight,
+      intimidation: character.intimidation,
+      investigation: character.investigation,
+      medicine: character.medicine,
+      nature: character.nature,
+      perception: character.perception,
+      performance: character.performance,
+      religion: character.religion,
+      sleightofHand: character.sleightofHand,
+      stealth: character.stealth,
+      survival: character.survival,
+      imgURL: character.imgURL,
+      armorId: character.armorId,
+      weaponId: character.weaponId,
+      raceId: character.raceId,
+      classId: character.classId,
+      userId: character.userId
     })
     .then(data => {
-      res.json(data);
+      res.status(200);
     })
     .catch(err => {
       res.status(500).send("server error");

@@ -14,9 +14,9 @@ router.get("/", (req, res) => {
 });
 
 //Dashboard
-
+//mooooooo!
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
-  console.log("starting Character search");
+  console.log("Going to Dashboard");
   db.character
     .findAll({
       where: {
@@ -38,9 +38,10 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
           class: element.class
         };
         characters.push(obj);
+        console.log(element);
       });
       userInfo.characters = characters;
-      console.log(userInfo)
+      console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
         res.render("dashboard", userInfo);
@@ -50,6 +51,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     });
 });
 router.get("/log/:user/:charID", (req, res) => {
+  console.log("Displaying Character Information")
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
@@ -68,6 +70,7 @@ router.get("/log/:user/:charID", (req, res) => {
   }
 });
 router.get("/add/:user", ensureAuthenticated, (req, res) => {
+  console.log("Going to Add New Character Screen");
   let user = req.params.user;
   if (user) {
     let data = {
@@ -77,36 +80,57 @@ router.get("/add/:user", ensureAuthenticated, (req, res) => {
   }
 });
 router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
+  console.log("Going to Update Screen");
   let user = req.params.user;
   let char = req.params.char;
-  console.log(user, char)
+  console.log(user, char);
   if (user && char) {
-    let data = {
-      user: user,
-      char: char
-    };
-    console.log("user found");
-    res.render("characterUpdate", data);
+    db.character
+      .findOne({
+        where: {
+          userid: user,
+          id: char
+        },
+        include: [{
+          all: true
+        }]
+      })
+      .then(result => {
+        console.log(result.dataValues);
+        let data = {
+          user: user,
+          char: char,
+          charData: result.dataValues,
+          classData: result.dataValues.class.dataValues,
+          weaponData: result.dataValues.weapon.dataValues,
+          raceData: result.dataValues.race.dataValues,
+          armorData: result.dataValues.armor.dataValues
+        };
+        console.log("user found, character found");
+        res.render("characterUpdate", data);
+      }).catch((err) => {
+        console.log(err);
+      });
   } else {
     res.send("error");
   }
 });
-router.get("/delete/:user", ensureAuthenticated, (req, res) => {
+router.get("/delete/:user/:char", ensureAuthenticated, (req, res) => {
+  ("Deleting character")
   let user = req.params.user;
-  if (user) {
-    let data = {
-      user: user,
-      char: char
-    };
-    console.log("user found");
-    res.render("characterAdd", data);
-  } else {
-    res.render("characterAdd", {
-      id: null,
-      name: null
+  let char = req.params.char;
+  console.log("removing" + user + " " + char);
+  db.character
+    .destroy({
+      where: {
+        id: char,
+        userId: user
+      }
+    })
+    .then(() => {
+      console.log("redirecting to dashboard");
+      res.redirect("back");
     });
-    res.send("error");
-  }
 });
 router.get("/randomName/male/:offset?", (req, res) => {
   let offsetNum = 0;
@@ -130,7 +154,6 @@ router.get("/randomName/male/:offset?", (req, res) => {
       data.forEach(element => {
         names[element.id] = element.name;
       });
-      console.log(names);
       res.json(names);
     });
 });
@@ -156,7 +179,6 @@ router.get("/randomName/female/:offset?", (req, res) => {
       data.forEach(element => {
         names[element.id] = element.name;
       });
-      console.log(names);
       res.json(names);
     });
 });

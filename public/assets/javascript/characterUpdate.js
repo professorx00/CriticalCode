@@ -1,27 +1,36 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
   function getEquipment(equip) {
     console.log(equip.val());
     let equipArray = equip.val().split(",");
-    let equipObj = { equipment: equipArray };
+    let equipObj = {
+      equipment: equipArray
+    };
     return equipObj;
   }
+
   function getSpells(spells) {
     let spellsArray = spells.val().split(",");
-    let spellsObj = { spells: spellsArray };
+    let spellsObj = {
+      spells: spellsArray
+    };
     return spellsObj;
   }
+
   function getLanguages(lang) {
     let langArray = lang.val().split(",");
-    let langObj = { language: langArray };
+    let langObj = {
+      language: langArray
+    };
     return langObj;
   }
 
   function getAlignment(align) {
     return align.replace(/-/g, " ");
   }
+
   function getskills() {
     let skills = [];
     if ($("#acrobaticsCheck").is(":checked")) {
@@ -78,6 +87,68 @@ $(document).ready(function() {
     console.log(skills);
     return skills;
   }
+
+  function checkskills() {
+    let skillErrors = [];
+    if (!$("#acrobaticsCheck").is(":checked")) {
+      skillErrors.push("acrobatics");
+    }
+    if (!$("#animalHandlingCheck").is(":checked")) {
+      skillErrors.push("animalHandling");
+    }
+    if (!$("#arcanaCheck").is(":checked")) {
+      skillErrors.push("arcana");
+    }
+    if (!$("#athleticsCheck").is(":checked")) {
+      skillErrors.push("athletics");
+    }
+    if (!$("#deceptionCheck").is(":checked")) {
+      skillErrors.push("deception");
+    }
+    if (!$("#historyCheck").is(":checked")) {
+      skillErrors.push("history");
+    }
+    if (!$("#insightCheck").is(":checked")) {
+      skillErrors.push("insight");
+    }
+    if (!$("#intimidationCheck").is(":checked")) {
+      skillErrors.push("intimidation");
+    }
+    if (!$("#investigationCheck").is(":checked")) {
+      skillErrors.push("investigation");
+    }
+    if (!$("#medicineCheck").is(":checked")) {
+      skillErrors.push("medicine");
+    }
+    if (!$("#natureCheck").is(":checked")) {
+      skillErrors.push("nature");
+    }
+    if (!$("#perceptionCheck").is(":checked")) {
+      skillErrors.push("perception");
+    }
+    if (!$("#performanceCheck").is(":checked")) {
+      skillErrors.push("performance");
+    }
+    if (!$("#religionCheck").is(":checked")) {
+      skillErrors.push("religion");
+    }
+    if (!$("#sleightOfHandCheck").is(":checked")) {
+      skillErrors.push("sleightOfHand");
+    }
+    if (!$("#stealthCheck").is(":checked")) {
+      skillErrors.push("stealth");
+    }
+    if (!$("#survivalCheck").is(":checked")) {
+      skillErrors.push("survivalCheck");
+    }
+    if (skillErrors.length > 16) {
+      console.log(skillErrors);
+      return skillErrors;
+    } else {
+      return [];
+    }
+  }
+
   function skillCheck(skill) {
     if (skill === NaN) {
       return 0;
@@ -85,14 +156,41 @@ $(document).ready(function() {
       return skill;
     }
   }
+
+  function checkStats() {
+    let errorCheck = [];
+    if (!$("#strAbility").val()) {
+      errorCheck.push("strAbility");
+    }
+    if (!$("#dexAbility").val()) {
+      errorCheck.push("dexAbility");
+    }
+    if (!$("#conAbility").val()) {
+      errorCheck.push("conAbility");
+    }
+    if (!$("#intAbility").val()) {
+      errorCheck.push("intAbility");
+    }
+    if (!$("#wisAbility").val()) {
+      errorCheck.push("wisAbility");
+    }
+    if (!$("#charAbility").val()) {
+      errorCheck.push("charAbility");
+    }
+    return errorCheck;
+  }
+
   function fileCheck(fileUrl) {
     if (!fileUrl) {
       fileUrl = "/assets/images/default.png";
     }
     return fileUrl;
   }
+
   function checkFormRequirements() {
     let error = [];
+    let skillCheck;
+    let statCheck;
     console.log(typeof $("#raceSelect").val());
     if (
       $("#characterNameInput").val() === "" ||
@@ -115,12 +213,116 @@ $(document).ready(function() {
     if ($("#alignmentSelect").val() === "null") {
       error.push("alignment");
     }
+    skillCheck = checkskills();
+    if (skillCheck.length > 0) {
+      skillCheck.forEach(element => {
+        error.push(element);
+      });
+    }
+    statCheck = checkStats();
+    if (statCheck.length > 0) {
+      statCheck.forEach(element => {
+        error.push(element);
+      });
+    }
     return error;
+  }
+
+  function getData() {
+    character = {
+      characterName: $("#characterNameInput")
+        .val()
+        .trim(),
+      str: parseInt($("#strAbility").val()),
+      dex: parseInt($("#dexAbility").val()),
+      con: parseInt($("#conAbility").val()),
+      int: parseInt($("#intAbility").val()),
+      wis: parseInt($("#wisAbility").val()),
+      char: parseInt($("#charAbility").val()),
+      equipment: getEquipment($("#equipmentInput")),
+      skill: getskills(),
+      spells: getSpells($("#spellsInput")),
+      gold: parseInt($("#goldInput").val()),
+      copper: parseInt($("#copperInput").val()),
+      electrum: parseInt($("#electrumInput").val()),
+      silver: parseInt($("#silverInput").val()),
+      platinum: parseInt($("#platinumInput").val()),
+      experience: parseInt($("#experienceInput").val()),
+      faction: $("#factionInput").val(),
+      alignment: getAlignment($("#alignmentSelect").val()),
+      bonusLanguage: getLanguages($("#languagesInput")),
+      background: $("#backstoryInput").val(),
+      strAdditional: parseInt($("#strRollmod").val()),
+      dexAdditional: parseInt($("#dexRollmod").val()),
+      conAdditional: parseInt($("#conRollmod").val()),
+      intAdditional: parseInt($("#intRollmod").val()),
+      wisAdditional: parseInt($("#wisRollmod").val()),
+      charAdditional: parseInt($("#charRollmod").val()),
+      inspiration: parseInt($("inspirationInput").val()),
+      acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
+      animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
+      arcana: skillCheck(parseInt($("#arcanasInput").val())),
+      athletics: skillCheck(parseInt($("#athleticsInput").val())),
+      deception: skillCheck(parseInt($("#deceptionInput").val())),
+      history: skillCheck(parseInt($("#historyInput").val())),
+      insight: skillCheck(parseInt($("#insightInput").val())),
+      intimidation: skillCheck(parseInt($("#intimidationInput").val())),
+      investigation: skillCheck(parseInt($("#investigationInput").val())),
+      medicine: skillCheck(parseInt($("#medicineInput").val())),
+      nature: skillCheck(parseInt($("#natureInput").val())),
+      perception: skillCheck(parseInt($("#perceptionInput").val())),
+      performance: skillCheck(parseInt($("#performanceInput").val())),
+      religion: skillCheck(parseInt($("#religionInput").val())),
+      sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
+      stealth: skillCheck(parseInt($("#stealthInput").val())),
+      survival: skillCheck(parseInt($("#survivalInput").val())),
+      imgURL: fileCheck(profileImgURL),
+      armorId: parseInt($("#armorSelect").val()),
+      userId: parseInt($("#userInfo").attr("data-user")),
+      weaponId: parseInt($("#weaponSelect").val()),
+      raceId: parseInt($("#raceSelect").val()),
+      classId: parseInt($("#classSelect").val())
+    };
+    console.log("user: " + parseInt($("#userInfo").attr("data-user")));
+    console.log("armor: " + parseInt($("#armorSelect").val()));
+    console.log("weapon: " + parseInt($("#weaponSelect").val()));
+    console.log("race: " + parseInt($("#armorSelect").val()));
+    console.log("class: " + parseInt($("#armorSelect").val()));
+    console.log(character);
+    return character;
   }
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
-  let fileInfoSubmit = null;
+  const char = $("#userInfo").attr("data-char");
+  let skills;
+  let equipment;
+  let spells;
+  let language;
+  let background;
+
+  $.ajax(`/api/user/${user}/${char}`).then(data => {
+    let character = data[0];
+    skills = character.skill;
+    skills.map(skill => {
+      $(`#${skill}Check`).attr("checked", "true");
+      $(`#${skill}Input`).attr("value", character[skill]);
+    });
+
+    equipment = character.equipment; //array
+    spells = character.spells.spells; //array
+    language = character.bonusLanguage.language; //array
+    background = character.background; //string
+
+    $("#spellsInput").text(spells.join());
+    $("#languagesInput").text(language.join());
+    $("#equipmentInput").text(equipment.join());
+    $("#backstoryInput").text(background);
+
+    console.log("update character", character);
+  });
+
+  console.log("User ID: " + user);
 
   console.log("scripts loaded!"); // debugging
 
@@ -157,15 +359,15 @@ $(document).ready(function() {
 
     console.log("pictureData", pictureData);
     $.ajax({
-      enctype: "multipart/form-data",
-      method: "POST",
-      processData: false,
-      contentType: false,
-      cache: false,
-      timeout: 600000,
-      url: "/photoUpload",
-      data: pictureData
-    })
+        enctype: "multipart/form-data",
+        method: "POST",
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
+        url: "/photoUpload",
+        data: pictureData
+      })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -185,61 +387,12 @@ $(document).ready(function() {
     let errors = checkFormRequirements();
     if (errors.length === 0) {
       console.log("Form Submit Button Clicked");
-      character = {
-        characterName: $("#characterNameInput")
-          .val()
-          .trim(),
-        str: parseInt($("#strAbility").val()),
-        dex: parseInt($("#dexAbility").val()),
-        con: parseInt($("#conAbility").val()),
-        int: parseInt($("#intAbility").val()),
-        wis: parseInt($("#wisAbility").val()),
-        char: parseInt($("#charAbility").val()),
-        equipment: getEquipment($("#equipmentInput")),
-        skill: getskills(),
-        spells: getSpells($("#spellsInput")),
-        gold: parseInt($("#goldInput").val()),
-        copper: parseInt($("#copperInput").val()),
-        electrum: parseInt($("#electrumInput").val()),
-        silver: parseInt($("#silverInput").val()),
-        platinum: parseInt($("#platinumInput").val()),
-        experience: parseInt($("#experienceInput").val()),
-        faction: $("#factionInput"),
-        alignment: getAlignment($("#alignmentSelect").val()),
-        bonusLanguage: getLanguages($("#languagesInput")),
-        background: $("#backstoryInput").val(),
-        strAdditional: parseInt($("#strRollmod").val()),
-        dexAdditional: parseInt($("#dexRollmod").val()),
-        conAdditional: parseInt($("#conRollmod").val()),
-        intAdditional: parseInt($("#intRollmod").val()),
-        wisAdditional: parseInt($("#wisRollmod").val()),
-        charAdditional: parseInt($("#charRollmod").val()),
-        inspiration: parseInt($("inspirationInput").val()),
-        acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
-        animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
-        arcana: skillCheck(parseInt($("#arcanasInput").val())),
-        athletics: skillCheck(parseInt($("#athleticsInput").val())),
-        deception: skillCheck(parseInt($("#deceptionInput").val())),
-        history: skillCheck(parseInt($("#historyInput").val())),
-        insight: skillCheck(parseInt($("#insightInput").val())),
-        intimidation: skillCheck(parseInt($("#intimidationInput").val())),
-        investigation: skillCheck(parseInt($("#investigationInput").val())),
-        medicine: skillCheck(parseInt($("#medicineInput").val())),
-        nature: skillCheck(parseInt($("#natureInput").val())),
-        perception: skillCheck(parseInt($("#perceptionInput").val())),
-        performance: skillCheck(parseInt($("#performanceInput").val())),
-        religion: skillCheck(parseInt($("#religionInput").val())),
-        sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
-        stealth: skillCheck(parseInt($("#stealthInput").val())),
-        survival: skillCheck(parseInt($("#survivalInput").val())),
-        imgURL: fileCheck(fileInfoSubmit),
-        armorId: parseInt($("#armorSelect").val()),
-        userId: parseInt(user),
-        weaponId: parseInt($("#weaponSelect").val()),
-        raceId: parseInt($("#armorSelect").val()),
-        classId: parseInt($("#armorSelect").val())
-      };
-      console.log(character);
+      let charData = getData();
+      console.log("Sending");
+      $.post("/api/addCharacter", charData, function (data, status, xhr) {
+        console.log(status);
+        document.location.href("/dashboard");
+      });
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
