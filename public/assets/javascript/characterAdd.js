@@ -78,12 +78,94 @@ $(document).ready(function () {
     console.log(skills);
     return skills;
   }
+  function checkskills() {
+    let skillErrors = [];
+    if (!$("#acrobaticsCheck").is(":checked")) {
+      skillErrors.push("acrobatics");
+    }
+    if (!$("#animalHandlingCheck").is(":checked")) {
+      skillErrors.push("animalHandling");
+    }
+    if (!$("#arcanaCheck").is(":checked")) {
+      skillErrors.push("arcana");
+    }
+    if (!$("#athleticsCheck").is(":checked")) {
+      skillErrors.push("athletics");
+    }
+    if (!$("#deceptionCheck").is(":checked")) {
+      skillErrors.push("deception");
+    }
+    if (!$("#historyCheck").is(":checked")) {
+      skillErrors.push("history");
+    }
+    if (!$("#insightCheck").is(":checked")) {
+      skillErrors.push("insight");
+    }
+    if (!$("#intimidationCheck").is(":checked")) {
+      skillErrors.push("intimidation");
+    }
+    if (!$("#investigationCheck").is(":checked")) {
+      skillErrors.push("investigation");
+    }
+    if (!$("#medicineCheck").is(":checked")) {
+      skillErrors.push("medicine");
+    }
+    if (!$("#natureCheck").is(":checked")) {
+      skillErrors.push("nature");
+    }
+    if (!$("#perceptionCheck").is(":checked")) {
+      skillErrors.push("perception");
+    }
+    if (!$("#performanceCheck").is(":checked")) {
+      skillErrors.push("performance");
+    }
+    if (!$("#religionCheck").is(":checked")) {
+      skillErrors.push("religion");
+    }
+    if (!$("#sleightOfHandCheck").is(":checked")) {
+      skillErrors.push("sleightOfHand");
+    }
+    if (!$("#stealthCheck").is(":checked")) {
+      skillErrors.push("stealth");
+    }
+    if (!$("#survivalCheck").is(":checked")) {
+      skillErrors.push("survivalCheck");
+    }
+    if (skillErrors.length > 16) {
+      console.log(skillErrors);
+      return skillErrors;
+    } else {
+      return [];
+    }
+  }
   function skillCheck(skill) {
     if (skill === NaN) {
       return 0;
     } else {
       return skill;
     }
+  }
+  function checkStats() {
+    let errorCheck = [];
+    if (!$("#strAbility").val()) {
+      errorCheck.push("strAbility");
+    }
+    if (!$("#dexAbility").val()) {
+      errorCheck.push("dexAbility");
+    }
+    if (!$("#conAbility").val()) {
+      errorCheck.push("conAbility");
+    }
+    if (!$("#intAbility").val()) {
+      errorCheck.push("intAbility");
+    }
+    if (!$("#wisAbility").val()) {
+      errorCheck.push("wisAbility");
+    }
+    if (!$("#charAbility").val()) {
+      errorCheck.push("charAbility");
+    }
+    return errorCheck;
   }
   function fileCheck(fileUrl) {
     if (!fileUrl) {
@@ -93,6 +175,8 @@ $(document).ready(function () {
   }
   function checkFormRequirements() {
     let error = [];
+    let skillCheck;
+    let statCheck;
     console.log(typeof $("#raceSelect").val());
     if (
       $("#characterNameInput").val() === "" ||
@@ -114,6 +198,18 @@ $(document).ready(function () {
     }
     if ($("#alignmentSelect").val() === "null") {
       error.push("alignment");
+    }
+    skillCheck = checkskills();
+    if (skillCheck.length > 0) {
+      skillCheck.forEach(element => {
+        error.push(element);
+      });
+    }
+    statCheck = checkStats();
+    if (statCheck.length > 0) {
+      statCheck.forEach(element => {
+        error.push(element);
+      });
     }
     return error;
   }
@@ -165,19 +261,25 @@ $(document).ready(function () {
       sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
       stealth: skillCheck(parseInt($("#stealthInput").val())),
       survival: skillCheck(parseInt($("#survivalInput").val())),
-      imgURL: fileCheck(fileInfoSubmit),
+      imgURL: fileCheck(profileImgURL),
       armorId: parseInt($("#armorSelect").val()),
-      userId: parseInt(user),
+      userId: parseInt($("#userInfo").attr("data-user")),
       weaponId: parseInt($("#weaponSelect").val()),
-      raceId: parseInt($("#armorSelect").val()),
-      classId: parseInt($("#armorSelect").val())
+      raceId: parseInt($("#raceSelect").val()),
+      classId: parseInt($("#classSelect").val())
     };
+    console.log("user: " + parseInt($("#userInfo").attr("data-user")));
+    console.log("armor: " + parseInt($("#armorSelect").val()));
+    console.log("weapon: " + parseInt($("#weaponSelect").val()));
+    console.log("race: " + parseInt($("#armorSelect").val()));
+    console.log("class: " + parseInt($("#armorSelect").val()));
+    console.log(character);
     return character;
   }
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
-  let fileInfoSubmit = null;
+  console.log("User ID: " + user);
 
   console.log("scripts loaded!"); // debugging
 
@@ -243,21 +345,11 @@ $(document).ready(function () {
     if (errors.length === 0) {
       console.log("Form Submit Button Clicked");
       let charData = getData();
-      console.log("charData onSubmit", charData);
-      $.post("/api/addCharacter", charData, function (
-        data,
-        status,
-        xhr
-      ) {
-        $("p").append("status: " + status + ", data: " + data);
-      })
-        .done(function (data) {
-          alert("Request done!");
-          console.log("response data", data);
-        })
-        .fail(function (jqxhr, settings, ex) {
-          alert("failed, " + ex);
-        });
+      console.log("Sending");
+      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+        console.log(status);
+        document.location.href("/dashboard");
+      });
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");

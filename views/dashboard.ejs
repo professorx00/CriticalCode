@@ -20,11 +20,11 @@
   <br>
   <div class="row">
     <div class="col col-md-12 text-center">
-        <h3 class="text-center">or Select a Character.</h3>
+      <h3 class="text-center">or Select a Character.</h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 red">
       <div class="row">
         <% if (characters!==null){ %>
         <% characters.forEach((element)=>{ %>
@@ -37,11 +37,13 @@
           </div>
         </div>
         <% }); %>
-      </div>
-      <%}else{ %>
-      <div class="row content">
-        <div class="col col-md-12 text-center center">
-          <h3>Create a new Character.</h3>
+        <%}else{ %>
+        <div class="row content red">
+          <div class="col-md-4 red"></div>
+          <div class="col col-md-4 text-center red">
+            <h3 class="text-center red">Create a new Character.</h3>
+          </div>
+          <div class="col-md-4"></div>
         </div>
       </div>
       <%} %>
