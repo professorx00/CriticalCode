@@ -36,10 +36,10 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
           class: element.class
         };
         characters.push(obj);
-        console.log(element)
+        console.log(element);
       });
       userInfo.characters = characters;
-      console.log(userInfo)
+      console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
         res.render("dashboard", userInfo);
@@ -73,11 +73,31 @@ router.get("/add/:user", ensureAuthenticated, (req, res) => {
 router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
   let char = req.params.char;
-  console.log(user,char)
+  console.log(user, char);
+
   if (user && char) {
-    let data = { user: user, char: char };
-    console.log("user found");
-    res.render("characterUpdate", data);
+    db.character
+      .findOne({
+        where: {
+          userid: user,
+          id: char
+        },
+        include: [{ all: true }]
+      })
+      .then(result => {
+        console.log(result.dataValues);
+        let data = {
+          user: user,
+          char: char,
+          charData: result.dataValues,
+          classData: result.dataValues.class.dataValues,
+          weaponData: result.dataValues.weapon.dataValues,
+          raceData: result.dataValues.race.dataValues,
+          armorData: result.dataValues.armor.dataValues
+        };
+        console.log("user found, character found");
+        res.render("characterUpdate", data);
+      });
   } else {
     res.send("error");
   }

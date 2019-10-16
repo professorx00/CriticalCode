@@ -348,8 +348,7 @@ $(document).ready(function() {
       console.log("Sending");
       $.post("/api/addCharacter", charData, function(data, status, xhr) {
         console.log(status);
-        document.location.href("/dashboard");
-      });
+      }).then(setTimeout((document.location.href = "/dashboard"), 1000));
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");

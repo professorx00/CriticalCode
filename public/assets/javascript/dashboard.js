@@ -18,9 +18,9 @@ $(document).ready(function() {
     document.location.href = `/log/${user}/${characterID}`;
   });
 
-  $(".updateCharacterBtn").on("click", function(event){
+  $(".updateCharacterBtn").on("click", function(event) {
     event.preventDefault();
-    console.log("Updating Character")
+    console.log("Updating Character");
     const target = $(event.target);
     const characterID = target.attr("data-charid");
     const user = target.attr("data-id");
