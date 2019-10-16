@@ -99,6 +99,8 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
         };
         console.log("user found, character found");
         res.render("characterUpdate", data);
+      }).catch((err)=>{
+        console.log(err);
       });
   } else {
     res.send("error");
