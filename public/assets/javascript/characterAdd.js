@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
@@ -137,7 +137,7 @@ $(document).ready(function() {
       silver: parseInt($("#silverInput").val()),
       platinum: parseInt($("#platinumInput").val()),
       experience: parseInt($("#experienceInput").val()),
-      faction: $("#factionInput"),
+      faction: $("#factionInput").val(),
       alignment: getAlignment($("#alignmentSelect").val()),
       bonusLanguage: getLanguages($("#languagesInput")),
       background: $("#backstoryInput").val(),
@@ -243,18 +243,19 @@ $(document).ready(function() {
     if (errors.length === 0) {
       console.log("Form Submit Button Clicked");
       let charData = getData();
-      console.log("Sending");
-      $.post("/api/addCharacter", { data: charData }, function(
+      console.log("charData onSubmit", charData);
+      $.post("/api/addCharacter", charData, function (
         data,
         status,
         xhr
       ) {
         $("p").append("status: " + status + ", data: " + data);
       })
-        .done(function() {
+        .done(function (data) {
           alert("Request done!");
+          console.log("response data", data);
         })
-        .fail(function(jqxhr, settings, ex) {
+        .fail(function (jqxhr, settings, ex) {
           alert("failed, " + ex);
         });
     } else {

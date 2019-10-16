@@ -159,7 +159,8 @@ routes.get("/armor/:id?", (req, res) => {
 routes.post("/addCharacter", (req, res) => {
   let character = req.body;
   console.log(character)
-  res.json(character);
+  res.send(character);
+  // res.json(character);
   // db.character
   //   .create({
   //     characterName: character.characterName,
@@ -216,7 +217,7 @@ routes.post("/addCharacter", (req, res) => {
   //     res.json(data);
   //   })
   //   .catch(err => {
-  //     res.status(500).send("server error");
+  //     res.status(500).send("server error").send(err);
   //     console.log("err", err);
   //     throw err;
   //   });
