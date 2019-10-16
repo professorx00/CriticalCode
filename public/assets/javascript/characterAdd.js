@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
@@ -346,10 +346,9 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function (data, status, xhr) {
+      $.post("/api/addCharacter", charData, function(data, status, xhr) {
         console.log(status);
-
-      }).then(setTimeout(document.location.href = "/dashboard", 1000));
+      }).then(setTimeout((document.location.href = "/dashboard"), 1000));
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
