@@ -38,7 +38,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">Input Name</span>
               </div>
-              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"></textarea>
+              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose">EliasTest</textarea>
               <div class="input-group-append">
                 <!-- <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button> -->
                 <div class="custom-file">
@@ -68,7 +68,7 @@
                   <label class="input-group-text" for="classSelect">Options</label>
                 </div>
                 <select class="custom-select" id="classSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=12>Choose...</option>
                   <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
                   <option value=12>Barbarian</option>
                   <option value=1>Bard</option>
@@ -95,7 +95,7 @@
                   <label class="input-group-text" for="raceSelect">Options</label>
                 </div>
                 <select class="custom-select" id="raceSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=13>Choose...</option>
                   <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
                   <option value=13>Dragonborn</option>
                   <option value=9>Dwarf</option>
@@ -119,7 +119,7 @@
                   <label class="input-group-text" for="alignmentSelect">Options</label>
                 </div>
                 <select class="custom-select" id="alignmentSelect">
-                  <option selected value="null">Choose...</option>
+                  <option selected value="Lawful-Good">Choose...</option>
                   <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
                   <option value="Lawful-Good">Lawful-Good</option>
                   <option value="Neutral-Good">Neutral-Good</option>
@@ -143,7 +143,7 @@
                   <label class="input-group-text" for="armorSelect">Options</label>
                 </div>
                 <select class="custom-select" id="armorSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=1>Choose...</option>
                   <option value=1>Padded</option>
                   <option value=2>Leather</option>
                   <option value=3>Studded leather</option>
@@ -170,7 +170,7 @@
                   <label class="input-group-text" for="weaponSelect">Options</label>
                 </div>
                 <select class="custom-select" id="weaponSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=1>Choose...</option>
                   <option value=1>Club</option>
                   <option value=2>Dagger</option>
                   <option value=3>Greatclub</option>
@@ -215,7 +215,7 @@
                   Faction:
                 </div>
                 <div class="row">
-                  <input id="factionInput" type="text" value="null">
+                  <input id="factionInput" type="text" value="poopeaters">
                 </div>
               </div>
               <div class="col col-md-4">
@@ -223,7 +223,7 @@
                   Experience:
                 </div>
                 <div class="row">
-                  <input id="experienceInput" type="text" value="0" placeholder="0">
+                  <input id="experienceInput" type="number" value="10" placeholder="0">
                 </div>
               </div>
               <div class="col col-md-4">
@@ -231,7 +231,7 @@
                   Inspiration:
                 </div>
                 <div class="row">
-                  <input id="inspirationInput" type="number" value="0" placeholder="0">
+                  <input id="inspirationInput" type="number" value="3" placeholder="0">
                 </div>
               </div>
             </div>
@@ -245,23 +245,23 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <label for="copperInput" class="input-group-text">Copper </label>
-                  <input id="copperInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="copperInput" type="number" value="69" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="silverInput">Silver </label>
-                  <input id="silverInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="silverInput" type="number" value="59" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label for="ElectrumInput" class="input-group-text">Electrum </label>
-                  <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="ElectrumInput" type="number" value="49" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="GoldInput">Gold </label>
-                  <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="GoldInput" type="number" value="39" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="PlatinumInput">Platinum </label>
-                  <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="PlatinumInput" type="number" value="29" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
               </div>
             </div>
@@ -281,13 +281,13 @@
                 Strength <button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -303,13 +303,13 @@
                 Dexterity<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -325,13 +325,13 @@
                 Constitution<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="conAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="conRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="conRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="conRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -349,13 +349,13 @@
                 Intelligence<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="intAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="intRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="intRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="intRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -371,13 +371,13 @@
                 Wisdom<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="wisAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="wisRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="wisRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="wisRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -393,13 +393,13 @@
                 Charisma<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="charAbility" value="1" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="charRollmod" value="2" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="charRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="charRollResult" value="3" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>

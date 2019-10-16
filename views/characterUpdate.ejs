@@ -29,22 +29,20 @@
         <div class="form-group row  top-div p-2">
           <div class="col-md-1"> </div>
           <div class="col col-sm-4 col-md-2">
-            <div class="imgLogo"></div>
-            <!-- <img src="/assets/images/default.png" alt="" class="imgLogo"> -->
+            <div class="imgLogo" style="background: center / cover no-repeat url('<%= charData.imgURL %>') "></div>
           </div>
           <div class="col col-sm-8 col-md-8 text-center align-middle">
             <h3 id="characterLabel">Character Name</h3>
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">Input Name</span>
+                <span class="input-group-text">Character Name</span>
               </div>
-              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"></textarea>
+              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"><%= charData.characterName %></textarea>
               <div class="input-group-append">
-                <!-- <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button> -->
                 <div class="custom-file">
                   <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input" id="inputGroupFile04"
                       aria-describedby="inputGroupFileAddon04">
-                  <label class="custom-file-label" for="inputGroupFile04">Upload Character Image</label>
+                  <label class="custom-file-label" for="inputGroupFile04">Upload New Character Image</label>
               </div>
               <div class="input-group-append">
                   <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
@@ -68,7 +66,7 @@
                   <label class="input-group-text" for="classSelect">Options</label>
                 </div>
                 <select class="custom-select" id="classSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=<%= classData.Id %>><%= classData.className %></option>
                   <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
                   <option value=12>Barbarian</option>
                   <option value=1>Bard</option>
@@ -95,7 +93,7 @@
                   <label class="input-group-text" for="raceSelect">Options</label>
                 </div>
                 <select class="custom-select" id="raceSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=<%= raceData.Id %>><%= raceData.raceName %></option>
                   <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
                   <option value=13>Dragonborn</option>
                   <option value=9>Dwarf</option>
@@ -119,7 +117,7 @@
                   <label class="input-group-text" for="alignmentSelect">Options</label>
                 </div>
                 <select class="custom-select" id="alignmentSelect">
-                  <option selected value="null">Choose...</option>
+                  <option selected value=<%= charData.alignment %>><%= charData.alignment %></option>
                   <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
                   <option value="Lawful-Good">Lawful-Good</option>
                   <option value="Neutral-Good">Neutral-Good</option>
@@ -143,7 +141,7 @@
                   <label class="input-group-text" for="armorSelect">Options</label>
                 </div>
                 <select class="custom-select" id="armorSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=<%= armorData.Id %>><%= armorData.armorName %></option>
                   <option value=1>Padded</option>
                   <option value=2>Leather</option>
                   <option value=3>Studded leather</option>
@@ -170,7 +168,7 @@
                   <label class="input-group-text" for="weaponSelect">Options</label>
                 </div>
                 <select class="custom-select" id="weaponSelect">
-                  <option selected value=99>Choose...</option>
+                  <option selected value=<%= weaponData.Id %>><%= weaponData.weaponName %></option>
                   <option value=1>Club</option>
                   <option value=2>Dagger</option>
                   <option value=3>Greatclub</option>
@@ -215,7 +213,7 @@
                   Faction:
                 </div>
                 <div class="row">
-                  <input id="factionInput" type="text" value="null">
+                  <input id="factionInput" type="text" value="<%= charData.faction %>" placeholder="0">
                 </div>
               </div>
               <div class="col col-md-4">
@@ -223,7 +221,7 @@
                   Experience:
                 </div>
                 <div class="row">
-                  <input id="experienceInput" type="text" value="0" placeholder="0">
+                  <input id="experienceInput" type="number" value="<%= charData.experience %>" placeholder="0">
                 </div>
               </div>
               <div class="col col-md-4">
@@ -231,7 +229,7 @@
                   Inspiration:
                 </div>
                 <div class="row">
-                  <input id="inspirationInput" type="number" value="0" placeholder="0">
+                  <input id="inspirationInput" type="number" value="<%= charData.inspiration %>" placeholder="0">
                 </div>
               </div>
             </div>
@@ -245,23 +243,23 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <label for="copperInput" class="input-group-text">Copper </label>
-                  <input id="copperInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="copperInput" type="number" value="<%= charData.copper %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="silverInput">Silver </label>
-                  <input id="silverInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="silverInput" type="number" value="<%= charData.silver %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label for="ElectrumInput" class="input-group-text">Electrum </label>
-                  <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="ElectrumInput" type="number" value="<%= charData.silver %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="GoldInput">Gold </label>
-                  <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="GoldInput" type="number" value="<%= charData.gold %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="PlatinumInput">Platinum </label>
-                  <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="PlatinumInput" type="number" value="<%= charData.platinum %>" placeholder="0" class="form-control" aria-label="With textarea"></input>
                 </div>
               </div>
             </div>
@@ -281,13 +279,13 @@
                 Strength <button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strAbility" value="<%= charData.str %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strRollmod" value="<%= charData.strAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="strRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="strRollResult" value="<%= charData.str + charData.strAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
@@ -303,13 +301,13 @@
                 Dexterity<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexAbility" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexAbility" value="<%= charData.dex %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollmod" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexRollmod" value="<%= charData.dexAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
               <div class="col-md-2 m-0 p-0">
-                <input type="number" id="dexRollResult" value="0" placeholder="0" class="form-control input-sm">
+                <input type="number" id="dexRollResult" value="<%= charData.dex + charData.dexAdditional %>" placeholder="0" class="form-control input-sm">
               </div>
             </div>
           </div>
