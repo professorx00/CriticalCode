@@ -1,0 +1,9 @@
+<div>
+    <p><%=skill%></p>
+    <% if (charData.skill > 0) {%>
+    <input id="<%=skill%>Check" type="checkbox" checked>
+    <input id="<%=skill%>Input" type="number" value="skill" placeholder="0">
+    <% } else { %>
+    <input id="<%=skill%>Check" type="checkbox">
+    <input id="<%=skill%>Input" type="number" value="0" placeholder="0">
+    <% } %>
