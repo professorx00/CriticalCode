@@ -380,3 +380,20 @@ $(document).ready(function () {
   });
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 });
+
+//Dice roll for stats
+$(".statRoll").on("click", function () {
+
+  var diceRolls = [];
+  for (i = 0; i < 4; i++) {
+    console.log("round")
+    var roll = Math.floor(Math.random() * 6 + 1);
+    diceRolls.push(roll);
+  }
+  diceRolls.sort()
+  console.log(diceRolls);
+
+  $(`#${this.value}Abil`).attr("value", diceRolls[1]).attr("id", "disabled");
+  $(`#${this.value}Mod`).attr("value", diceRolls[2]).attr("id", "disabled");
+  $(`#${this.value}Total`).attr("value", diceRolls[3]).attr("id", "disabled");
+});
