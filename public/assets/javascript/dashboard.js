@@ -12,8 +12,9 @@ $(document).ready(function() {
   $(".characterBtn").on("click", function(event) {
     event.preventDefault();
     const target = $(event.target);
-    const characterID = target.attr("data-id");
-    const user = target.attr("data-user");
+    const characterID = target.attr("data-charid");
+    const user = target.attr("data-id");
+    console.log(user, characterID);
     document.location.href = `/log/${user}/${characterID}`;
   });
 

@@ -2,7 +2,9 @@
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
 }
-
+.skillBorder{
+    border: black solid 1px;
+}
 .stats-div,
 .img-div {
     background: url("../../assets/images/paper.jpg") !important;
