@@ -31,13 +31,14 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       let characters = [];
       result.forEach(element => {
         let obj = {
-          id: element.id,
+          charid: element.id,
           characterName: element.characterName,
           class: element.class
         };
         characters.push(obj);
       });
       userInfo.characters = characters;
+      console.log(userInfo)
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
         res.render("dashboard", userInfo);
@@ -61,29 +62,26 @@ router.get("/log/:user/:charID", (req, res) => {
     res.send("error");
   }
 });
-router.get("/add/:user", (req, res) => {
+router.get("/add/:user", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = { user: user };
     res.render("characterAdd", data);
   }
 });
-router.get("/update/:user", (req, res) => {
+router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
-  let char = req.params.charID;
+  let char = req.params.char;
+  console.log(user,char)
   if (user && char) {
     let data = { user: user, char: char };
     console.log("user found");
     res.render("characterUpdate", data);
   } else {
-    res.render("characterUpdate", {
-      id: null,
-      name: null
-    });
     res.send("error");
   }
 });
-router.get("/delete/:user", (req, res) => {
+router.get("/delete/:user", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = { user: user, char: char };

@@ -7,23 +7,43 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-sm-12 p-3">
             <div class="p-4 login-jumbo">
-                <h3 class="text-center">Login</h3>
-                <br>
-                <% include ./partials/messages %>
-                <form action="/users/login" method="POST">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
+                <div class="row ">
+                    <div class="col-md-12">
+                        <h3 class="text-center">Login</h3>
+                        <br>
+                        <% include ./partials/messages %>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control"
-                            placeholder="Enter Password" />
+                </div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <form action="/users/login" method="POST">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="Enter Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="Enter Password" />
+                            </div>
+                            <button type="submit" class="btn btn-primary button-stone btnText">Login</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary button-stone btnText">Login</button>
-                </form>
-                <div class="sm-low-div col-md-3">No account yet? </div><div class="col-md-8">ddasd</div>
-                <a class="text-white btn btn-primary button-stone btnText" href="/users/register">Register</a>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
+                        <h4>No account yet?</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6">
+                        <a class="text-white btn btn-primary button-stone btnText" href="/users/register">Register</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

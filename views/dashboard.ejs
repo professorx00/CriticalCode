@@ -1,13 +1,11 @@
 <div class="container">
-  <div class="row header justify-content-center">
-    <div class="col col-md-2"></div>
-    <div class="col-md-8">
-      <div class="mt-3">
-        <img src="./assets/images/logo.png" class="img-responsive logo"  alt="Valhalla">
-      </div>
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col">
+      <img src="./assets/images/logo.png" class="img-responsive logo" alt="Valhalla">
     </div>
-    <div class="col col-md-2 text-md-right text-sm-center">
-        <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3">Logout</button>
+    <div class="col">
+      <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3 btnText">Logout</button>
     </div>
   </div>
   <div class="row content">
@@ -19,23 +17,34 @@
       </div>
     </div>
   </div>
-  <% if (characters!==null){ %>
-  <% characters.forEach((element)=>{ %>
-  <div class="row content">
-    <div class="col col-md-12 text-center center">
-      <div type="div" class="btn btn-primary button-character shadow characterBtn mt-3 mb-3" data-id="<%= element.id %>" data-user="<%= id %>" id="newCharacterBtn"> 
-        <%= element.characterName %> -- <%= element.class.className %>
+  <br>
+  <div class="row">
+    <div class="col col-md-12 text-center">
+        <h3 class="text-center">or Select a Character.</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <% if (characters!==null){ %>
+        <% characters.forEach((element)=>{ %>
+        <div class="col col-md-12 text-center center">
+          <div class="btn button-character shadow">
+            <button class="btn dashboardBtn characterBtn" data-id="<%= id %>"
+              data-charid="<%= element.id %>"><%= element.characterName %> -- <%= element.class.className %></button>
+            <button class="btn dashboardBtn updateCharacterBtn" data-id="<%= id %>"
+              data-charid="<%= element.charid %>">edit</button>
+          </div>
+        </div>
+        <% }); %>
       </div>
+      <%}else{ %>
+      <div class="row content">
+        <div class="col col-md-12 text-center center">
+          <h3>Create a new Character.</h3>
+        </div>
+      </div>
+      <%} %>
     </div>
   </div>
- 
-  <% }); %>
-  <%}else{ %>
-  <div class="row content">
-    <div class="col col-md-12 text-center center">
-      <h3>Choose one of your characters.</h3>
-    </div>
-  </div>
-  <%} %>
 </div>
-
