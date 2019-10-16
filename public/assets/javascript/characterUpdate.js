@@ -9,6 +9,8 @@ $(document).ready(function() {
   console.log(inputLabel[0].textContent); //debugging
 
   let files; // object to put files in
+  let $imgDiv = $("div.imgLogo");
+  let profileImgURL;
 
   // feedback method for updating text inside of input elem with name of picture upon input
   update = () => {
@@ -20,11 +22,11 @@ $(document).ready(function() {
     // img elem with preview photo
     // You can use this to provide feedback to the user that their photo has been sucessfully selected in the browser
     // may or may not be feasible depending on form space resources
-    $img.attr("src", window.URL.createObjectURL(files[0]));
-    console.log("newURL", window.URL.createObjectURL(files[0])); //debugging
+    // newURL = window.URL.createObjectURL(files[0]);
   };
 
   $("#imageUploadButton").on("click", event => {
+    console.log("Clicked");
     event.preventDefault();
     // const formData = new FormData();
     console.log("input.files", input.files);
@@ -43,8 +45,14 @@ $(document).ready(function() {
       url: "/photoUpload",
       data: pictureData
     })
-      .then(data => console.log(data))
-      .then() //do something with the data)
+      .then(data => {
+        console.log("returned data object", data); // debugging
+        profileImgURL = data.Location;
+        $imgDiv.css({
+          background: `center / cover no-repeat url("${profileImgURL}")`
+        });
+        fileInfoSubmit = data;
+      })
       .catch(err => {
         throw err;
       });
