@@ -1,6 +1,6 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<button data-user="<%=user%>" data-id="<%=char%>" id="userInfo" class="hide"></button>
+<button data-user="<%= user %>" data-char="<%= char %>" id="userInfo" class="hide"></button>
 <!--Keep the data-user in this container need for suppling database-->
 
 <div class="container">
@@ -29,7 +29,8 @@
         <div class="form-group row  top-div p-2">
           <div class="col-md-1"> </div>
           <div class="col col-sm-4 col-md-2">
-            <img src="/assets/images/default.png" alt="" class="imgLogo">
+            <div class="imgLogo"></div>
+            <!-- <img src="/assets/images/default.png" alt="" class="imgLogo"> -->
           </div>
           <div class="col col-sm-8 col-md-8 text-center align-middle">
             <h3 id="characterLabel">Character Name</h3>
@@ -39,7 +40,15 @@
               </div>
               <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"></textarea>
               <div class="input-group-append">
-                <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button>
+                <!-- <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button> -->
+                <div class="custom-file">
+                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input" id="inputGroupFile04"
+                      aria-describedby="inputGroupFileAddon04">
+                  <label class="custom-file-label" for="inputGroupFile04">Upload Character Image</label>
+              </div>
+              <div class="input-group-append">
+                  <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
+              </div>
 
                 <button class="btn btn-warning " type="button" id="randomNameBtn">Randomize</button>
               </div>

@@ -31,13 +31,14 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       let characters = [];
       result.forEach(element => {
         let obj = {
-          id: element.id,
+          charid: element.id,
           characterName: element.characterName,
           class: element.class
         };
         characters.push(obj);
       });
       userInfo.characters = characters;
+      console.log(userInfo)
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
         res.render("dashboard", userInfo);
@@ -70,7 +71,8 @@ router.get("/add/:user", ensureAuthenticated, (req, res) => {
 });
 router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
-  let char = req.params.charID;
+  let char = req.params.char;
+  console.log(user,char)
   if (user && char) {
     let data = { user: user, char: char };
     console.log("user found");
