@@ -1,5 +1,9 @@
 const express = require("express");
 const router = express.Router();
+
+//awsUpload module
+const photoUpload = require("../config/awsFileUpload");
+
 const {
   ensureAuthenticated
 } = require("../config/auth");
@@ -29,13 +33,14 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       let characters = [];
       result.forEach(element => {
         let obj = {
-          id: element.id,
+          charid: element.id,
           characterName: element.characterName,
           class: element.class
         };
         characters.push(obj);
       });
       userInfo.characters = characters;
+      console.log(userInfo)
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
         res.render("dashboard", userInfo);
@@ -62,7 +67,7 @@ router.get("/log/:user/:charID", (req, res) => {
     res.send("error");
   }
 });
-router.get("/add/:user", (req, res) => {
+router.get("/add/:user", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = {
@@ -71,9 +76,10 @@ router.get("/add/:user", (req, res) => {
     res.render("characterAdd", data);
   }
 });
-router.get("/update/:user", (req, res) => {
+router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
-  let char = req.params.charID;
+  let char = req.params.char;
+  console.log(user, char)
   if (user && char) {
     let data = {
       user: user,
@@ -82,14 +88,10 @@ router.get("/update/:user", (req, res) => {
     console.log("user found");
     res.render("characterUpdate", data);
   } else {
-    res.render("characterUpdate", {
-      id: null,
-      name: null
-    });
     res.send("error");
   }
 });
-router.get("/delete/:user", (req, res) => {
+router.get("/delete/:user", ensureAuthenticated, (req, res) => {
   let user = req.params.user;
   if (user) {
     let data = {
@@ -181,6 +183,16 @@ router.get("/randomName/:offset?", (req, res) => {
       console.log(names);
       res.json(names);
     });
+});
+
+router.post("/photoUpload", (req, res) => {
+  console.log(req.files);
+  // res.send("yep, got it");
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).send("No files were uploaded.");
+  }
+
+  photoUpload(req, res);
 });
 
 module.exports = router;

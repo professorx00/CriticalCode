@@ -1,8 +1,10 @@
 $(document).ready(function() {
-  $(".addCharacterBtn").on("click", function(event) {
+  $("#newCharacterBtn").on("click", function(event) {
     event.preventDefault();
+    console.log(event.target);
     const target = $(event.target);
-    const user = target.attr("data-user");
+    const user = target.attr("data-id");
+    console.log(target.attr("data-id"));
     console.log("add Character Btn");
     document.location.href = `/add/${user}/`;
   });
@@ -13,6 +15,16 @@ $(document).ready(function() {
     const characterID = target.attr("data-id");
     const user = target.attr("data-user");
     document.location.href = `/log/${user}/${characterID}`;
+  });
+
+  $(".updateCharacterBtn").on("click", function(event){
+    event.preventDefault();
+    console.log("Updating Character")
+    const target = $(event.target);
+    const characterID = target.attr("data-charid");
+    const user = target.attr("data-id");
+    console.log("Update Button");
+    document.location.href = `/update/${user}/${characterID}`;
   });
 
   $("#logout").on("click", () => {

@@ -42,6 +42,9 @@
 #weaponSpan, #armorSpan{
     font-size:1rem;
 }
+*.bgBlack{
+    background: black;
+}
 .low-div {
     background-color: beige;
     max-width: 100%;
@@ -91,6 +94,14 @@ ul {
 }
 img.imgLogo{
     max-width: 150px;
+}
+
+div.imgLogo{
+    width: 150px;
+    height: 150px;
+    background: center / contain no-repeat url("../../assets/images/default.png");
+    outline: thick double #986d37;
+    /* border-image: url("../../assets/images/paper.jpg") */
 }
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Hanalei+Fill&display=swap');
+
 html,
 body {
     min-height: 100%;
@@ -8,6 +10,10 @@ body {
     background-color: black !important;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+button.dashboardBtn {
+    color: white;
 }
 
 img.logo {
@@ -33,16 +39,50 @@ img.logo {
     margin: 0 auto;
 }
 
+.sm-low-div {
+    background-color: beige;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 3px solid rgba(91, 36, 23, 0.66);
+    vertical-align: bottom;
+}
+
 div.btn:hover {
     transform: translateY(-7px);
     width: 65%;
     cursor: pointer;
 }
 
+.btnText {
+    color: #FFFFFF;
+    /* text-shadow: 1px 3px 0 #969696, 1px 4px 2px #aba8a8; */
+    font-family: 'Hanalei Fill', cursive;
+    letter-spacing: .25rem;
+}
+
+a {
+    font-size: 1.5rem;
+}
+
+a.btnText:link {
+    color: white !important;
+}
+
+a.btnText:hover {
+    color: rgb(95, 161, 248) !important;
+}
 
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;
+    color: white !important;
+    border: 2px solid black;
+    border-radius: 5%;
+}
+
+.error {
+    color: Red;
+    Background: white;
 }
 
 .button-character {
@@ -86,10 +126,15 @@ h3 {
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     padding-top: 200px;
-}
+
+    h3 {
+        color: rgb(43, 4, 3);
+        font-size: 1.3rem;
+        font-family: 'Metamorphous', cursive;
+    }
 
 
 
-/* font-family: 'Marcellus SC', serif;
+    /* font-family: 'Marcellus SC', serif;
 font-family: 'Uncial Antiqua', cursive;
 font-family: 'Metamorphous', cursive; */

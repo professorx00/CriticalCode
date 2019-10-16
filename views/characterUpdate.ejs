@@ -1,10 +1,579 @@
-<div class="container" data-user="<%=user%>"><!--Keep the data-user in this container need for suppling database-->
-  <div class="row header justify-content-center">
-      <img src="/assets/images/logo.png" class="logo">
-  </div>
-  <div class="row">
-    <div class="col">
-      Hello World! Update Character File!
+<link rel=" stylesheet" href="/assets/css/character.css">
+
+<button data-user="<%= user %>" data-char="<%= char %>" id="userInfo" class="hide"></button>
+<!--Keep the data-user in this container need for suppling database-->
+
+<div class="container">
+  <!--Header -->
+  <div class=" row header justify-content-center">
+    <div class="col col-md-2"></div>
+    <div class="col-md-7">
+      <img src="/assets/images/logo.png" alt="" class="logo">
+    </div>
+    <div class="col col-md-3 text-md-right text-sm-center">
+      <ul id="menu" class="list-group">
+        <li class="list-group-item button-stone mt-2 mb-1 pl-0 pr-0 ml-0 text-center"><button type="submit"
+            id="dashboard" class="btn btnText">Dashboard</button></li>
+        <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
+            class="btn text-center btnText">Logout</button></li>
+      </ul>
     </div>
   </div>
+
+  <!--- Form Group for Character Name -->
+  <div class="row stats-div">
+    
+    <form id="characterAddMasterForm">
+      <div class="form-group">
+        <!--#####################Character Name Start#####################-->
+        <div class="form-group row  top-div p-2">
+          <div class="col-md-1"> </div>
+          <div class="col col-sm-4 col-md-2">
+            <div class="imgLogo"></div>
+            <!-- <img src="/assets/images/default.png" alt="" class="imgLogo"> -->
+          </div>
+          <div class="col col-sm-8 col-md-8 text-center align-middle">
+            <h3 id="characterLabel">Character Name</h3>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Input Name</span>
+              </div>
+              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"></textarea>
+              <div class="input-group-append">
+                <!-- <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button> -->
+                <div class="custom-file">
+                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input" id="inputGroupFile04"
+                      aria-describedby="inputGroupFileAddon04">
+                  <label class="custom-file-label" for="inputGroupFile04">Upload Character Image</label>
+              </div>
+              <div class="input-group-append">
+                  <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
+              </div>
+
+                <button class="btn btn-warning " type="button" id="randomNameBtn">Randomize</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--#####################Character Information Start#####################-->
+        <div class="form-group row top-div p-2">
+          <div class="col col-md-9 ">
+            <div class="row">
+              <div class="col col-md-3">
+                <div><span id="className">Class</span></div>
+              </div>
+              <!--############Classes##############-->
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="classSelect">Options</label>
+                </div>
+                <select class="custom-select" id="classSelect">
+                  <option selected value=99>Choose...</option>
+                  <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
+                  <option value=12>Barbarian</option>
+                  <option value=1>Bard</option>
+                  <option value=2>Cleric</option>
+                  <option value=11>Druid</option>
+                  <option value=3>Fighter</option>
+                  <option value=4>Monk</option>
+                  <option value=5>Paladin</option>
+                  <option value=6>Ranger</option>
+                  <option value=7>Rogue</option>
+                  <option value=10>Sorcerer</option>
+                  <option value=8>Warlock</option>
+                  <option value=9>Wizard</option>
+                </select>
+              </div>
+            </div>
+            <!--######### Races ###########-->
+            <div class="row">
+              <div class="col col-md-3">
+                <div><span id="race">Race</span></div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="raceSelect">Options</label>
+                </div>
+                <select class="custom-select" id="raceSelect">
+                  <option selected value=99>Choose...</option>
+                  <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
+                  <option value=13>Dragonborn</option>
+                  <option value=9>Dwarf</option>
+                  <option value=10>Elf</option>
+                  <option value=14>Gnome</option>
+                  <option value=11>Halfling</option>
+                  <option value=15>Half-Elf</option>
+                  <option value=16>Half-Orc</option>
+                  <option value=12>Human</option>
+                  <option value=17>Tiefling</option>
+                </select>
+              </div>
+            </div>
+            <!---########### Alignment ###########-->
+            <div class="row">
+              <div class="col col-md-3">
+                <div><span id="alignment">Alignment</span></div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="alignmentSelect">Options</label>
+                </div>
+                <select class="custom-select" id="alignmentSelect">
+                  <option selected value="null">Choose...</option>
+                  <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
+                  <option value="Lawful-Good">Lawful-Good</option>
+                  <option value="Neutral-Good">Neutral-Good</option>
+                  <option value="Chaotic-Good">Chaotic-Good</option>
+                  <option value="Lawful-Neutral">Lawful-Neutral</option>
+                  <option value="Neutral">Neutral</option>
+                  <option value="Chaotic-Neutral">Chaotic-Neutral</option>
+                  <option value="Lawful-Evil">Lawful-Evil</option>
+                  <option value="Neutral-Evil">Neutral-Evil</option>
+                  <option value="Chaotic-Evil">Chaotic-Evil</option>
+                </select>
+              </div>
+            </div>
+            <!--############# Armor ##############-->
+            <div class="row">
+              <div class="col col-md-3">
+                <div><span id="armor">Armor</span></div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="armorSelect">Options</label>
+                </div>
+                <select class="custom-select" id="armorSelect">
+                  <option selected value=99>Choose...</option>
+                  <option value=1>Padded</option>
+                  <option value=2>Leather</option>
+                  <option value=3>Studded leather</option>
+                  <option value=4>Hide</option>
+                  <option value=5>Chain shirt</option>
+                  <option value=6>Scale mail</option>
+                  <option value=7>Breastplate</option>
+                  <option value=8>Half plate</option>
+                  <option value=9>Ring mail</option>
+                  <option value=10>Chain mail</option>
+                  <option value=11>Splint</option>
+                  <option value=12>Plate</option>
+                  <option value=13>Shield</option>
+                </select>
+              </div>
+            </div>
+            <!--############# Weapon ##############-->
+            <div class="row">
+              <div class="col col-md-3">
+                <div><span id="weapon">Weapon</span></div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="weaponSelect">Options</label>
+                </div>
+                <select class="custom-select" id="weaponSelect">
+                  <option selected value=99>Choose...</option>
+                  <option value=1>Club</option>
+                  <option value=2>Dagger</option>
+                  <option value=3>Greatclub</option>
+                  <option value=4>Handaxe</option>
+                  <option value=5>Javelin</option>
+                  <option value=6>Light Hammer</option>
+                  <option value=7>Mace</option>
+                  <option value=8>Quarterstaff</option>
+                  <option value=9>Sickle</option>
+                  <option value=10>Spear</option>
+                  <option value=11>Light Crossbow</option>
+                  <option value=12>Dart</option>
+                  <option value=13>Shortbow</option>
+                  <option value=14>Sling</option>
+                  <option value=15>Battleaxe</option>
+                  <option value=16>Flail</option>
+                  <option value=17>Glaive</option>
+                  <option value=18>Greataxe</option>
+                  <option value=19>Greatsword</option>
+                  <option value=22>Longsword</option>
+                  <option value=23>Maul</option>
+                  <option value=24>Morningstar</option>
+                  <option value=25>Pike</option>
+                  <option value=26>Rapier</option>
+                  <option value=27>Scimitar</option>
+                  <option value=28>Shortsword</option>
+                  <option value=29>Trident</option>
+                  <option value=30>War pick</option>
+                  <option value=31>Warhammer</option>
+                  <option value=32>Whip</option>
+                  <option value=33>Blowgun</option>
+                  <option value=34>Hand Crossbow</option>
+                  <option value=35>Crossbow</option>
+                  <option value=36>Longbow</option>
+                  <option value=37>Longbow</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-md-4">
+                <div class="row">
+                  Faction:
+                </div>
+                <div class="row">
+                  <input id="factionInput" type="text" value="null">
+                </div>
+              </div>
+              <div class="col col-md-4">
+                <div class="row">
+                  Experience:
+                </div>
+                <div class="row">
+                  <input id="experienceInput" type="text" value="0" placeholder="0">
+                </div>
+              </div>
+              <div class="col col-md-4">
+                <div class="row">
+                  Inspiration:
+                </div>
+                <div class="row">
+                  <input id="inspirationInput" type="number" value="0" placeholder="0">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--#####################-Money and Gold-#####################-->
+          <div class="col col-md-3">
+            <div class="row">
+              Wealth
+            </div>
+            <div class="row">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <label for="copperInput" class="input-group-text">Copper </label>
+                  <input id="copperInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                </div>
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="silverInput">Silver </label>
+                  <input id="silverInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                </div>
+                <div class="input-group-prepend">
+                  <label for="ElectrumInput" class="input-group-text">Electrum </label>
+                  <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                </div>
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="GoldInput">Gold </label>
+                  <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                </div>
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="PlatinumInput">Platinum </label>
+                  <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--#####################-Ability Section-#####################-->
+        <div class="form-group row top-div pb-2">
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 m-0 p-0 text-right">
+                Strength <button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="strAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="strRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="strRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 m-0 p-0 text-right">
+                Dexterity<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="dexAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="dexRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="dexRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 m-0 p-0 text-right">
+                Constitution<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="conAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="conRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="conRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row top-div pb-2">
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 m-0 p-0 text-right">
+                Intelligence<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="intAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="intRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="intRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 m-0 p-0 text-right">
+                Wisdom<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="wisAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="wisRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="wisRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              <div class="col-md-5"> </div>
+              <div class="col-md-2">Ability</div>
+              <div class="col-md-2">Mod</div>
+              <div class="col-md-2">Total</div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 m-0 p-0 text-right">
+                Charisma<button type="button" class="statRoll"><i class="fas fa-dice"></i></button>
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="charAbility" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="charRollmod" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+              <div class="col-md-2 m-0 p-0">
+                <input type="number" id="charRollResult" value="0" placeholder="0" class="form-control input-sm">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--##################### Skills Section #####################-->
+        <div class="form-group row top-div p-2">
+          <!--Head-->
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col col-md-12">
+                <br>
+                <h3>Skills</h3><br>
+              </div>
+            </div>
+            <!--Skills-->
+            <div class="row">
+              <div class="col col-md-6">
+                <div>
+                  <div id="acrobatics" class="underline">Acrobatics</div>
+                  <input id="acrobaticsCheck" type="checkbox">
+                  <input id="acrobaticsInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="animalHandling" class="underline">Animal Handling</div>
+                  <input id="animalHandlingCheck" type="checkbox">
+                  <input id="animalHandlingInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="arcana" class="underline">Arcana</div>
+                  <input id="arcanaCheck" type="checkbox">
+                  <input id="arcanasInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="athletics" class="underline">Athletics</div>
+                  <input id="athleticsCheck" type="checkbox">
+                  <input id="athleticsInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="deception" class="underline">Deception</div>
+                  <input id="deceptionCheck" type="checkbox">
+                  <input id="deceptionInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <br>
+              </div>
+              <div class="col col-md-6">
+                <div>
+                  <div id="history" class="underline">History</div>
+                  <input id="historyCheck" type="checkbox">
+                  <input id="historyInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="insight" class="underline">Insight</div>
+                  <input id="insightCheck" type="checkbox">
+                  <input id="insightInput" type="number" value="0" placeholder="0" >
+                </div>
+
+                <div>
+                  <div id="intimidation" class="underline">Intimidation</div>
+                  <input id="intimidationCheck" type="checkbox">
+                  <input id="intimidationInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="investigation" class="underline">Investigation</div>
+                  <input id="investigationCheck" type="checkbox">
+                  <input id="investigationInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="medicine" class="underline">Medicine</div>
+                  <input id="medicineCheck" type="checkbox">
+                  <input id="medicineInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <br>
+              </div>
+              <div class="col col-md-6">
+                <div>
+                  <div id="nature" class="underline">Nature</div>
+                  <input id="natureCheck" type="checkbox">
+                  <input id="natureInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="perception" class="underline">Perception</div>
+                  <input id="perceptionCheck" type="checkbox">
+                  <input id="perceptionInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="performance" class="underline">Performance</div>
+                  <input id="performanceCheck" type="checkbox">
+                  <input id="performanceInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="religion" class="underline">Religion</div>
+                  <input id="religionCheck" type="checkbox">
+                  <input id="religionInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="sleightOfHand" class="underline">Sleight of Hand</div>
+                  <input id="sleightOfHandCheck" type="checkbox">
+                  <input id="sleightofHandInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <br>
+              </div>
+              <div class="col col-md-6">
+                <div>
+                  <div id="stealth" class="underline">Stealth</div>
+                  <input id="stealthCheck" type="checkbox">
+                  <input id="stealthInput" type="number" value="0" placeholder="0">
+                </div>
+
+                <div>
+                  <div id="survival" class="underline">Survival</div>
+                  <input id="survivalCheck" type="checkbox">
+                  <input id="survivalInput" type="number" value="0" placeholder="0">
+                </div>
+              </div>
+              <br>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!---  Special input fields for spells, language, equipment, and backstory-->
+        <div class="form-group row top-div p-2">
+          <div class="col-md-2"></div>
+          <div class="input-group col col-md-8">
+            <div class="form-group row">
+              <label class="input-group-text">Spells input, separate by commas please:</label>
+              <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+            </div>
+            <div class="form-group row">
+              <label class="input-group-text">Special Languages, separate by commas please:</label>
+              <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+            </div>
+            <div class="form-group row">
+              <label class="input-group-text">Equipment Input, separate by commas please:</label>
+              <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+            </div>
+            <div class="form-group row">
+              <label class="input-group-text">Backstory goes here:</label>
+              <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row p-2">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h3 id="error"></h3>
+            <button type="button" id="formSubmit" class="button-stone p-2 btnText">Submit Your Character Data</button>
+          </div>
+          <div class="col-md-4"></div>
+
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
+
+
+
+<script src="/assets/javascript/calculator.js"></script>
+<script src="/assets/javascript/characterAdd.js"></script>
