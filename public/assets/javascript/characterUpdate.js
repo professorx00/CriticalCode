@@ -308,7 +308,7 @@ $(document).ready(function () {
 
 
 
-    console.log(character);
+    console.log("update character", character);
   });
 
 
