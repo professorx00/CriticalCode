@@ -6,51 +6,27 @@ module.exports = function(sequelize, DataTypes) {
     },
     str: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     dex: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     con: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     int: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     wis: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     char: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: false
     },
     equipment: {
       type: DataTypes.JSON,
@@ -111,212 +87,109 @@ module.exports = function(sequelize, DataTypes) {
     },
     alignment: {
       type: DataTypes.STRING,
-      validate: {
-        isIn: [
-          "Lawful Good",
-          "Neutral Good",
-          "Chaotic Good",
-          "Lawful Neutral",
-          "Neutral",
-          "Chaotic Neutral",
-          "Lawful Evil",
-          "Neutral Evil",
-          "Chaotic Evil"
-        ]
-      }
+      allowNull: false
     },
     bonusLanguage: {
-      type: DataTypes.STRING
+      type: DataTypes.JSON,
+      allowNull: true
     },
     background: {
       type: DataTypes.STRING
     },
     strAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     dexAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     conAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     intAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     wisAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     charAdditional: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        min: 1,
-        max: 30
-      }
+      allowNull: true
     },
     inspiration: {
       type: DataTypes.STRING
     },
     acrobatics: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     animalHandling: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     arcana: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     athletics: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     deception: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     history: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     insight: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     intimidation: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     investigation: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     medicine: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     nature: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     perception: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     performance: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     religion: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     sleightofHand: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     stealth: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     survival: {
       type: DataTypes.INTEGER,
-      default: 0,
-      validate: {
-        min: -10,
-        max: 30
-      }
+      default: 0
     },
     imgURL: {
       type: DataTypes.STRING,

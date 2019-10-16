@@ -13,6 +13,9 @@ body {
 button.dashboardBtn{
     color: white;
 }
+div.red{
+    border: 2px red solid;
+}
 img.logo{
     max-width:600px;
 }
