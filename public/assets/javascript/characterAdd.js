@@ -117,6 +117,63 @@ $(document).ready(function() {
     }
     return error;
   }
+  function getData() {
+    character = {
+      characterName: $("#characterNameInput")
+        .val()
+        .trim(),
+      str: parseInt($("#strAbility").val()),
+      dex: parseInt($("#dexAbility").val()),
+      con: parseInt($("#conAbility").val()),
+      int: parseInt($("#intAbility").val()),
+      wis: parseInt($("#wisAbility").val()),
+      char: parseInt($("#charAbility").val()),
+      equipment: getEquipment($("#equipmentInput")),
+      skill: getskills(),
+      spells: getSpells($("#spellsInput")),
+      gold: parseInt($("#goldInput").val()),
+      copper: parseInt($("#copperInput").val()),
+      electrum: parseInt($("#electrumInput").val()),
+      silver: parseInt($("#silverInput").val()),
+      platinum: parseInt($("#platinumInput").val()),
+      experience: parseInt($("#experienceInput").val()),
+      faction: $("#factionInput"),
+      alignment: getAlignment($("#alignmentSelect").val()),
+      bonusLanguage: getLanguages($("#languagesInput")),
+      background: $("#backstoryInput").val(),
+      strAdditional: parseInt($("#strRollmod").val()),
+      dexAdditional: parseInt($("#dexRollmod").val()),
+      conAdditional: parseInt($("#conRollmod").val()),
+      intAdditional: parseInt($("#intRollmod").val()),
+      wisAdditional: parseInt($("#wisRollmod").val()),
+      charAdditional: parseInt($("#charRollmod").val()),
+      inspiration: parseInt($("inspirationInput").val()),
+      acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
+      animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
+      arcana: skillCheck(parseInt($("#arcanasInput").val())),
+      athletics: skillCheck(parseInt($("#athleticsInput").val())),
+      deception: skillCheck(parseInt($("#deceptionInput").val())),
+      history: skillCheck(parseInt($("#historyInput").val())),
+      insight: skillCheck(parseInt($("#insightInput").val())),
+      intimidation: skillCheck(parseInt($("#intimidationInput").val())),
+      investigation: skillCheck(parseInt($("#investigationInput").val())),
+      medicine: skillCheck(parseInt($("#medicineInput").val())),
+      nature: skillCheck(parseInt($("#natureInput").val())),
+      perception: skillCheck(parseInt($("#perceptionInput").val())),
+      performance: skillCheck(parseInt($("#performanceInput").val())),
+      religion: skillCheck(parseInt($("#religionInput").val())),
+      sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
+      stealth: skillCheck(parseInt($("#stealthInput").val())),
+      survival: skillCheck(parseInt($("#survivalInput").val())),
+      imgURL: fileCheck(fileInfoSubmit),
+      armorId: parseInt($("#armorSelect").val()),
+      userId: parseInt(user),
+      weaponId: parseInt($("#weaponSelect").val()),
+      raceId: parseInt($("#armorSelect").val()),
+      classId: parseInt($("#armorSelect").val())
+    };
+    return character;
+  }
 
   //Form Variables
   const user = $("#userInfo").attr("data-user");
@@ -185,61 +242,21 @@ $(document).ready(function() {
     let errors = checkFormRequirements();
     if (errors.length === 0) {
       console.log("Form Submit Button Clicked");
-      character = {
-        characterName: $("#characterNameInput")
-          .val()
-          .trim(),
-        str: parseInt($("#strAbility").val()),
-        dex: parseInt($("#dexAbility").val()),
-        con: parseInt($("#conAbility").val()),
-        int: parseInt($("#intAbility").val()),
-        wis: parseInt($("#wisAbility").val()),
-        char: parseInt($("#charAbility").val()),
-        equipment: getEquipment($("#equipmentInput")),
-        skill: getskills(),
-        spells: getSpells($("#spellsInput")),
-        gold: parseInt($("#goldInput").val()),
-        copper: parseInt($("#copperInput").val()),
-        electrum: parseInt($("#electrumInput").val()),
-        silver: parseInt($("#silverInput").val()),
-        platinum: parseInt($("#platinumInput").val()),
-        experience: parseInt($("#experienceInput").val()),
-        faction: $("#factionInput"),
-        alignment: getAlignment($("#alignmentSelect").val()),
-        bonusLanguage: getLanguages($("#languagesInput")),
-        background: $("#backstoryInput").val(),
-        strAdditional: parseInt($("#strRollmod").val()),
-        dexAdditional: parseInt($("#dexRollmod").val()),
-        conAdditional: parseInt($("#conRollmod").val()),
-        intAdditional: parseInt($("#intRollmod").val()),
-        wisAdditional: parseInt($("#wisRollmod").val()),
-        charAdditional: parseInt($("#charRollmod").val()),
-        inspiration: parseInt($("inspirationInput").val()),
-        acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
-        animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
-        arcana: skillCheck(parseInt($("#arcanasInput").val())),
-        athletics: skillCheck(parseInt($("#athleticsInput").val())),
-        deception: skillCheck(parseInt($("#deceptionInput").val())),
-        history: skillCheck(parseInt($("#historyInput").val())),
-        insight: skillCheck(parseInt($("#insightInput").val())),
-        intimidation: skillCheck(parseInt($("#intimidationInput").val())),
-        investigation: skillCheck(parseInt($("#investigationInput").val())),
-        medicine: skillCheck(parseInt($("#medicineInput").val())),
-        nature: skillCheck(parseInt($("#natureInput").val())),
-        perception: skillCheck(parseInt($("#perceptionInput").val())),
-        performance: skillCheck(parseInt($("#performanceInput").val())),
-        religion: skillCheck(parseInt($("#religionInput").val())),
-        sleightofHand: skillCheck(parseInt($("#sleightofHandInput").val())),
-        stealth: skillCheck(parseInt($("#stealthInput").val())),
-        survival: skillCheck(parseInt($("#survivalInput").val())),
-        imgURL: fileCheck(fileInfoSubmit),
-        armorId: parseInt($("#armorSelect").val()),
-        userId: parseInt(user),
-        weaponId: parseInt($("#weaponSelect").val()),
-        raceId: parseInt($("#armorSelect").val()),
-        classId: parseInt($("#armorSelect").val())
-      };
-      console.log(character);
+      let charData = getData();
+      console.log("Sending");
+      $.post("/api/addCharacter", { data: charData }, function(
+        data,
+        status,
+        xhr
+      ) {
+        $("p").append("status: " + status + ", data: " + data);
+      })
+        .done(function() {
+          alert("Request done!");
+        })
+        .fail(function(jqxhr, settings, ex) {
+          alert("failed, " + ex);
+        });
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
