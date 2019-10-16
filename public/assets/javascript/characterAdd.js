@@ -78,12 +78,94 @@ $(document).ready(function() {
     console.log(skills);
     return skills;
   }
+  function checkskills() {
+    let skillErrors = [];
+    if (!$("#acrobaticsCheck").is(":checked")) {
+      skillErrors.push("acrobatics");
+    }
+    if (!$("#animalHandlingCheck").is(":checked")) {
+      skillErrors.push("animalHandling");
+    }
+    if (!$("#arcanaCheck").is(":checked")) {
+      skillErrors.push("arcana");
+    }
+    if (!$("#athleticsCheck").is(":checked")) {
+      skillErrors.push("athletics");
+    }
+    if (!$("#deceptionCheck").is(":checked")) {
+      skillErrors.push("deception");
+    }
+    if (!$("#historyCheck").is(":checked")) {
+      skillErrors.push("history");
+    }
+    if (!$("#insightCheck").is(":checked")) {
+      skillErrors.push("insight");
+    }
+    if (!$("#intimidationCheck").is(":checked")) {
+      skillErrors.push("intimidation");
+    }
+    if (!$("#investigationCheck").is(":checked")) {
+      skillErrors.push("investigation");
+    }
+    if (!$("#medicineCheck").is(":checked")) {
+      skillErrors.push("medicine");
+    }
+    if (!$("#natureCheck").is(":checked")) {
+      skillErrors.push("nature");
+    }
+    if (!$("#perceptionCheck").is(":checked")) {
+      skillErrors.push("perception");
+    }
+    if (!$("#performanceCheck").is(":checked")) {
+      skillErrors.push("performance");
+    }
+    if (!$("#religionCheck").is(":checked")) {
+      skillErrors.push("religion");
+    }
+    if (!$("#sleightOfHandCheck").is(":checked")) {
+      skillErrors.push("sleightOfHand");
+    }
+    if (!$("#stealthCheck").is(":checked")) {
+      skillErrors.push("stealth");
+    }
+    if (!$("#survivalCheck").is(":checked")) {
+      skillErrors.push("survivalCheck");
+    }
+    if (skillErrors.length > 16) {
+      console.log(skillErrors);
+      return skillErrors;
+    } else {
+      return [];
+    }
+  }
   function skillCheck(skill) {
     if (skill === NaN) {
       return 0;
     } else {
       return skill;
     }
+  }
+  function checkStats() {
+    let errorCheck = [];
+    if (!$("#strAbility").val()) {
+      errorCheck.push("strAbility");
+    }
+    if (!$("#dexAbility").val()) {
+      errorCheck.push("dexAbility");
+    }
+    if (!$("#conAbility").val()) {
+      errorCheck.push("conAbility");
+    }
+    if (!$("#intAbility").val()) {
+      errorCheck.push("intAbility");
+    }
+    if (!$("#wisAbility").val()) {
+      errorCheck.push("wisAbility");
+    }
+    if (!$("#charAbility").val()) {
+      errorCheck.push("charAbility");
+    }
+    return errorCheck;
   }
   function fileCheck(fileUrl) {
     if (!fileUrl) {
@@ -93,6 +175,8 @@ $(document).ready(function() {
   }
   function checkFormRequirements() {
     let error = [];
+    let skillCheck;
+    let statCheck;
     console.log(typeof $("#raceSelect").val());
     if (
       $("#characterNameInput").val() === "" ||
@@ -114,6 +198,18 @@ $(document).ready(function() {
     }
     if ($("#alignmentSelect").val() === "null") {
       error.push("alignment");
+    }
+    skillCheck = checkskills();
+    if (skillCheck.length > 0) {
+      skillCheck.forEach(element => {
+        error.push(element);
+      });
+    }
+    statCheck = checkStats();
+    if (statCheck.length > 0) {
+      statCheck.forEach(element => {
+        error.push(element);
+      });
     }
     return error;
   }
@@ -169,8 +265,8 @@ $(document).ready(function() {
       armorId: parseInt($("#armorSelect").val()),
       userId: parseInt($("#userInfo").attr("data-user")),
       weaponId: parseInt($("#weaponSelect").val()),
-      raceId: parseInt($("#armorSelect").val()),
-      classId: parseInt($("#armorSelect").val())
+      raceId: parseInt($("#raceSelect").val()),
+      classId: parseInt($("#classSelect").val())
     };
     console.log("user: " + parseInt($("#userInfo").attr("data-user")));
     console.log("armor: " + parseInt($("#armorSelect").val()));
@@ -251,16 +347,9 @@ $(document).ready(function() {
       let charData = getData();
       console.log("Sending");
       $.post("/api/addCharacter", charData, function(data, status, xhr) {
-        console.log(data);
         console.log(status);
-        console.log(xhr);
-      })
-        .done(function() {
-          alert("Request done!");
-        })
-        .fail(function(jqxhr, settings, ex) {
-          alert("failed, " + ex);
-        });
+        document.location.href("/dashboard");
+      });
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
