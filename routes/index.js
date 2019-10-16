@@ -36,6 +36,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
           class: element.class
         };
         characters.push(obj);
+        console.log(element)
       });
       userInfo.characters = characters;
       console.log(userInfo)
