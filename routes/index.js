@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 //Dashboard
-
+//mooooooo!
 router.get("/dashboard", ensureAuthenticated, (req, res) => {
   console.log("Going to Dashboard");
   db.character
