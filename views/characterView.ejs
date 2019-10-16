@@ -1,6 +1,7 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
 <div class="container" id="characterInfo" data-user="<%= user%>" data-char="<%= char %>">
+    <%= user %> <%= char %>
     <div class=" row header justify-content-center">
         <div class="col col-md-2"></div>
         <div class="col-md-7">
@@ -23,9 +24,9 @@
     <div class="row img-div">
         <div class="col col-sm-12 col-md-6 text-center">
             <!-- Image URL to put in pic of character -->
-            <img src="/assets/images/default.png" alt="" class="imgLogo">
+            <img src="/assets/images/default.png" alt="" id="profilePic" class="imgLogo">
         </div>
-        <div class="col col-sm-12 col-md-6 text-center">
+        <div class="col col-sm-12 col-md-6 text-center sm-low-div">
             <br>
             <h3 id="characterName"></h3>
             <h3>Character Name</h3>
@@ -60,7 +61,7 @@
                     </div>
                 </div><br>
             </div>
-         
+
         </div>
         <!--Character Information-->
         <div class="col col-md-8 stats-div">
@@ -69,7 +70,7 @@
                     <div><span id="className"></span></div>Class
                 </div>
                 <div class="col col-md-3">
-                    <div><span id="background"></span></div>Background
+                    <div><span id="level">0</span></div>Level
                 </div>
                 <div class="col col-md-3">
                     <div><span id="player"></span></div>Player Name
@@ -89,8 +90,8 @@
                     <div><span id="experience"></span></div>Experience
                 </div>
                 <div class="col col-md-3">
-                        <div><span id="language"></span></div>Languages
-                    </div>
+                    <div><span id="language"></span></div>Languages
+                </div>
             </div>
             <div class="row">
                 <div class="col col-md-4">
@@ -124,14 +125,18 @@
                     </div>
                     <br>
                     <div class="col col-md-12">
-                            <div  class="row m-0 p-2">
-                                <div class="small-low-div p-1" id="weaponPro">Weapon Proficiency:<hr class="p-0 m-0"></div>
+                        <div class="row m-0 p-2">
+                            <div class="small-low-div p-1" id="weaponPro">Weapon Proficiency:
+                                <hr class="p-0 m-0">
                             </div>
+                        </div>
                     </div>
                     <div class="col col-md-12">
-                            <div  class="row m-0 p-2">
-                                    <div class="small-low-div p-1" id="armorPro">Armor Proficiency:<hr class="p-0 m-0"></div>
-                                </div>
+                        <div class="row m-0 p-2">
+                            <div class="small-low-div p-1" id="armorPro">Armor Proficiency:
+                                <hr class="p-0 m-0">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -143,108 +148,132 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col col-md-11 mb-3">
+                            <div class="row">
+                                <div class="col-md-6 text-left">
+                                    <div class="p-1"><input type="checkbox" id="acrobaticsCheck" disabled ><span id="acrobatics"
+                                            class="skillBorder p-1">0</span><span id="acrobaticsTitle">Acrobatics</span></div>
+                                    <div class="p-1"><input type="checkbox" id="animalHandlingCheck" disabled ><span
+                                            id="animalHandling" class="skillBorder p-1">0</span><span id="animalHandlingTitle">Animal Handling</span></div>
+                                    <div class="p-1"><input type="checkbox" id="arcanaCheck" disabled ><span id="arcana"
+                                            class="skillBorder p-1">0</span><span id="arcanaTitle">Arcana</span></div>
+                                    <div class="p-1"><input type="checkbox" id="athleticsCheck" disabled ><span id="athletics"
+                                            class="skillBorder p-1">0</span><span id="athleticsTitle">Athletics</span></div>
+                                    <div class="p-1"><input type="checkbox" id="deceptionCheck" disabled ><span id="deception"
+                                            class="skillBorder p-1">0</span><span id="deceptionTitle">Deception</span> </div>
+                                    <div class="p-1"><input type="checkbox" id="perceptionCheck" disabled ><span id="perception"
+                                            class="skillBorder p-1">0</span><span id="perceptionTitle">Perception</span></div>
+                                    <div class="p-1"><input type="checkbox" id="performanceCheck" disabled ><span id="performance"
+                                            class="skillBorder p-1">0</span><span id="performanceTitle">Performance</span></div>
+                                    <div class="p-1"><input type="checkbox" id="religionCheck" disabled ><span id="religion"
+                                            class="skillBorder p-1">0</span><span id="religionTitle">Religion</span></div>
+                                </div>
+                                <div class="col-md-6 text-left">
+                                    <div class="p-1"><input type="checkbox" id="historyCheck" disabled ><span id="history"
+                                            class="skillBorder p-1">0</span><span id="historyTitle">History</span></div>
+                                    <div class="p-1"><input type="checkbox" id="insightCheck" disabled ><span id="insight"
+                                            class="skillBorder p-1">0</span><span id="insightTitle">Insight</span></div>
+                                    <div class="p-1"><input type="checkbox" id="intimidationCheck" disabled ><span
+                                            id="intimidation" class="skillBorder p-1">0</span><span id="intimidationTitle">Intimidation</span></div>
+                                    <div class="p-1"><input type="checkbox" id="investigationCheck" disabled ><span
+                                            id="investigation" class="skillBorder p-1">0</span><span id="investigationTitle">Investigation</span></div>
+                                    <div class="p-1"><input type="checkbox" id="medicineCheck" disabled ><span id="medicine"
+                                            class="skillBorder p-1">0</span><span id="medicineTitle">Medicine</span></div>
+                                    <div class="p-1"><input type="checkbox" id="natureCheck" disabled ><span id="nature"
+                                            class="skillBorder p-1">0</span><span id="natureTitle">Nature</span></div>
+                                    <div class="p-1"><input type="checkbox" id="sleightOfHandCheck" disabled ><span
+                                            id="sleightOfHand" class="skillBorder p-1">0</span><span id="sleightOfHandCheckTitle">Sleight of Hand</span></div>
+                                    <div class="p-1"><input type="checkbox" id="stealthCheck" disabled ><span id="stealth"
+                                            class="skillBorder p-1">0</span><span id="stealthTitle">Stealth</span></div>
+                                    <div class="p-1"><input type="checkbox" id="survivalCheck" disabled ><span id="survival"
+                                            class="skillBorder p-1">0</span><span id="survivalTitle">Survival</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col col-md-6">
-                            <div>
-                                <div id="acrobatics" class="underline">number</div>Acrobatics
+                            <div class="top-div">
+                                <div id="proficiencyBonus"></div>
+                                Proficiency Bonus
                             </div>
-                            <div>
-                                <div id="animalHandling" class="underline">number</div>Animal Handling
-                            </div>
-                            <div>
-                                <div id="arcana" class="underline">number</div>Arcana
-                            </div>
-                            <div>
-                                <div id="athletics" class="underline">number</div>Athletics
-                            </div>
-                            <div>
-                                <div id="deception" class="underline">number</div>Deception
-                            </div>
-                            <div>
-                                <div id="history" class="underline">number</div>History
-                            </div>
-                            <div>
-                                <div id="insight" class="underline">number</div>Insight
-                            </div>
-                            <div>
-                                <div id="intimidation" class="underline">number</div>Intimidation
-                            </div>
-                            <div>
-                                <div id="investigation" class="underline">number</div>Investigation
-                            </div>
-                            <br>
                         </div>
                         <div class="col col-md-6">
-                            <div>
-                                <div id="medicine" class="underline">number</div>Medicine
+                            <div class="top-div">
+                                <div id="inspiration"></div>
+                                Inspiration
                             </div>
-                            <div>
-                                <div id="nature" class="underline">number</div>Nature
+                        </div>
+                    </div>
+                    <div class="col col-md-12">
+                        <div class="row">
+                            <div class="col col-md-4 mid-div">
+                                <div id="armor"> </div>Armor Class
                             </div>
-                            <div>
-                                <div id="perception" class="underline">number</div>Perception
+                            <div class="col col-md-4 mid-div">
+                                <div id="initiative"></div>Initiative
                             </div>
-                            <div>
-                                <div id="performance" class="underline">number</div>Performance
+                            <div class="col col-md-4 mid-div">
+                                <div id="speed"></div>Speed
                             </div>
-                            <div>
-                                <div id="religion" class="underline">number</div>Religion
-                            </div>
-                            <div>
-                                <div id="sleightOfHand" class="underline">number</div>Sleight of Hand
-                            </div>
-                            <div>
-                                <div id="stealth" class="underline">number</div>Stealth
-                            </div>
-                            <div>
-                                <div id="survival" class="underline">number</div>Survival
-                            </div>
-                            <br>
+                        </div>
+                        <div class="row top-div">
+                            <div class="col-md-6">Hit Points: <span id="hitPoints"></span></div>
+                            <div class="col-md-6">Hit Die: <span id="hitDice">1d</span></div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row">
-                <div class="col col-md-6">
-                    <div class="top-div">
-                        <div id="proficiencyBonus"></div>
-                        Proficiency Bonus
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12 sm-low-div">
+                            <div class="row p-1 m-1">
+                                <div id="wealth">Wealth: </div>
+                            </div>
+                            <div class="row p-1 m-1">
+                                <div class="col-md-2">
+                                    <div class="row">Gold</div>
+                                    <div class="row" id="gold">Money</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">Copper</div>
+                                    <div class="row" id="copper">Money</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">Electrum</div>
+                                    <div class="row" id="electrum">Money</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">Silver</div>
+                                    <div class="row" id="silver">Money</div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">Platinum</div>
+                                    <div class="row" id="platinum">Money</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col col-md-6">
-                    <div class="top-div">
-                        <div id="inspiration"></div>
-                        Inspiration
+                    <div class="row">
+                        <div class="col col-md-12 low-div">
+                            <div>Equipment:<br> <span id="equipment"></span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-12 low-div">
+                            <div>Spells: <br><span id="spells"></span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-md-12 low-div">
+                            <div>BackStory:<br> <span id="backstory"></span></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col col-md-12">
-                <div class="row">
-                    <div class="col col-md-4 mid-div">
-                        <div id="armor"> </div>Armor Class
-                    </div>
-                    <div class="col col-md-4 mid-div">
-                        <div id="initiative"></div>Initiative
-                    </div>
-                    <div class="col col-md-4 mid-div">
-                        <div id="speed"></div>Speed
-                    </div>
-                </div>
-                <div class="row top-div">
-                    <div class="col-md-6">Hit Points: <span id="hitPoints"></span></div>
-                    <div class="col-md-6">Hit Die: <span id="hitDice">1d</span></div>
-                </div>
-                <div class="row">
-                    <div class="col col-md-12 low-div">
-                        <div id="wealth">Starting Wealth: </div>
-                        <div >Equipment: <span id="equipment"></span></div>
-                    </div>
-                </div>
-                <div class="row">
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
-</div>
-<script src="/assets/javascript/calculator.js"></script>
-<script src="/assets/javascript/characterView.js"></script>
+            <script src="/assets/javascript/calculator.js"></script>
+            <script src="/assets/javascript/characterView.js"></script>
