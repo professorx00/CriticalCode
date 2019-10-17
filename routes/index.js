@@ -187,7 +187,7 @@ router.get("/randomName/female/:offset?", (req, res) => {
     });
 });
 
-router.get("/randomName/:offset?", (req, res) => {
+router.get("/randomName/either/:offset?", (req, res) => {
   let offsetNum = 0;
   if (!req.params.offset) {
     offsetNum = Math.floor(Math.random() * Math.floor(Math.random() * 800));

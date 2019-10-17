@@ -385,9 +385,7 @@ $(document).ready(function() {
       let charData = getData();
       console.log("Sending");
       $.post(`/api/updateCharacter/${user}/${char}`, charData, function(
-        data,
-        status,
-        xhr
+        status
       ) {
         console.log(status);
       }).then(() =>
@@ -413,10 +411,17 @@ $(document).ready(function() {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     let rollSum = [];
     let exportRolls;
-    if (this.value === "strength" || "dexterity" || "constitution" || "intelligence" || "wisdom" || "charisma") {
+    if (
+      this.value === "strength" ||
+      "dexterity" ||
+      "constitution" ||
+      "intelligence" ||
+      "wisdom" ||
+      "charisma"
+    ) {
       for (i = 0; i < 4; i++) {
         let roll = Math.floor(Math.random() * 6 + 1);
         rollSum.push(roll);
