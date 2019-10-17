@@ -5,23 +5,32 @@ $(document).ready(function() {
   function getEquipment(equip) {
     console.log(equip.val());
     let equipArray = equip.val().split(",");
-    let equipObj = { equipment: equipArray };
+    let equipObj = {
+      equipment: equipArray
+    };
     return equipObj;
   }
+
   function getSpells(spells) {
     let spellsArray = spells.val().split(",");
-    let spellsObj = { spells: spellsArray };
+    let spellsObj = {
+      spells: spellsArray
+    };
     return spellsObj;
   }
+
   function getLanguages(lang) {
     let langArray = lang.val().split(",");
-    let langObj = { language: langArray };
+    let langObj = {
+      language: langArray
+    };
     return langObj;
   }
 
   function getAlignment(align) {
     return align.replace(/-/g, " ");
   }
+
   function getskills() {
     let skills = [];
     if ($("#acrobaticsCheck").is(":checked")) {
@@ -78,6 +87,7 @@ $(document).ready(function() {
     console.log(skills);
     return skills;
   }
+
   function checkskills() {
     let skillErrors = [];
     if (!$("#acrobaticsCheck").is(":checked")) {
@@ -138,6 +148,7 @@ $(document).ready(function() {
       return [];
     }
   }
+
   function skillCheck(skill) {
     if (skill === NaN) {
       return 0;
@@ -145,6 +156,7 @@ $(document).ready(function() {
       return skill;
     }
   }
+
   function checkStats() {
     let errorCheck = [];
     if (!$("#strAbility").val()) {
@@ -167,12 +179,14 @@ $(document).ready(function() {
     }
     return errorCheck;
   }
+
   function fileCheck(fileUrl) {
     if (!fileUrl) {
       fileUrl = "/assets/images/default.png";
     }
     return fileUrl;
   }
+
   function checkFormRequirements() {
     let error = [];
     let skillCheck;
@@ -213,6 +227,7 @@ $(document).ready(function() {
     }
     return error;
   }
+
   function getData() {
     character = {
       characterName: $("#characterNameInput")
@@ -348,7 +363,9 @@ $(document).ready(function() {
       console.log("Sending");
       $.post("/api/addCharacter", charData, function(data, status, xhr) {
         console.log(status);
-      }).then(setTimeout((document.location.href = "/dashboard"), 1000));
+      }).then(() => {
+        window.location.assign("/dashboard");
+      });
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
@@ -364,4 +381,28 @@ $(document).ready(function() {
     document.location.href = "/dashboard";
   });
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
+
+  //Dice roll for stats
+  $(".statRoll").on("click", function() {
+    var rollSum = [];
+    var exportRolls = [];
+    for (i = 0; i < 3; i++) {
+      for (j = 0; j < 4; j++) {
+        var roll = Math.floor(Math.random() * 6 + 1);
+        rollSum.push(roll);
+      }
+      rollSum.sort();
+      exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
+      rollSum = [];
+    }
+    $(`#${this.value}Abil`)
+      .attr("value", exportRolls[0])
+      .attr("id", "disabled");
+    $(`#${this.value}Mod`)
+      .attr("value", exportRolls[1])
+      .attr("id", "disabled");
+    $(`#${this.value}Total`)
+      .attr("value", exportRolls[2])
+      .attr("id", "disabled");
+  });
 });

@@ -71,13 +71,11 @@ $(document).ready(function () {
         if (i < lang.length - 1) {
           console.log(lang[i]);
           $("#language").text(lang[i] + ",");
-        }
-        else {
+        } else {
           $("#language").text(lang[i]);
         }
       }
-    }
-    else {
+    } else {
       $("#language").append("None");
     }
   };
@@ -87,13 +85,11 @@ $(document).ready(function () {
       for (let i = 0; i < equip.length; i++) {
         if (i < equip.length - 1) {
           $("#equipment").text(equip[i] + ",");
-        }
-        else {
+        } else {
           $("#equipment").text(equip[i]);
         }
       }
-    }
-    else {
+    } else {
       $("#equipment").append("None");
     }
   };
@@ -103,13 +99,11 @@ $(document).ready(function () {
       for (let i = 0; i < spells.length; i++) {
         if (i < spells.length - 1) {
           $("#spells").append(spells[i]).append(",");
-        }
-        else {
+        } else {
           $("#spells").append(spells[i]);
         }
       }
-    }
-    else {
+    } else {
       $("#spells").append("None");
     }
   };
@@ -238,7 +232,7 @@ $(document).ready(function () {
   $.ajax(`/api/user/${user}/${char}`).then(data => {
     let character = data[0];
     console.log(character);
-    $("#profilePic").attr("src",character.imgURL);
+    $("#profilePic").attr("src", character.imgURL);
     // eslint-disable-next-line prettier/prettier
     let abilityMods = calculateStatBlock(character.str, character.dex, character.con, character.int, character.wis, character.char);
     strength.append(character.str);

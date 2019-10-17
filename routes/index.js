@@ -8,7 +8,7 @@ const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
-  res.render("login", {});
+  res.render("welcome", {});
 });
 
 //Dashboard
@@ -42,18 +42,23 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
+        console.log("dashboard is rendering");
         res.render("dashboard", userInfo);
       } else {
+        console.log("dashboard is rendering");
         res.render("dashboard", userInfo);
       }
     });
 });
 router.get("/log/:user/:charID", (req, res) => {
-  console.log("Displaying Character Information")
+  console.log("Displaying Character Information");
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
-    let data = { user: user, char: char };
+    let data = {
+      user: user,
+      char: char
+    };
     console.log("user found");
     res.render("characterView", data);
   } else {
@@ -68,7 +73,9 @@ router.get("/add/:user", ensureAuthenticated, (req, res) => {
   console.log("Going to Add New Character Screen");
   let user = req.params.user;
   if (user) {
-    let data = { user: user };
+    let data = {
+      user: user
+    };
     res.render("characterAdd", data);
   }
 });
@@ -84,7 +91,11 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
           userid: user,
           id: char
         },
-        include: [{ all: true }]
+        include: [
+          {
+            all: true
+          }
+        ]
       })
       .then(result => {
         console.log(result.dataValues);
@@ -99,7 +110,8 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
         };
         console.log("user found, character found");
         res.render("characterUpdate", data);
-      }).catch((err)=>{
+      })
+      .catch(err => {
         console.log(err);
       });
   } else {
@@ -107,7 +119,7 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   }
 });
 router.get("/delete/:user/:char", ensureAuthenticated, (req, res) => {
-  ("Deleting character")
+  ("Deleting character");
   let user = req.params.user;
   let char = req.params.char;
   console.log("removing" + user + " " + char);
@@ -135,7 +147,9 @@ router.get("/randomName/male/:offset?", (req, res) => {
   };
   db.characterName
     .findAll({
-      where: { gender: "Male" },
+      where: {
+        gender: "Male"
+      },
       offset: offsetNum,
       limit: 10
     })
@@ -158,7 +172,9 @@ router.get("/randomName/female/:offset?", (req, res) => {
   };
   db.characterName
     .findAll({
-      where: { gender: "Female" },
+      where: {
+        gender: "Female"
+      },
       offset: offsetNum,
       limit: 10
     })
