@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   $("#newCharacterBtn").on("click", function (event) {
     event.preventDefault();
     console.log(event.target);
@@ -42,17 +41,15 @@ $(document).ready(function () {
   $("#remove").on("click", function (event) {
     console.log("removal Button Click");
     const target = $(event.target);
-    console.log(target)
+    console.log(target);
     const char = target.attr("data-charid");
     const user = target.attr("data-id");
     console.log(user, char);
     $.get(`/delete/${user}/${char}`, (data, status) => {
       console.log("Deleted!");
       $("#deleteModal").modal("hide");
-      if (status === 200) {
-        document.location.href("/dashboard");
-        console.log("success");
-      }
+    }).then(() => {
+      window.location.assign("/dashboard");
     });
   });
 

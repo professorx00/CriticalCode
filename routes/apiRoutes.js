@@ -212,8 +212,8 @@ routes.post("/addCharacter", (req, res) => {
       classId: character.classId,
       userId: character.userId
     })
-    .then(data => {
-      res.status(200);
+    .then(() => {
+      return res.redirect("/dashboard")
     })
     .catch(err => {
       res.status(500).send("server error");
