@@ -53,7 +53,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     });
 });
 router.get("/log/:user/:charID", (req, res) => {
-  console.log("Displaying Character Information")
+  console.log("Displaying Character Information");
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
@@ -118,7 +118,7 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   }
 });
 router.get("/delete/:user/:char", ensureAuthenticated, (req, res) => {
-  ("Deleting character")
+  ("Deleting character");
   let user = req.params.user;
   let char = req.params.char;
   console.log("removing" + user + " " + char);
