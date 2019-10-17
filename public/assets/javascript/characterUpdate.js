@@ -412,17 +412,19 @@ $(document).ready(function () {
 
   //Dice roll for stats
   $(".statRoll").on("click", function () {
-
-    var diceRolls = [];
-    for (i = 0; i < 4; i++) {
-      var roll = Math.floor(Math.random() * 6 + 1);
-      diceRolls.push(roll);
+    var rollSum = [];
+    var exportRolls = [];
+    for (i = 0; i < 3; i++) {
+      for (j = 0; j < 4; j++) {
+        var roll = Math.floor(Math.random() * 6 + 1);
+        rollSum.push(roll);
+      }
+      rollSum.sort();
+      exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
+      rollSum = [];
     }
-    diceRolls.sort()
-    console.log(diceRolls);
-
-    $(`#${this.value}Abil`).attr("value", diceRolls[1]).attr("id", "disabled");
-    $(`#${this.value}Mod`).attr("value", diceRolls[2]).attr("id", "disabled");
-    $(`#${this.value}Total`).attr("value", diceRolls[3]).attr("id", "disabled");
+    $(`#${this.value}Abil`).attr("value", exportRolls[0]).attr("id", "disabled");
+    $(`#${this.value}Mod`).attr("value", exportRolls[1]).attr("id", "disabled");
+    $(`#${this.value}Total`).attr("value", exportRolls[2]).attr("id", "disabled");
   });
 });
