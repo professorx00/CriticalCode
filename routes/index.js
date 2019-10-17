@@ -44,8 +44,10 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
+        console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       } else {
+        console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       }
     });
