@@ -1,5 +1,9 @@
 $(document).ready(function() {
+  //enables the popovers
+  $("#randomNameBtn").popover(options);
+  $(".statRoll").popover(options);
   //DataInfo:
+
   function getEquipment(equip) {
     console.log(equip.val());
     let equipArray = equip.val().split(",");
@@ -432,5 +436,49 @@ $(document).ready(function() {
       $(`#${this.value}Abil`).attr("value", exportRolls);
       $(this).attr("value", "disabled");
     }
+  });
+
+  //Name Generator
+  $("#randomNameBtn").on("click", event => {
+    console.log("Random Button");
+    event.preventDefault();
+    $("#randomModal").modal();
+    $("#randomModal").modal("show");
+  });
+
+  $("#chooseName").on("click", event => {
+    event.preventDefault();
+    let radio = $("[name = 'genderOptions']");
+    for (let x = 0; x < radio.length; x++) {
+      if (radio[x].checked) {
+        let value = $(radio[x]).attr("value");
+        $.get(`/randomName/${value}`).then(data => {
+          console.log(data);
+          Object.keys(data).forEach(key => {
+            if (key !== "offset") {
+              let option = $("<option>")
+                .attr("value", data[key])
+                .text(data[key]);
+              $("#nameSelect")
+                .append(option)
+                .removeClass("hide");
+            }
+          });
+          $("#chooseName").addClass("hide");
+          $("#options").addClass("hide");
+          $("#keepName").removeClass("hide");
+        });
+      }
+    }
+  });
+
+  $("#keepName").on("click", event => {
+    event.preventDefault();
+    $("#characterNameInput").text($("#nameSelect").val());
+    $("#randomModal").modal("hide");
+    $("#chooseName").removeClass("hide");
+    $("#options").removeClass("hide");
+    $("#keepName").addClass("hide");
+    $("#nameSelect").addClass("hide");
   });
 });
