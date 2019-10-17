@@ -1,5 +1,9 @@
 $(document).ready(function() {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
+  //enable popovers for random
+
+  $("#randomNameBtn").popover(options);
+  $(".statRoll").popover(options);
 
   //DataInfo:
   function getEquipment(equip) {
@@ -91,7 +95,7 @@ $(document).ready(function() {
   function checkskills() {
     let skillErrors = [];
     if (!$("#acrobaticsCheck").is(":checked")) {
-      skillErrors.push("acrobatics");
+      skillErrors.push(["acrobatics"]);
     }
     if (!$("#animalHandlingCheck").is(":checked")) {
       skillErrors.push("animalHandling");
@@ -143,6 +147,13 @@ $(document).ready(function() {
     }
     if (skillErrors.length > 16) {
       console.log(skillErrors);
+
+      let skills = [
+        "skillTitle",
+        "Please Enter assign at least 1 Skill by checking the checkbox "
+      ];
+      skillErrors = [];
+      skillErrors.push(skills);
       return skillErrors;
     } else {
       return [];
@@ -159,24 +170,31 @@ $(document).ready(function() {
 
   function checkStats() {
     let errorCheck = [];
-    if (!$("#strAbility").val()) {
-      errorCheck.push("strAbility");
+    if (!$("#strengthAbil").val()) {
+      errorCheck.push(["strengthAbil", "Please Enter a proper Strength"]);
     }
-    if (!$("#dexAbility").val()) {
-      errorCheck.push("dexAbility");
+    if (!$("#dexterityAbil").val()) {
+      errorCheck.push(["dexterityAbil", "Please Enter a proper dexterity"]);
     }
-    if (!$("#conAbility").val()) {
-      errorCheck.push("conAbility");
+    if (!$("#constitutionAbil").val()) {
+      errorCheck.push([
+        "constitutionAbil",
+        "Please Enter a proper constitution"
+      ]);
     }
-    if (!$("#intAbility").val()) {
-      errorCheck.push("intAbility");
+    if (!$("#intelligenceAbil").val()) {
+      errorCheck.push([
+        "intelligenceAbil",
+        "Please Enter a proper intelligence"
+      ]);
     }
-    if (!$("#wisAbility").val()) {
-      errorCheck.push("wisAbility");
+    if (!$("#wisdomAbil").val()) {
+      errorCheck.push(["wisdomAbil", "Please Enter a proper wisdom"]);
     }
-    if (!$("#charAbility").val()) {
-      errorCheck.push("charAbility");
+    if (!$("#charismaAbil").val()) {
+      errorCheck.push(["charismaAbil", "Please Enter a proper charisma"]);
     }
+
     return errorCheck;
   }
 
@@ -191,27 +209,29 @@ $(document).ready(function() {
     let error = [];
     let skillCheck;
     let statCheck;
-    console.log(typeof $("#raceSelect").val());
-    if (
-      $("#characterNameInput").val() === "" ||
-      $("#characterNameInput").val() === "Mighty Moose"
-    ) {
-      error.push("characterLabel");
+    if ($("#characterNameInput").val() === "") {
+      console.log("Character Name Error " + $("#characterNameInput").val());
+      error.push(["characterLabel", "Please Check the Name is there"]);
     }
     if ($("#raceSelect").val() === "99") {
-      error.push("race");
+      console.log("Issue with the Race " + $("#raceSelect").val());
+      error.push(["race", "Please Check the Race Section."]);
     }
     if ($("#armorSelect").val() === "99") {
-      error.push("armor");
+      console.log("Issue with the Armor " + $("#armorSelect").val());
+      error.push(["armor", "Please Check the Armor Section."]);
     }
     if ($("#weaponSelect").val() === "99") {
-      error.push("weapon");
+      console.log("Issue with the Weapon " + $("#weaponSelect").val());
+      error.push(["weapon", "Please Check the Weapon Section."]);
     }
     if ($("#classSelect").val() === "99") {
-      error.push("className");
+      console.log("Issue with the Class " + $("#classSelect").val());
+      error.push(["class", "Please Check the class Section."]);
     }
     if ($("#alignmentSelect").val() === "null") {
-      error.push("alignment");
+      console.log("Issue with the Alignment " + $("#alignmentSelect").val());
+      error.push(["alignment", "Please Check the alignment Section."]);
     }
     skillCheck = checkskills();
     if (skillCheck.length > 0) {
@@ -368,11 +388,13 @@ $(document).ready(function() {
       });
     } else {
       errors.forEach(element => {
-        $(`#${element}`).addClass("error");
+        console.log(element);
+        $(`#${element[0]}`).addClass("error");
+        $("#error")
+          .append(element[1])
+          .addClass("error")
+          .append("<br>");
       });
-      $("#error")
-        .append("Please check your answers")
-        .addClass("error");
     }
   });
 
@@ -383,10 +405,17 @@ $(document).ready(function() {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     let rollSum = [];
     let exportRolls;
-    if (this.value === "strength" || "dexterity" || "constitution" || "intelligence" || "wisdom" || "charisma") {
+    if (
+      this.value === "strength" ||
+      "dexterity" ||
+      "constitution" ||
+      "intelligence" ||
+      "wisdom" ||
+      "charisma"
+    ) {
       for (i = 0; i < 4; i++) {
         let roll = Math.floor(Math.random() * 6 + 1);
         rollSum.push(roll);
@@ -397,5 +426,44 @@ $(document).ready(function() {
       $(`#${this.value}Abil`).attr("value", exportRolls);
       $(this).attr("value", "disabled");
     }
+  });
+
+  $("#randomNameBtn").on("click", event => {
+    $("#randomModal").modal();
+    $("#randomModal").modal("show");
+  });
+
+  $("#chooseName").on("click", event => {
+    let radio = $("[name = 'genderOptions']");
+    for (let x = 0; x < radio.length; x++) {
+      if (radio[x].checked) {
+        let value = $(radio[x]).attr("value");
+        $.get(`/randomName/${value}`).then(data => {
+          console.log(data);
+          Object.keys(data).forEach(key => {
+            if (key !== "offset") {
+              let option = $("<option>")
+                .attr("value", data[key])
+                .text(data[key]);
+              $("#nameSelect")
+                .append(option)
+                .removeClass("hide");
+            }
+          });
+          $("#chooseName").addClass("hide");
+          $("#options").addClass("hide");
+          $("#keepName").removeClass("hide");
+        });
+      }
+    }
+  });
+
+  $("#keepName").on("click", event => {
+    $("#characterNameInput").text($("#nameSelect").val());
+    $("#randomModal").modal("hide");
+    $("#chooseName").removeClass("hide");
+    $("#options").removeClass("hide");
+    $("#keepName").addClass("hide");
+    $("#nameSelect").addClass("hide");
   });
 });

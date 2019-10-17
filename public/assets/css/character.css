@@ -5,6 +5,9 @@
 .skillBorder{
     border: black solid 1px;
 }
+.hide{
+    display:none;
+}
 .stats-div,
 .img-div {
     background: url("../../assets/images/paper.jpg") !important;

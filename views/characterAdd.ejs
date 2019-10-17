@@ -1,7 +1,48 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
 <button data-user="<%=user%>" id="userInfo" class="hide"></button>
-<!--Keep the data-user in this container need for suppling database-->
+<!--Keep the data-user in this button need for suppling database-->
+<!--This is for the random Generator-->
+<div class="modal" tabindex="-1" role="dialog" id="randomModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Please Choose Female Male or Either</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body sm-low-div" >
+        <form>
+          <div id="options">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genderOptions" id="female" value="female">
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genderOptions" id="male" value="male">
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="genderOptions" id="either" value="either">
+              <label class="form-check-label" for="either">Either</label>
+            </div>
+          </div>
+        </form>
+        <form id="names">
+            <select class="form-control hide" id="nameSelect">
+                <option>Choose A Name</option>
+            </select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn button-stone" id="chooseName">Generate Names</button>
+        <button type="button" class="btn button-stone hide" id="keepName">Choose Character</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <!--Header -->
@@ -45,7 +86,7 @@
                 </div>
                 <textarea id="characterNameInput" class="form-control" aria-label="With textarea"
                   value="Monty Moose"></textarea>
-                <button class="btn btn-warning" type="button" id="randomNameBtn"><i class="fas fa-dice"></i></button>
+                <button class="btn btn-warning" type="button" id="randomNameBtn" data-toggle="popover" data-trigger="hover" data-content="Random Name Generator"><i class="fas fa-dice"></i></button>
               </div>
               <div class="input-group-append">
                 <div class="custom-file col-md-12">
@@ -293,7 +334,7 @@
         </div>
         <div class="row">
           <div class="col-md-5 m-0 p-0 text-right">
-            Strength <button type="button" class="statRoll" value="strength"><i class="fas fa-dice"></i></button>
+            Strength <button type="button" class="statRoll" value="strength" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="strengthAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -315,7 +356,7 @@
         </div>
         <div class="row">
           <div class="col-md-5 m-0 p-0 text-right">
-            Dexterity<button type="button" class="statRoll" value="dexterity"><i class="fas fa-dice"></i></button>
+            Dexterity<button type="button" class="statRoll" value="dexterity" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="dexterityAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -337,7 +378,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 m-0 p-0 text-right">
-            Constitution<button type="button" class="statRoll" value="constitution"><i class="fas fa-dice"></i></button>
+            Constitution<button type="button" class="statRoll" value="constitution" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="constitutionAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -361,7 +402,7 @@
         </div>
         <div class="row">
           <div class="col-md-5 m-0 p-0 text-right">
-            Intelligence<button type="button" class="statRoll" value="intelligence"><i class="fas fa-dice"></i></button>
+            Intelligence<button type="button" class="statRoll" value="intelligence" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="intelligenceAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -383,7 +424,7 @@
         </div>
         <div class="row">
           <div class="col-md-5 m-0 p-0 text-right">
-            Wisdom<button type="button" class="statRoll" value="wisdom"><i class="fas fa-dice"></i></button>
+            Wisdom<button type="button" class="statRoll" value="wisdom" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="wisdomAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -405,7 +446,7 @@
         </div>
         <div class="row">
           <div class="col-md-5 m-0 p-0 text-right">
-            Charisma<button type="button" class="statRoll" value="charisma"><i class="fas fa-dice"></i></button>
+            Charisma<button type="button" class="statRoll" value="charisma" data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i class="fas fa-dice"></i></button>
           </div>
           <div class="col-md-2 m-0 p-0">
             <input type="number" id="charismaAbil" value="0" placeholder="0" class="form-control input-sm">
@@ -427,7 +468,7 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col col-md-12">
-            <h3>Skills</h3><br>
+            <h3 id="skillTitle">Skills</h3><br>
           </div>
         </div>
         <!--Skills-->
