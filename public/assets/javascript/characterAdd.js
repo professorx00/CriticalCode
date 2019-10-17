@@ -392,7 +392,6 @@ $(document).ready(function () {
       rollSum.sort();
       exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
       rollSum = [];
-      console.log(rollSum);
     }
     $(`#${this.value}Abil`).attr("value", exportRolls[0]).attr("id", "disabled");
     $(`#${this.value}Mod`).attr("value", exportRolls[1]).attr("id", "disabled");
