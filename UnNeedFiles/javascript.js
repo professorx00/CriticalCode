@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Your web app's Firebase configuration
   console.log("reached public/assets/javascript/javascript.js");
 
@@ -14,7 +14,7 @@ $(document).ready(function () {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  $("#registrationForm").on("submit", function (event) {
+  $("#registrationForm").on("submit", function(event) {
     event.preventDefault();
     let userFirstName = $("#userFirstName")
       .val()
@@ -40,7 +40,7 @@ $(document).ready(function () {
     firebase
       .auth()
       .createUserWithEmailAndPassword(userEmail, userPass)
-      .catch(function (error) {
+      .catch(function(error) {
         // Handle Errors here.
 
         var errorCode = error.code;
@@ -53,7 +53,7 @@ $(document).ready(function () {
     confirmation.text("Welcome to Valhalla");
     $("#registrationForm").prepend(confirmation);
 
-    setTimeout(function () {
+    setTimeout(function() {
       window.location.href = "https://www.google.com";
     }, 2000);
   });

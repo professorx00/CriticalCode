@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+$(document).ready(function() {
   //DataInfo:
   function getEquipment(equip) {
     console.log(equip.val());
@@ -282,11 +281,11 @@ $(document).ready(function () {
       raceId: parseInt($("#raceSelect").val()),
       classId: parseInt($("#classSelect").val())
     };
-    console.log("user: " + ($("#userInfo").attr("data-user")));
-    console.log("armor: " + ($("#armorSelect").val()));
-    console.log("weapon: " + ($("#weaponSelect").val()));
-    console.log("race: " + ($("#raceSelect").val()));
-    console.log("class: " + ($("#classSelect").val()));
+    console.log("user: " + $("#userInfo").attr("data-user"));
+    console.log("armor: " + $("#armorSelect").val());
+    console.log("weapon: " + $("#weaponSelect").val());
+    console.log("race: " + $("#raceSelect").val());
+    console.log("class: " + $("#classSelect").val());
     console.log(character);
     return character;
   }
@@ -351,7 +350,7 @@ $(document).ready(function () {
     pictureData.set("userPic", files[0]);
     //loading animation
     $imgDiv.css({
-      background: `center no-repeat url("/assets/images/loading.gif")`
+      background: "center no-repeat url('/assets/images/loading.gif')"
     });
 
     $.ajax({
@@ -385,14 +384,18 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post(`/api/updateCharacter/${user}/${char}`, charData, function (data, status, xhr) {
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(
+        data,
+        status,
+        xhr
+      ) {
         console.log(status);
-      }).then(() => window.location.assign("/dashboard")
-        .catch(err => {
+      }).then(() =>
+        window.location.assign("/dashboard").catch(err => {
           console.log(err);
           throw err;
         })
-      )
+      );
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
@@ -410,7 +413,7 @@ $(document).ready(function () {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     var rollSum = [];
     var exportRolls = [];
     for (i = 0; i < 3; i++) {
@@ -422,8 +425,14 @@ $(document).ready(function () {
       exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
       rollSum = [];
     }
-    $(`#${this.value}Abil`).attr("value", exportRolls[0]).attr("id", "disabled");
-    $(`#${this.value}Mod`).attr("value", exportRolls[1]).attr("id", "disabled");
-    $(`#${this.value}Total`).attr("value", exportRolls[2]).attr("id", "disabled");
+    $(`#${this.value}Abil`)
+      .attr("value", exportRolls[0])
+      .attr("id", "disabled");
+    $(`#${this.value}Mod`)
+      .attr("value", exportRolls[1])
+      .attr("id", "disabled");
+    $(`#${this.value}Total`)
+      .attr("value", exportRolls[2])
+      .attr("id", "disabled");
   });
 });

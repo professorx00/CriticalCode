@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
@@ -331,15 +331,15 @@ $(document).ready(function () {
 
     console.log("pictureData", pictureData);
     $.ajax({
-        enctype: "multipart/form-data",
-        method: "POST",
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        url: "/photoUpload",
-        data: pictureData
-      })
+      enctype: "multipart/form-data",
+      method: "POST",
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      url: "/photoUpload",
+      data: pictureData
+    })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -361,10 +361,10 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function (data, status, xhr) {
+      $.post("/api/addCharacter", charData, function(data, status, xhr) {
         console.log(status);
-      }).then(()=>{
-        window.location.assign("/dashboard")
+      }).then(() => {
+        window.location.assign("/dashboard");
       });
     } else {
       errors.forEach(element => {
@@ -383,7 +383,7 @@ $(document).ready(function () {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     var rollSum = [];
     var exportRolls = [];
     for (i = 0; i < 3; i++) {
@@ -395,8 +395,14 @@ $(document).ready(function () {
       exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
       rollSum = [];
     }
-    $(`#${this.value}Abil`).attr("value", exportRolls[0]).attr("id", "disabled");
-    $(`#${this.value}Mod`).attr("value", exportRolls[1]).attr("id", "disabled");
-    $(`#${this.value}Total`).attr("value", exportRolls[2]).attr("id", "disabled");
+    $(`#${this.value}Abil`)
+      .attr("value", exportRolls[0])
+      .attr("id", "disabled");
+    $(`#${this.value}Mod`)
+      .attr("value", exportRolls[1])
+      .attr("id", "disabled");
+    $(`#${this.value}Total`)
+      .attr("value", exportRolls[2])
+      .attr("id", "disabled");
   });
 });

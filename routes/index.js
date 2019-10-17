@@ -4,9 +4,7 @@ const router = express.Router();
 //awsUpload module
 const photoUpload = require("../config/awsFileUpload");
 
-const {
-  ensureAuthenticated
-} = require("../config/auth");
+const { ensureAuthenticated } = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
@@ -53,7 +51,7 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     });
 });
 router.get("/log/:user/:charID", (req, res) => {
-  console.log("Displaying Character Information")
+  console.log("Displaying Character Information");
   let user = req.params.user;
   let char = req.params.charID;
   if (user && char) {
@@ -93,9 +91,11 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
           userid: user,
           id: char
         },
-        include: [{
-          all: true
-        }]
+        include: [
+          {
+            all: true
+          }
+        ]
       })
       .then(result => {
         let data = {
@@ -111,7 +111,8 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
 
         console.log("user found, character found");
         res.render("characterUpdate", data);
-      }).catch((err) => {
+      })
+      .catch(err => {
         console.log(err);
       });
   } else {
@@ -119,7 +120,7 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
   }
 });
 router.get("/delete/:user/:char", ensureAuthenticated, (req, res) => {
-  ("Deleting character")
+  ("Deleting character");
   let user = req.params.user;
   let char = req.params.char;
   console.log("removing" + user + " " + char);

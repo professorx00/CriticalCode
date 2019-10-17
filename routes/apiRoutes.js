@@ -213,7 +213,7 @@ routes.post("/addCharacter", (req, res) => {
       userId: character.userId
     })
     .then(() => {
-      return res.redirect("/dashboard")
+      return res.redirect("/dashboard");
     })
     .catch(err => {
       res.status(500).send("server error");
@@ -226,63 +226,66 @@ routes.post("/updateCharacter/:userId/:charId", (req, res) => {
   let character = req.body;
   console.log(character);
   db.character
-  .update(
-    {
-    characterName: character.characterName,
-    str: character.str,
-    dex: character.dex,
-    con: character.con,
-    int: character.int,
-    wis: character.wis,
-    char: character.char,
-    equipment: character.equipment,
-    skill: character.skill,
-    spells: character.spells,
-    gold: character.gold,
-    copper: character.copper,
-    electrum: character.electrum,
-    silver: character.silver,
-    platinum: character.platinum,
-    experience: character.experience,
-    faction: character.faction,
-    alignment: character.alignment,
-    bonusLanguage: character.bonusLanguage,
-    background: character.background,
-    strAdditional: character.strAdditional,
-    dexAdditional: character.dexAdditional,
-    conAdditional: character.conAdditional,
-    intAdditional: character.intAdditional,
-    wisAdditional: character.wisAdditional,
-    charAdditional: character.charAdditional,
-    inspiration: character.inspiration,
-    acrobatics: character.acrobatics,
-    animalHandling: character.animalHandling,
-    arcana: character.arcana,
-    athletics: character.athletics,
-    deception: character.deception,
-    history: character.history,
-    insight: character.insight,
-    intimidation: character.intimidation,
-    investigation: character.investigation,
-    medicine: character.medicine,
-    nature: character.nature,
-    perception: character.perception,
-    performance: character.performance,
-    religion: character.religion,
-    sleightofHand: character.sleightofHand,
-    stealth: character.stealth,
-    survival: character.survival,
-    imgURL: character.imgURL,
-    armorId: character.armorId,
-    weaponId: character.weaponId,
-    raceId: character.raceId,
-    classId: character.classId
-  },
-  { where: {
-        id: req.params.charId
+    .update(
+      {
+        characterName: character.characterName,
+        str: character.str,
+        dex: character.dex,
+        con: character.con,
+        int: character.int,
+        wis: character.wis,
+        char: character.char,
+        equipment: character.equipment,
+        skill: character.skill,
+        spells: character.spells,
+        gold: character.gold,
+        copper: character.copper,
+        electrum: character.electrum,
+        silver: character.silver,
+        platinum: character.platinum,
+        experience: character.experience,
+        faction: character.faction,
+        alignment: character.alignment,
+        bonusLanguage: character.bonusLanguage,
+        background: character.background,
+        strAdditional: character.strAdditional,
+        dexAdditional: character.dexAdditional,
+        conAdditional: character.conAdditional,
+        intAdditional: character.intAdditional,
+        wisAdditional: character.wisAdditional,
+        charAdditional: character.charAdditional,
+        inspiration: character.inspiration,
+        acrobatics: character.acrobatics,
+        animalHandling: character.animalHandling,
+        arcana: character.arcana,
+        athletics: character.athletics,
+        deception: character.deception,
+        history: character.history,
+        insight: character.insight,
+        intimidation: character.intimidation,
+        investigation: character.investigation,
+        medicine: character.medicine,
+        nature: character.nature,
+        perception: character.perception,
+        performance: character.performance,
+        religion: character.religion,
+        sleightofHand: character.sleightofHand,
+        stealth: character.stealth,
+        survival: character.survival,
+        imgURL: character.imgURL,
+        armorId: character.armorId,
+        weaponId: character.weaponId,
+        raceId: character.raceId,
+        classId: character.classId
+      },
+      {
+        where: {
+          id: req.params.charId
+        }
       }
-    }).then(data => res.send(`Updated character: ${data}`));
-})
+    )
+    .then(data => res.send(`Updated character: ${data}`));
+});
 
 routes.post("/cal/:command", (req, res) => {
   if (req.body.command === "abilityMod") {
