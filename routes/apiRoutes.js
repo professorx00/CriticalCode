@@ -213,7 +213,7 @@ routes.post("/addCharacter", (req, res) => {
       userId: character.userId
     })
     .then(() => {
-      return res.redirect("/dashboard");
+      return res.redirect("/dashboard")
     })
     .catch(err => {
       res.status(500).send("server error");

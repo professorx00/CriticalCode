@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $(document).ready(function() {
+=======
+$(document).ready(function () {
+>>>>>>> a3b62726cb0d5b0b7aa7bc0d19ffdf5d00554874
   // Your web app's Firebase configuration
   console.log("reached public/assets/javascript/javascript.js");
 
@@ -14,7 +18,11 @@ $(document).ready(function() {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
+<<<<<<< HEAD
   $("#registrationForm").on("submit", function(event) {
+=======
+  $("#registrationForm").on("submit", function (event) {
+>>>>>>> a3b62726cb0d5b0b7aa7bc0d19ffdf5d00554874
     event.preventDefault();
     let userFirstName = $("#userFirstName")
       .val()
@@ -40,7 +48,11 @@ $(document).ready(function() {
     firebase
       .auth()
       .createUserWithEmailAndPassword(userEmail, userPass)
+<<<<<<< HEAD
       .catch(function(error) {
+=======
+      .catch(function (error) {
+>>>>>>> a3b62726cb0d5b0b7aa7bc0d19ffdf5d00554874
         // Handle Errors here.
 
         var errorCode = error.code;
@@ -53,8 +65,16 @@ $(document).ready(function() {
     confirmation.text("Welcome to Valhalla");
     $("#registrationForm").prepend(confirmation);
 
+<<<<<<< HEAD
     setTimeout(function() {
       window.location.href = "https://www.google.com";
     }, 2000);
   });
 });
+=======
+    setTimeout(function () {
+      window.location.href = "https://www.google.com";
+    }, 2000);
+  });
+});
+>>>>>>> a3b62726cb0d5b0b7aa7bc0d19ffdf5d00554874

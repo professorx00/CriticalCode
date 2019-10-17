@@ -4,7 +4,9 @@ const router = express.Router();
 //awsUpload module
 const photoUpload = require("../config/awsFileUpload");
 
-const { ensureAuthenticated } = require("../config/auth");
+const {
+  ensureAuthenticated
+} = require("../config/auth");
 const db = require("../models");
 //welcome Page
 router.get("/", (req, res) => {
@@ -42,10 +44,10 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
       console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
-        console.log("dashboard is rendering");
+        console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       } else {
-        console.log("dashboard is rendering");
+        console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       }
     });
@@ -91,11 +93,9 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
           userid: user,
           id: char
         },
-        include: [
-          {
-            all: true
-          }
-        ]
+        include: [{
+          all: true
+        }]
       })
       .then(result => {
         console.log(result.dataValues);
@@ -110,8 +110,7 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
         };
         console.log("user found, character found");
         res.render("characterUpdate", data);
-      })
-      .catch(err => {
+      }).catch((err) => {
         console.log(err);
       });
   } else {

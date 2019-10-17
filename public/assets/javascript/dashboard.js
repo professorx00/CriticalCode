@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  $("#newCharacterBtn").on("click", function(event) {
+$(document).ready(function () {
+  $("#newCharacterBtn").on("click", function (event) {
     event.preventDefault();
     console.log(event.target);
     const target = $(event.target);
@@ -9,7 +9,7 @@ $(document).ready(function() {
     document.location.href = `/add/${user}/`;
   });
 
-  $(".characterBtn").on("click", function(event) {
+  $(".characterBtn").on("click", function (event) {
     event.preventDefault();
     const target = $(event.target);
     const characterID = target.attr("data-charid");
@@ -17,7 +17,7 @@ $(document).ready(function() {
     document.location.href = `/log/${user}/${characterID}`;
   });
 
-  $(".updateCharacterBtn").on("click", function(event) {
+  $(".updateCharacterBtn").on("click", function (event) {
     event.preventDefault();
     console.log("Updating Character");
     const target = $(event.target);
@@ -27,7 +27,7 @@ $(document).ready(function() {
     document.location.href = `/update/${user}/${characterID}`;
   });
 
-  $(".delete").on("click", function(event) {
+  $(".delete").on("click", function (event) {
     const target = $(event.target);
     const characterID = target.attr("data-charid");
     const user = target.attr("data-id");
@@ -38,7 +38,7 @@ $(document).ready(function() {
     $("#deleteModal").modal("show");
   });
 
-  $("#remove").on("click", function(event) {
+  $("#remove").on("click", function (event) {
     console.log("removal Button Click");
     const target = $(event.target);
     console.log(target);
