@@ -1,27 +1,36 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
   function getEquipment(equip) {
     console.log(equip.val());
     let equipArray = equip.val().split(",");
-    let equipObj = { equipment: equipArray };
+    let equipObj = {
+      equipment: equipArray
+    };
     return equipObj;
   }
+
   function getSpells(spells) {
     let spellsArray = spells.val().split(",");
-    let spellsObj = { spells: spellsArray };
+    let spellsObj = {
+      spells: spellsArray
+    };
     return spellsObj;
   }
+
   function getLanguages(lang) {
     let langArray = lang.val().split(",");
-    let langObj = { language: langArray };
+    let langObj = {
+      language: langArray
+    };
     return langObj;
   }
 
   function getAlignment(align) {
     return align.replace(/-/g, " ");
   }
+
   function getskills() {
     let skills = [];
     if ($("#acrobaticsCheck").is(":checked")) {
@@ -78,6 +87,7 @@ $(document).ready(function() {
     console.log(skills);
     return skills;
   }
+
   function checkskills() {
     let skillErrors = [];
     if (!$("#acrobaticsCheck").is(":checked")) {
@@ -138,6 +148,7 @@ $(document).ready(function() {
       return [];
     }
   }
+
   function skillCheck(skill) {
     if (skill === NaN) {
       return 0;
@@ -145,6 +156,7 @@ $(document).ready(function() {
       return skill;
     }
   }
+
   function checkStats() {
     let errorCheck = [];
     if (!$("#strAbility").val()) {
@@ -167,12 +179,14 @@ $(document).ready(function() {
     }
     return errorCheck;
   }
+
   function fileCheck(fileUrl) {
     if (!fileUrl) {
       fileUrl = "/assets/images/default.png";
     }
     return fileUrl;
   }
+
   function checkFormRequirements() {
     let error = [];
     let skillCheck;
@@ -213,6 +227,7 @@ $(document).ready(function() {
     }
     return error;
   }
+
   function getData() {
     character = {
       characterName: $("#characterNameInput")
@@ -316,15 +331,15 @@ $(document).ready(function() {
 
     console.log("pictureData", pictureData);
     $.ajax({
-      enctype: "multipart/form-data",
-      method: "POST",
-      processData: false,
-      contentType: false,
-      cache: false,
-      timeout: 600000,
-      url: "/photoUpload",
-      data: pictureData
-    })
+        enctype: "multipart/form-data",
+        method: "POST",
+        processData: false,
+        contentType: false,
+        cache: false,
+        timeout: 600000,
+        url: "/photoUpload",
+        data: pictureData
+      })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -346,7 +361,7 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+      $.post("/api/addCharacter", charData, function (data, status, xhr) {
         console.log(status);
       }).then(()=>{
         window.location.assign("/dashboard")
@@ -366,4 +381,21 @@ $(document).ready(function() {
     document.location.href = "/dashboard";
   });
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
+
+  //Dice roll for stats
+  $(".statRoll").on("click", function () {
+
+    var diceRolls = [];
+    for (i = 0; i < 4; i++) {
+      console.log("round")
+      var roll = Math.floor(Math.random() * 6 + 1);
+      diceRolls.push(roll);
+    }
+    diceRolls.sort()
+    console.log(diceRolls);
+
+    $(`#${this.value}Abil`).attr("value", diceRolls[1]).attr("id", "disabled");
+    $(`#${this.value}Mod`).attr("value", diceRolls[2]).attr("id", "disabled");
+    $(`#${this.value}Total`).attr("value", diceRolls[3]).attr("id", "disabled");
+  });
 });
