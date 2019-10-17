@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Hanalei+Fill&display=swap');
+
 html,
 body {
     min-height: 100%;
@@ -10,15 +11,19 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-button.dashboardBtn{
+
+button.dashboardBtn {
     color: white;
 }
-div.red{
+
+div.red {
     border: 2px red solid;
 }
-img.logo{
-    max-width:600px;
+
+img.logo {
+    max-width: 600px;
 }
+
 .headline-jumbo {
     background-color: goldenrod;
     background: url("../../assets/images/copper.jpg") !important;
@@ -37,6 +42,7 @@ img.logo{
     max-width: 80%;
     margin: 0 auto;
 }
+
 .sm-low-div {
     background-color: beige;
     max-width: 100%;
@@ -44,26 +50,32 @@ img.logo{
     border: 3px solid rgba(91, 36, 23, 0.66);
     vertical-align: bottom;
 }
+
 div.btn:hover {
     transform: translateY(-7px);
     width: 65%;
     cursor: pointer;
 }
+
 .btnText {
     color: #FFFFFF;
     /* text-shadow: 1px 3px 0 #969696, 1px 4px 2px #aba8a8; */
     font-family: 'Hanalei Fill', cursive;
     letter-spacing: .25rem;
 }
-a{
+
+a {
     font-size: 1.5rem;
 }
-a.btnText:link{
+
+a.btnText:link {
     color: white !important;
 }
-a.btnText:hover{
-    color:rgb(95, 161, 248) !important;
+
+a.btnText:hover {
+    color: rgb(95, 161, 248) !important;
 }
+
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;
@@ -71,9 +83,10 @@ a.btnText:hover{
     border: 2px solid black;
     border-radius: 5%;
 }
-.error{
-    color:Red;
-    Background:white;
+
+.error {
+    color: Red;
+    Background: white;
 }
 
 .top-div {
@@ -82,6 +95,7 @@ a.btnText:hover{
     border: 3px solid rgba(91, 36, 23, 0.66);
     margin-bottom: 5px;
 }
+
 .button-character {
     background: url("../../assets/images/wood.jpg") !important;
     border: none;
