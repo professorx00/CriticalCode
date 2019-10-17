@@ -1,6 +1,6 @@
 <link rel=" stylesheet" href="/assets/css/character.css">
 
-<button data-user="<%= user %>" data-char="<%= char %>" id="userInfo" class="hide"></button>
+<button data-user="<%= user %>" data-char="<%= char %>" data-picture="<%= charData.imgURL %>" id="userInfo" class="hide"></button>
 <!--Keep the data-user in this container need for suppling database-->
 
 <div class="container">
@@ -67,7 +67,7 @@
                   <label class="input-group-text" for="classSelect">Options</label>
                 </div>
                 <select class="custom-select" id="classSelect">
-                  <option selected value=<%= classData.Id %>><%= classData.className %></option>
+                  <option selected value="<%= classData.id %>"><%= classData.className %></option>
                   <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
                   <option value=12>Barbarian</option>
                   <option value=1>Bard</option>
@@ -94,7 +94,7 @@
                   <label class="input-group-text" for="raceSelect">Options</label>
                 </div>
                 <select class="custom-select" id="raceSelect">
-                  <option selected value=<%= raceData.Id %>><%= raceData.raceName %></option>
+                  <option selected value="<%= raceData.id %>"><%= raceData.raceName %></option>
                   <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
                   <option value=13>Dragonborn</option>
                   <option value=9>Dwarf</option>
@@ -118,7 +118,7 @@
                   <label class="input-group-text" for="alignmentSelect">Options</label>
                 </div>
                 <select class="custom-select" id="alignmentSelect">
-                  <option selected value=<%= charData.alignment %>><%= charData.alignment %></option>
+                  <option selected value="<%= charData.alignment %>"><%= charData.alignment %></option>
                   <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
                   <option value="Lawful-Good">Lawful-Good</option>
                   <option value="Neutral-Good">Neutral-Good</option>
@@ -142,7 +142,7 @@
                   <label class="input-group-text" for="armorSelect">Options</label>
                 </div>
                 <select class="custom-select" id="armorSelect">
-                  <option selected value=<%= armorData.Id %>><%= armorData.armorName %></option>
+                  <option selected value="<%= armorData.id %>"><%= armorData.armorName %></option>
                   <option value=1>Padded</option>
                   <option value=2>Leather</option>
                   <option value=3>Studded leather</option>
@@ -169,7 +169,7 @@
                   <label class="input-group-text" for="weaponSelect">Options</label>
                 </div>
                 <select class="custom-select" id="weaponSelect">
-                  <option selected value=<%= weaponData.Id %>><%= weaponData.weaponName %></option>
+                  <option selected value=<%= weaponData.id %>><%= weaponData.weaponName %></option>
                   <option value=1>Club</option>
                   <option value=2>Dagger</option>
                   <option value=3>Greatclub</option>

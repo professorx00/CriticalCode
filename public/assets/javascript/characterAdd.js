@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
@@ -331,15 +331,15 @@ $(document).ready(function () {
 
     console.log("pictureData", pictureData);
     $.ajax({
-        enctype: "multipart/form-data",
-        method: "POST",
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        url: "/photoUpload",
-        data: pictureData
-      })
+      enctype: "multipart/form-data",
+      method: "POST",
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      url: "/photoUpload",
+      data: pictureData
+    })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -361,10 +361,10 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function (data, status, xhr) {
+      $.post("/api/addCharacter", charData, function(data, status, xhr) {
         console.log(status);
       }).then(() => {
-        window.location.assign("/dashboard")
+        window.location.assign("/dashboard");
       });
     } else {
       errors.forEach(element => {

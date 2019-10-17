@@ -1,6 +1,4 @@
-$(document).ready(function () {
-  // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
-
+$(document).ready(function() {
   //DataInfo:
   function getEquipment(equip) {
     console.log(equip.val());
@@ -177,7 +175,7 @@ $(document).ready(function () {
     if (!$("#charAbility").val()) {
       errorCheck.push("charAbility");
     }
-    return errorCheck;
+    return [];
   }
 
   function fileCheck(fileUrl) {
@@ -283,11 +281,11 @@ $(document).ready(function () {
       raceId: parseInt($("#raceSelect").val()),
       classId: parseInt($("#classSelect").val())
     };
-    console.log("user: " + parseInt($("#userInfo").attr("data-user")));
-    console.log("armor: " + parseInt($("#armorSelect").val()));
-    console.log("weapon: " + parseInt($("#weaponSelect").val()));
-    console.log("race: " + parseInt($("#armorSelect").val()));
-    console.log("class: " + parseInt($("#armorSelect").val()));
+    console.log("user: " + $("#userInfo").attr("data-user"));
+    console.log("armor: " + $("#armorSelect").val());
+    console.log("weapon: " + $("#weaponSelect").val());
+    console.log("race: " + $("#raceSelect").val());
+    console.log("class: " + $("#classSelect").val());
     console.log(character);
     return character;
   }
@@ -301,6 +299,8 @@ $(document).ready(function () {
   let language;
   let background;
 
+  //get skills for character and set them in the DOM
+
   $.ajax(`/api/user/${user}/${char}`).then(data => {
     let character = data[0];
     skills = character.skill;
@@ -309,7 +309,8 @@ $(document).ready(function () {
       $(`#${skill}Input`).attr("value", character[skill]);
     });
 
-    equipment = character.equipment; //array
+    equipment = character.equipment.equipment; //array
+    console.log("equipment", equipment);
     spells = character.spells.spells; //array
     language = character.bonusLanguage.language; //array
     background = character.background; //string
@@ -318,8 +319,6 @@ $(document).ready(function () {
     $("#languagesInput").text(language.join());
     $("#equipmentInput").text(equipment.join());
     $("#backstoryInput").text(background);
-
-    console.log("update character", character);
   });
 
   console.log("User ID: " + user);
@@ -327,47 +326,43 @@ $(document).ready(function () {
   console.log("scripts loaded!"); // debugging
 
   const input = document.querySelector("input"); // fill in with id/class identifying image input elem
-  const inputLabel = document.getElementsByClassName("custom-file-label"); // bootstrap class identification
-
-  // console.log(inputLabel[0].textContent); //debugging
+  const inputLabel = document.getElementsByClassName("custom-file-label");
 
   let files; // object to put files in
   let $imgDiv = $("div.imgLogo");
-  let profileImgURL;
+  let profileImgURL = $("#userInfo").attr("data-picture"); //gets the picture that was already there
 
-  // feedback method for updating text inside of input elem with name of picture upon input
+  // Update the text inside of input elem with name of picture upon input
   update = () => {
     files = input.files;
     let fileName = files[0].name;
 
     // update the input default text with the filename of the selected picture
     inputLabel[0].textContent = fileName;
-    // img elem with preview photo
-    // You can use this to provide feedback to the user that their photo has been sucessfully selected in the browser
-    // may or may not be feasible depending on form space resources
-    // newURL = window.URL.createObjectURL(files[0]);
   };
 
   $("#imageUploadButton").on("click", event => {
-    console.log("Clicked");
     event.preventDefault();
     // const formData = new FormData();
     console.log("input.files", input.files);
     const pictureData = new FormData();
 
     pictureData.set("userPic", files[0]);
+    //loading animation
+    $imgDiv.css({
+      background: "center no-repeat url('/assets/images/loading.gif')"
+    });
 
-    console.log("pictureData", pictureData);
     $.ajax({
-        enctype: "multipart/form-data",
-        method: "POST",
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        url: "/photoUpload",
-        data: pictureData
-      })
+      enctype: "multipart/form-data",
+      method: "POST",
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      url: "/photoUpload",
+      data: pictureData
+    })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -389,10 +384,18 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function (data, status, xhr) {
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(
+        data,
+        status,
+        xhr
+      ) {
         console.log(status);
-        document.location.href("/dashboard");
-      });
+      }).then(() =>
+        window.location.assign("/dashboard").catch(err => {
+          console.log(err);
+          throw err;
+        })
+      );
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
