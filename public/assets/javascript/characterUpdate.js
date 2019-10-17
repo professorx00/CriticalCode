@@ -413,26 +413,19 @@ $(document).ready(function() {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function() {
-    var rollSum = [];
-    var exportRolls = [];
-    for (i = 0; i < 3; i++) {
-      for (j = 0; j < 4; j++) {
-        var roll = Math.floor(Math.random() * 6 + 1);
+  $(".statRoll").on("click", function () {
+    let rollSum = [];
+    let exportRolls;
+    if (this.value === "strength" || "dexterity" || "constitution" || "intelligence" || "wisdom" || "charisma") {
+      for (i = 0; i < 4; i++) {
+        let roll = Math.floor(Math.random() * 6 + 1);
         rollSum.push(roll);
       }
       rollSum.sort();
-      exportRolls.push(rollSum[1] + rollSum[2] + rollSum[3]);
+      exportRolls = rollSum[1] + rollSum[2] + rollSum[3];
       rollSum = [];
+      $(`#${this.value}Abil`).attr("value", exportRolls);
+      $(this).attr("value", "disabled");
     }
-    $(`#${this.value}Abil`)
-      .attr("value", exportRolls[0])
-      .attr("id", "disabled");
-    $(`#${this.value}Mod`)
-      .attr("value", exportRolls[1])
-      .attr("id", "disabled");
-    $(`#${this.value}Total`)
-      .attr("value", exportRolls[2])
-      .attr("id", "disabled");
   });
 });

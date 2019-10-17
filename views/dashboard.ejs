@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="modal " tabindex="-1" role="dialog" id="deleteModal">
-    <div class="modal-dialog " role="document">
+  <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Delete Character</h5>
@@ -18,65 +18,64 @@
       </div>
     </div>
   </div>
-  <div class="row mt-5">
-    <div class="col"></div>
-    <div class="col">
-      <img src="./assets/images/logo.png" class="img-responsive logo" alt="Valhalla">
-    </div>
-    <div class="col">
-      <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3 btnText">Logout</button>
+  <div class="row header justify-content-center">
+    <div class="col-md-8 col-sm-12">
+      <img src="/assets/images/logo.png" class="img-fluid">
     </div>
   </div>
-  <div class="row content">
-    <div class="col col-md-12 text-center center">
-      <h2>Welcome <%= name %>.</h2>
-      <h3>Please add a new Character.</h3>
-      <div class="btn button-character shadow">
-        <button class="btn dashboardBtn" data-id="<%= id %>" id="newCharacterBtn">Create a New Character</button>
-      </div>
+  <div class="col justify-content-center">
+    <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3 btnText">Logout</button>
+  </div>
+</div>
+<div class="row content">
+  <div class="col col-xs-12 col-md-12 text-center center">
+    <h2>Welcome <%= name %>.</h2>
+    <h3>Please create a new Character.</h3>
+    <div class="btn button-character shadow">
+      <button class="btn dashboardBtn" data-id="<%= id %>" id="newCharacterBtn">Create Character</button>
     </div>
   </div>
-  <br>
-  <div class="row">
-    <div class="col col-md-12 text-center">
-      <h3 class="text-center">or Select a Character.</h3>
-    </div>
+</div>
+<br>
+<div class="row">
+  <div class="col col-xs-12 col-md-12 text-center">
+    <h3 class="text-center">or Select a Character.</h3>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <% if (characters!==null){ %>
-      <% characters.forEach((element)=>{ %>
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col col-md-8">
-          <div class="row">
-            <div class="btn button-character shadow col-md-6 text-center center">
-              <button class="btn dashboardBtn characterBtn" data-id="<%= id %>"
-                data-charid="<%= element.charid %>"><%= element.characterName %> --
-                <%= element.class.className %></button>
-            </div>
-            <div class="col-md-2 ml-1 text-center">
-              <button class="btn btn-primary dashboardBtn updateCharacterBtn shadow btnText button-stone"
-                data-id="<%= id %>" data-charid="<%= element.charid %>">edit</button>
-            </div>
-            <div class="col-md-2 ml-1 text-center">
-              <button class="btn btn-primary dashboardBtn deleteCharacterBtn shadow btnText button-stone delete"
-                data-id="<%= id %>" data-charid="<%= element.charid %>">Delete</button>
-            </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <% if (characters!==null){ %>
+    <% characters.forEach((element)=>{ %>
+    <div class="row">
+      <div class="col col-xs-12 col-md-8">
+        <div class="row justify-content-center">
+          <div class="btn button-character shadow col-md-6 text-center center">
+            <button class="btn dashboardBtn characterBtn" data-id="<%= id %>"
+              data-charid="<%= element.charid %>"><%= element.characterName %> --
+              <%= element.class.className %></button>
+          </div>
+          <div class="col-md-2 ml-1 text-center">
+            <button class="btn btn-primary dashboardBtn updateCharacterBtn shadow btnText button-stone"
+              data-id="<%= id %>" data-charid="<%= element.charid %>">edit</button>
+          </div>
+          <div class="col-md-2 ml-1 text-center">
+            <button class="btn btn-primary dashboardBtn deleteCharacterBtn shadow btnText button-stone delete"
+              data-id="<%= id %>" data-charid="<%= element.charid %>">Delete</button>
           </div>
         </div>
-
-      </div>
-      <% }); %>
-      <%}else{ %>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col col-md-4 text-center">
-          <h3 class="text-center">Create a new Character.</h3>
-        </div>
-        <div class="col-md-4"></div>
       </div>
 
-      <%} %>
     </div>
+    <% }); %>
+    <%}else{ %>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col col-md-4 text-center">
+        <h3 class="text-center">Create a new Character.</h3>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+
+    <%} %>
   </div>
+</div>
