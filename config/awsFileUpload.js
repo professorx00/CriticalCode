@@ -15,9 +15,6 @@ function addPhoto(req, res) {
   const imageName = uuid.v4() + "_" + req.files.userPic.name;
   const file = req.files.userPic;
 
-  console.log("file from sample.js", file);
-  console.log("imageName from sample.js", imageName);
-
   // res.send(`received image ${imageName}`);
 
   const photoObjectParams = {

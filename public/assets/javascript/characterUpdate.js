@@ -293,8 +293,9 @@ $(document).ready(function() {
       $(`#${skill}Check`).attr("checked", "true");
       $(`#${skill}Input`).attr("value", character[skill]);
     });
-
-    equipment = character.equipment; //array
+    
+    equipment = character.equipment.equipment; //array
+    console.log("equipment", equipment);
     spells = character.spells.spells; //array
     language = character.bonusLanguage.language; //array
     background = character.background; //string
@@ -374,10 +375,10 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(data, status, xhr) {
         console.log(status);
-        document.location.href("/dashboard");
-      });
+        
+      }).then(alert("charater updated maybe?"))//.then(document.location.href = "/dashboard")
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");
