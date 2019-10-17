@@ -381,7 +381,7 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function(data, status, xhr) {
+      $.post("/api/addCharacter", charData, function(status) {
         console.log(status);
       }).then(() => {
         window.location.assign("/dashboard");
@@ -429,11 +429,13 @@ $(document).ready(function() {
   });
 
   $("#randomNameBtn").on("click", event => {
+    event.preventDefault();
     $("#randomModal").modal();
     $("#randomModal").modal("show");
   });
 
   $("#chooseName").on("click", event => {
+    event.preventDefault();
     let radio = $("[name = 'genderOptions']");
     for (let x = 0; x < radio.length; x++) {
       if (radio[x].checked) {
@@ -459,6 +461,7 @@ $(document).ready(function() {
   });
 
   $("#keepName").on("click", event => {
+    event.preventDefault();
     $("#characterNameInput").text($("#nameSelect").val());
     $("#randomModal").modal("hide");
     $("#chooseName").removeClass("hide");

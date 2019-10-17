@@ -45,7 +45,7 @@ $(document).ready(function() {
     const char = target.attr("data-charid");
     const user = target.attr("data-id");
     console.log(user, char);
-    $.get(`/delete/${user}/${char}`, (data, status) => {
+    $.get(`/delete/${user}/${char}`, () => {
       console.log("Deleted!");
       $("#deleteModal").modal("hide");
     }).then(() => {
