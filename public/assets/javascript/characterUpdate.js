@@ -177,7 +177,7 @@ $(document).ready(function () {
     if (!$("#charAbility").val()) {
       errorCheck.push("charAbility");
     }
-    return errorCheck;
+    return [];
   }
 
   function fileCheck(fileUrl) {
@@ -283,11 +283,11 @@ $(document).ready(function () {
       raceId: parseInt($("#raceSelect").val()),
       classId: parseInt($("#classSelect").val())
     };
-    console.log("user: " + parseInt($("#userInfo").attr("data-user")));
-    console.log("armor: " + parseInt($("#armorSelect").val()));
-    console.log("weapon: " + parseInt($("#weaponSelect").val()));
-    console.log("race: " + parseInt($("#armorSelect").val()));
-    console.log("class: " + parseInt($("#armorSelect").val()));
+    console.log("user: " + ($("#userInfo").attr("data-user")));
+    console.log("armor: " + ($("#armorSelect").val()));
+    console.log("weapon: " + ($("#weaponSelect").val()));
+    console.log("race: " + ($("#raceSelect").val()));
+    console.log("class: " + ($("#classSelect").val()));
     console.log(character);
     return character;
   }
