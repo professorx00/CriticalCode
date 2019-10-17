@@ -3,14 +3,16 @@
 <button data-user="<%=user%>" id="userInfo" class="hide"></button>
 <!--Keep the data-user in this container need for suppling database-->
 
-<div class="container">
+<div class="container">  <!-- Master Container-->
   <!--Header -->
-  <div class=" row header justify-content-center">
+  <div class="row header justify-content-center">
     <div class="col col-md-2"></div>
-    <div class="col-md-7">
-      <img src="/assets/images/logo.png" alt="" class="logo">
+    <div class="row header justify-content-center">
+      <div class="col-md-8 col-sm-12">
+        <img src="/assets/images/logo.png" class="img-fluid">
+      </div>
     </div>
-    <div class="col col-md-3 text-md-right text-sm-center">
+    <div class="col col-xs-12 col-md-3 text-md-right text-sm-center">
       <ul id="menu" class="list-group">
         <li class="list-group-item button-stone mt-2 mb-1 pl-0 pr-0 ml-0 text-center"><button type="submit"
             id="dashboard" class="btn btnText">Dashboard</button></li>
@@ -20,41 +22,43 @@
     </div>
   </div>
 
+
+
   <!--- Form Group for Character Name -->
   <div class="row stats-div">
-    
-    <form id="characterAddMasterForm">
+
+    <form id="characterAddMasterForm" class="col-md-12 container-fluid">
       <div class="form-group">
         <!--#####################Character Name Start#####################-->
-        <div class="form-group row  top-div p-2">
-          <div class="col-md-1"> </div>
-          <div class="col col-sm-4 col-md-2">
+        <div class="form-group row top-div p-2">
+          <div class="col-xs-12 col-md-1"> </div>
+          <div class="col col-xs-12 col-sm-4 col-md-2">
             <div class="imgLogo"></div>
-            <!-- <img src="/assets/images/default.png" alt="" class="imgLogo"> -->
           </div>
-          <div class="col col-sm-8 col-md-8 text-center align-middle">
+          <div class="col col-xs-12 col-sm-8 col-md-8 text-center align-middle">
             <h3 id="characterLabel">Character Name</h3>
             <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">Input Name</span>
-              </div>
-              <textarea id="characterNameInput" class="form-control" aria-label="With textarea" value="Monty Moose"></textarea>
-              <div class="input-group-append">
-                <!-- <button class="btn btn-warning mr-1 ml-1" type="button" id="imageUploadButton">Upload</button> -->
-                <div class="custom-file">
-                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input" id="inputGroupFile04"
-                      aria-describedby="inputGroupFileAddon04">
-                  <label class="custom-file-label" for="inputGroupFile04">Upload Character Image</label>
-              </div>
-              <div class="input-group-append">
-                  <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
+                <span class="input-group-text">Name</span>
               </div>
 
-                <button class="btn btn-warning " type="button" id="randomNameBtn">Randomize</button>
+              <textarea id="characterNameInput" class="form-control" aria-label="With textarea"
+                value="Monty Moose"></textarea>
+              <button class="btn btn-warning" type="button" id="randomNameBtn"><i class="fas fa-dice"></i></button>
+              <div class="input-group-append">
+                <div class="custom-file col-md-12">
+                  <input type="file" enctype="multipart/form-data" accept="image/*" class="custom-file-input"
+                    id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                  <label class="custom-file-label" for="inputGroupFile04">Upload Image</label>
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-success" type="button" id="imageUploadButton">Upload</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <br>
         <!--#####################Character Information Start#####################-->
         <div class="form-group row top-div p-2">
           <div class="col col-md-9 ">
@@ -62,6 +66,7 @@
               <div class="col col-md-3">
                 <div><span id="className">Class</span></div>
               </div>
+              <br>
               <!--############Classes##############-->
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -245,23 +250,28 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <label for="copperInput" class="input-group-text">Copper </label>
-                  <input id="copperInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="copperInput" type="number" value="0" placeholder="0" class="form-control"
+                    aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="silverInput">Silver </label>
-                  <input id="silverInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="silverInput" type="number" value="0" placeholder="0" class="form-control"
+                    aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label for="ElectrumInput" class="input-group-text">Electrum </label>
-                  <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control"
+                    aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="GoldInput">Gold </label>
-                  <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control"
+                    aria-label="With textarea"></input>
                 </div>
                 <div class="input-group-prepend">
                   <label class="input-group-text" for="PlatinumInput">Platinum </label>
-                  <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control" aria-label="With textarea"></input>
+                  <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control"
+                    aria-label="With textarea"></input>
                 </div>
               </div>
             </div>
@@ -461,7 +471,7 @@
                 <div>
                   <div id="insight" class="underline">Insight</div>
                   <input id="insightCheck" type="checkbox">
-                  <input id="insightInput" type="number" value="0" placeholder="0" >
+                  <input id="insightInput" type="number" value="0" placeholder="0">
                 </div>
 
                 <div>
@@ -543,19 +553,23 @@
           <div class="input-group col col-md-8">
             <div class="form-group row">
               <label class="input-group-text">Spells input, separate by commas please:</label>
-              <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+              <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None"
+                placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Special Languages, separate by commas please:</label>
-              <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+              <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None"
+                placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Equipment Input, separate by commas please:</label>
-              <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+              <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None"
+                placeholder="None"></textarea>
             </div>
             <div class="form-group row">
               <label class="input-group-text">Backstory goes here:</label>
-              <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None" placeholder="None"></textarea>
+              <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None"
+                placeholder="None"></textarea>
             </div>
           </div>
         </div>

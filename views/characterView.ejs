@@ -2,23 +2,22 @@
 
 <div class="container" id="characterInfo" data-user="<%= user%>" data-char="<%= char %>">
     <%= user %> <%= char %>
-    <div class=" row header justify-content-center">
+    <div class="row header justify-content-center">
         <div class="col col-md-2"></div>
         <div class="col-md-7">
-            <img src="/assets/images/logo.png" alt="" class="logo">
+            <img src="/assets/images/logo.png" alt="" class="img-fluid">
         </div>
-        <div class="col col-md-3 text-md-right text-sm-center">
+        <div class="col col-xs-4 col-md-3 text-md-right text-sm-center">
             <ul id="menu" class="list-group">
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="dashboard"
                         class="btn text-center btnText">Dashboard</button></li>
                 <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
                         class="btn text-center btnText">Logout</button></li>
             </ul>
-
-
         </div>
     </div>
 </div>
+<br>
 
 <div class="container">
     <div class="row img-div">
@@ -152,42 +151,57 @@
                         <div class="col col-md-11 mb-3">
                             <div class="row">
                                 <div class="col-md-6 text-left">
-                                    <div class="p-1"><input type="checkbox" id="acrobaticsCheck" disabled ><span id="acrobatics"
-                                            class="skillBorder p-1">0</span><span id="acrobaticsTitle">Acrobatics</span></div>
-                                    <div class="p-1"><input type="checkbox" id="animalHandlingCheck" disabled ><span
-                                            id="animalHandling" class="skillBorder p-1">0</span><span id="animalHandlingTitle">Animal Handling</span></div>
-                                    <div class="p-1"><input type="checkbox" id="arcanaCheck" disabled ><span id="arcana"
+                                    <div class="p-1"><input type="checkbox" id="acrobaticsCheck" disabled><span
+                                            id="acrobatics" class="skillBorder p-1">0</span><span
+                                            id="acrobaticsTitle">Acrobatics</span></div>
+                                    <div class="p-1"><input type="checkbox" id="animalHandlingCheck" disabled><span
+                                            id="animalHandling" class="skillBorder p-1">0</span><span
+                                            id="animalHandlingTitle">Animal Handling</span></div>
+                                    <div class="p-1"><input type="checkbox" id="arcanaCheck" disabled><span id="arcana"
                                             class="skillBorder p-1">0</span><span id="arcanaTitle">Arcana</span></div>
-                                    <div class="p-1"><input type="checkbox" id="athleticsCheck" disabled ><span id="athletics"
-                                            class="skillBorder p-1">0</span><span id="athleticsTitle">Athletics</span></div>
-                                    <div class="p-1"><input type="checkbox" id="deceptionCheck" disabled ><span id="deception"
-                                            class="skillBorder p-1">0</span><span id="deceptionTitle">Deception</span> </div>
-                                    <div class="p-1"><input type="checkbox" id="perceptionCheck" disabled ><span id="perception"
-                                            class="skillBorder p-1">0</span><span id="perceptionTitle">Perception</span></div>
-                                    <div class="p-1"><input type="checkbox" id="performanceCheck" disabled ><span id="performance"
-                                            class="skillBorder p-1">0</span><span id="performanceTitle">Performance</span></div>
-                                    <div class="p-1"><input type="checkbox" id="religionCheck" disabled ><span id="religion"
-                                            class="skillBorder p-1">0</span><span id="religionTitle">Religion</span></div>
+                                    <div class="p-1"><input type="checkbox" id="athleticsCheck" disabled><span
+                                            id="athletics" class="skillBorder p-1">0</span><span
+                                            id="athleticsTitle">Athletics</span></div>
+                                    <div class="p-1"><input type="checkbox" id="deceptionCheck" disabled><span
+                                            id="deception" class="skillBorder p-1">0</span><span
+                                            id="deceptionTitle">Deception</span> </div>
+                                    <div class="p-1"><input type="checkbox" id="perceptionCheck" disabled><span
+                                            id="perception" class="skillBorder p-1">0</span><span
+                                            id="perceptionTitle">Perception</span></div>
+                                    <div class="p-1"><input type="checkbox" id="performanceCheck" disabled><span
+                                            id="performance" class="skillBorder p-1">0</span><span
+                                            id="performanceTitle">Performance</span></div>
+                                    <div class="p-1"><input type="checkbox" id="religionCheck" disabled><span
+                                            id="religion" class="skillBorder p-1">0</span><span
+                                            id="religionTitle">Religion</span></div>
                                 </div>
                                 <div class="col-md-6 text-left">
-                                    <div class="p-1"><input type="checkbox" id="historyCheck" disabled ><span id="history"
-                                            class="skillBorder p-1">0</span><span id="historyTitle">History</span></div>
-                                    <div class="p-1"><input type="checkbox" id="insightCheck" disabled ><span id="insight"
-                                            class="skillBorder p-1">0</span><span id="insightTitle">Insight</span></div>
-                                    <div class="p-1"><input type="checkbox" id="intimidationCheck" disabled ><span
-                                            id="intimidation" class="skillBorder p-1">0</span><span id="intimidationTitle">Intimidation</span></div>
-                                    <div class="p-1"><input type="checkbox" id="investigationCheck" disabled ><span
-                                            id="investigation" class="skillBorder p-1">0</span><span id="investigationTitle">Investigation</span></div>
-                                    <div class="p-1"><input type="checkbox" id="medicineCheck" disabled ><span id="medicine"
-                                            class="skillBorder p-1">0</span><span id="medicineTitle">Medicine</span></div>
-                                    <div class="p-1"><input type="checkbox" id="natureCheck" disabled ><span id="nature"
+                                    <div class="p-1"><input type="checkbox" id="historyCheck" disabled><span
+                                            id="history" class="skillBorder p-1">0</span><span
+                                            id="historyTitle">History</span></div>
+                                    <div class="p-1"><input type="checkbox" id="insightCheck" disabled><span
+                                            id="insight" class="skillBorder p-1">0</span><span
+                                            id="insightTitle">Insight</span></div>
+                                    <div class="p-1"><input type="checkbox" id="intimidationCheck" disabled><span
+                                            id="intimidation" class="skillBorder p-1">0</span><span
+                                            id="intimidationTitle">Intimidation</span></div>
+                                    <div class="p-1"><input type="checkbox" id="investigationCheck" disabled><span
+                                            id="investigation" class="skillBorder p-1">0</span><span
+                                            id="investigationTitle">Investigation</span></div>
+                                    <div class="p-1"><input type="checkbox" id="medicineCheck" disabled><span
+                                            id="medicine" class="skillBorder p-1">0</span><span
+                                            id="medicineTitle">Medicine</span></div>
+                                    <div class="p-1"><input type="checkbox" id="natureCheck" disabled><span id="nature"
                                             class="skillBorder p-1">0</span><span id="natureTitle">Nature</span></div>
-                                    <div class="p-1"><input type="checkbox" id="sleightOfHandCheck" disabled ><span
-                                            id="sleightOfHand" class="skillBorder p-1">0</span><span id="sleightOfHandCheckTitle">Sleight of Hand</span></div>
-                                    <div class="p-1"><input type="checkbox" id="stealthCheck" disabled ><span id="stealth"
-                                            class="skillBorder p-1">0</span><span id="stealthTitle">Stealth</span></div>
-                                    <div class="p-1"><input type="checkbox" id="survivalCheck" disabled ><span id="survival"
-                                            class="skillBorder p-1">0</span><span id="survivalTitle">Survival</span></div>
+                                    <div class="p-1"><input type="checkbox" id="sleightOfHandCheck" disabled><span
+                                            id="sleightOfHand" class="skillBorder p-1">0</span><span
+                                            id="sleightOfHandCheckTitle">Sleight of Hand</span></div>
+                                    <div class="p-1"><input type="checkbox" id="stealthCheck" disabled><span
+                                            id="stealth" class="skillBorder p-1">0</span><span
+                                            id="stealthTitle">Stealth</span></div>
+                                    <div class="p-1"><input type="checkbox" id="survivalCheck" disabled><span
+                                            id="survival" class="skillBorder p-1">0</span><span
+                                            id="survivalTitle">Survival</span></div>
                                 </div>
                             </div>
                         </div>
@@ -279,4 +293,4 @@
         </div>
     </div>
 </div>
-            <script src="/assets/javascript/charView.js"></script>
+<script src="./assets/javascript/characterView.js"></script>
