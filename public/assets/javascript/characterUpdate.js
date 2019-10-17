@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
 
   //DataInfo:
   function getEquipment(equip) {
@@ -308,7 +307,9 @@ $(document).ready(function () {
       $(`#${skill}Check`).attr("checked", "true");
       $(`#${skill}Input`).attr("value", character[skill]);
     });
-    
+
+    console.log("character", character);
+
     equipment = character.equipment.equipment; //array
     console.log("equipment", equipment);
     spells = character.spells.spells; //array
@@ -334,7 +335,7 @@ $(document).ready(function () {
 
   let files; // object to put files in
   let $imgDiv = $("div.imgLogo");
-  let profileImgURL;
+  let profileImgURL = $("#userInfo").attr("data-picture");
 
   // feedback method for updating text inside of input elem with name of picture upon input
   update = () => {
@@ -360,15 +361,15 @@ $(document).ready(function () {
 
     console.log("pictureData", pictureData);
     $.ajax({
-        enctype: "multipart/form-data",
-        method: "POST",
-        processData: false,
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        url: "/photoUpload",
-        data: pictureData
-      })
+      enctype: "multipart/form-data",
+      method: "POST",
+      processData: false,
+      contentType: false,
+      cache: false,
+      timeout: 600000,
+      url: "/photoUpload",
+      data: pictureData
+    })
       .then(data => {
         console.log("returned data object", data); // debugging
         profileImgURL = data.Location;
@@ -390,10 +391,14 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(data, status, xhr) {
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function (data, status, xhr) {
         console.log(status);
-        
-      }).then(alert("charater updated maybe?"))//.then(document.location.href = "/dashboard")
+      }).then(() => window.location.assign("/dashboard")
+        .catch(err => {
+          console.log(err);
+          throw err;
+        })
+      )
     } else {
       errors.forEach(element => {
         $(`#${element}`).addClass("error");

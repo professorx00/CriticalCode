@@ -38,16 +38,16 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
           class: element.class
         };
         characters.push(obj);
-        console.log(element);
+        // console.log(element);
       });
       userInfo.characters = characters;
-      console.log(userInfo);
+      // console.log(userInfo);
       if (userInfo.characters.length === 0) {
         userInfo.characters = null;
-        console.log("dashboard is rendering")
+        // console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       } else {
-        console.log("dashboard is rendering")
+        // console.log("dashboard is rendering")
         res.render("dashboard", userInfo);
       }
     });
@@ -98,7 +98,6 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
         }]
       })
       .then(result => {
-        console.log(result.dataValues);
         let data = {
           user: user,
           char: char,
@@ -106,8 +105,10 @@ router.get("/update/:user/:char", ensureAuthenticated, (req, res) => {
           classData: result.dataValues.class.dataValues,
           weaponData: result.dataValues.weapon.dataValues,
           raceData: result.dataValues.race.dataValues,
-          armorData: result.dataValues.armor.dataValues
+          armorData: result.dataValues.armor
         };
+        console.log(__dirname + " charData", data.charData);
+
         console.log("user found, character found");
         res.render("characterUpdate", data);
       }).catch((err) => {
