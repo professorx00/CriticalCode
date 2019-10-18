@@ -367,7 +367,6 @@ $(document).ready(function() {
         });
 
         profileImgURL = data.Location;
-        
       })
       .catch(err => {
         throw err;
