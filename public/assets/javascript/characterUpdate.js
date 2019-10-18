@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //enables the popovers
   $("#randomNameBtn").popover(options);
   $(".statRoll").popover(options);
@@ -329,33 +329,40 @@ $(document).ready(function() {
 
   console.log("scripts loaded!"); // debugging
 
-  const input = document.getElementById("inputGroupFile04"); // fill in with id/class identifying image input elem
+  const $input = $("#inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label");
 
-  let files; // object to put files in
+
   let $imgDiv = $("div.imgLogo");
   let profileImgURL = $("#userInfo").attr("data-picture"); //gets the picture that was already there
 
   // Update the text inside of input elem with name of picture upon input
-  update = () => {
-    files = input.files;
-    let fileName = files[0].name;
+  // update = () => {
+  //   files = $input.files;
+  //   let fileName = files[0].name;
 
-    // update the input default text with the filename of the selected picture
-    inputLabel[0].textContent = fileName;
-  };
+  //   // update the input default text with the filename of the selected picture
+  //   inputLabel[0].textContent = fileName;
+  // };
 
-  $("#imageUploadButton").on("click", event => {
-    event.preventDefault();
-    // const formData = new FormData();
-    console.log("input.files", input.files);
+  $input.on('click touchstart', function () {
+    $(this).val('');
+  });
+
+
+  //Trigger now when you have selected any file 
+  $input.change(function (e) {
+    // update();
+    //do whatever you want here
     const pictureData = new FormData();
 
-    pictureData.set("userPic", files[0]);
+    pictureData.set("userPic", $input[0].files[0]);
+    console.log("$input[0].files", $input[0].files)
     //loading animation
     $imgDiv.css({
       background: "center no-repeat url('/assets/images/loading.gif')"
     });
+    inputLabel[0].textContent = $input[0].files[0].name;
 
     $.ajax({
       enctype: "multipart/form-data",
@@ -388,7 +395,7 @@ $(document).ready(function() {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function (
         status
       ) {
         console.log(status);
@@ -412,10 +419,10 @@ $(document).ready(function() {
     event.preventDefault();
     document.location.href = "/dashboard";
   });
-  input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
+  // input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function() {
+  $(".statRoll").on("click", function () {
     let rollSum = [];
     let exportRolls;
     if (
