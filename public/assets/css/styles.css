@@ -6,7 +6,7 @@ body {
 }
 
 body {
-    background: url("https://test-bucket5643.s3.amazonaws.com/assets/mountains_peaks_clouds_148926_1280x800.jpg");
+    background: fixed center/cover url("https://test-bucket5643.s3.amazonaws.com/assets/mountains_peaks_clouds_148926_1280x800.jpg");
     background-color: black !important;
     background-repeat: no-repeat;
     background-size: cover;
