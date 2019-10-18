@@ -373,12 +373,9 @@ $(document).ready(function () {
       timeout: 600000,
       url: "/photoUpload",
       data: pictureData
-    })
-      .then(data => {
-        console.log("returned data object", data); // debugging
-        profileImgURL = data.Location;
+    }).then(data => {
         $imgDiv.css({
-          background: `center / cover no-repeat url("${profileImgURL}")`
+          background: `center / cover no-repeat url("${data.Location}")`
         });
         fileInfoSubmit = data;
       })
