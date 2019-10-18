@@ -318,43 +318,29 @@ $(document).ready(function() {
 
   console.log("scripts loaded!"); // debugging
 
-  const input = document.getElementById("inputGroupFile04"); // fill in with id/class identifying image input elem
+  const $input = $("#inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label"); // bootstrap class identification
 
-  // console.log(inputLabel[0].textContent); //debugging
-
-  let files; // object to put files in
   let $imgDiv = $("div.imgLogo");
   let profileImgURL;
 
-  // feedback method for updating text inside of input elem with name of picture upon input
-  update = () => {
-    files = input.files;
-    let fileName = files[0].name;
+  $input.on("click touchstart", function() {
+    $(this).val("");
+  });
 
-    // update the input default text with the filename of the selected picture
-    inputLabel[0].textContent = fileName;
-    // img elem with preview photo
-    // You can use this to provide feedback to the user that their photo has been sucessfully selected in the browser
-    // may or may not be feasible depending on form space resources
-    // newURL = window.URL.createObjectURL(files[0]);
-  };
-
-  $("#imageUploadButton").on("click", event => {
-    console.log("Clicked");
-    event.preventDefault();
-    // const formData = new FormData();
-    console.log("input.files", input.files);
+  //Trigger now when you have selected any file
+  $input.change(function(e) {
+    //do whatever you want here
     const pictureData = new FormData();
 
-    pictureData.set("userPic", files[0]);
-
+    pictureData.set("userPic", $input[0].files[0]);
+    console.log("$input[0].files", $input[0].files);
     //loading animation
     $imgDiv.css({
       background: "center no-repeat url('/assets/images/loading.gif')"
     });
+    inputLabel[0].textContent = $input[0].files[0].name;
 
-    console.log("pictureData", pictureData);
     $.ajax({
       enctype: "multipart/form-data",
       method: "POST",
@@ -407,7 +393,6 @@ $(document).ready(function() {
     event.preventDefault();
     document.location.href = "/dashboard";
   });
-  input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
   $(".statRoll").on("click", function() {
