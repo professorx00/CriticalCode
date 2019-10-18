@@ -357,7 +357,6 @@ $(document).ready(function() {
         $imgDiv.css({
           background: `center / cover no-repeat url("${profileImgURL}")`
         });
-        fileInfoSubmit = data;
       })
       .catch(err => {
         throw err;
