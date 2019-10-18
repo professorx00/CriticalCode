@@ -318,7 +318,7 @@ $(document).ready(function() {
 
   console.log("scripts loaded!"); // debugging
 
-  const input = document.querySelector("input"); // fill in with id/class identifying image input elem
+  const input = document.getElementById("inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label"); // bootstrap class identification
 
   // console.log(inputLabel[0].textContent); //debugging
@@ -348,6 +348,11 @@ $(document).ready(function() {
     const pictureData = new FormData();
 
     pictureData.set("userPic", files[0]);
+
+    //loading animation
+    $imgDiv.css({
+      background: "center no-repeat url('/assets/images/loading.gif')"
+    });
 
     console.log("pictureData", pictureData);
     $.ajax({

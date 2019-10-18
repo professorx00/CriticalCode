@@ -260,7 +260,7 @@ $(document).ready(function() {
       intAdditional: parseInt($("#intRollmod").val()),
       wisAdditional: parseInt($("#wisRollmod").val()),
       charAdditional: parseInt($("#charRollmod").val()),
-      inspiration: parseInt($("inspirationInput").val()),
+      inspiration: parseInt($("#inspirationInput").val()),
       acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
       animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
       arcana: skillCheck(parseInt($("#arcanasInput").val())),
@@ -329,7 +329,7 @@ $(document).ready(function() {
 
   console.log("scripts loaded!"); // debugging
 
-  const input = document.querySelector("input"); // fill in with id/class identifying image input elem
+  const input = document.getElementById("inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label");
 
   let files; // object to put files in
