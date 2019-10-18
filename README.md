@@ -19,7 +19,7 @@ On click on an existing character all stats are displayed in a well organized on
 
 The app uses an express server in connection with a SQL database supported by Sequelize to define tables and object relational mapping. The server accepts routes to display the frontend as well as routes to authenticate users, to get and calculate character data. The database is structured into 8 tables representing all character information.
 
-### File sturcture
+### File Structure
 
     ├── README.md
     ├── config
