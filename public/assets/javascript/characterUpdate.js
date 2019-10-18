@@ -336,15 +336,6 @@ $(document).ready(function () {
   let $imgDiv = $("div.imgLogo");
   let profileImgURL = $("#userInfo").attr("data-picture"); //gets the picture that was already there
 
-  // Update the text inside of input elem with name of picture upon input
-  // update = () => {
-  //   files = $input.files;
-  //   let fileName = files[0].name;
-
-  //   // update the input default text with the filename of the selected picture
-  //   inputLabel[0].textContent = fileName;
-  // };
-
   $input.on('click touchstart', function () {
     $(this).val('');
   });
@@ -352,8 +343,7 @@ $(document).ready(function () {
 
   //Trigger now when you have selected any file 
   $input.change(function (e) {
-    // update();
-    //do whatever you want here
+
     const pictureData = new FormData();
 
     pictureData.set("userPic", $input[0].files[0]);
@@ -416,7 +406,6 @@ $(document).ready(function () {
     event.preventDefault();
     document.location.href = "/dashboard";
   });
-  // input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
   $(".statRoll").on("click", function () {
