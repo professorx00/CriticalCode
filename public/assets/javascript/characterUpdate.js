@@ -493,8 +493,7 @@ $(document).ready(function() {
     let aVal = parseInt($(target).val());
     let bVal = parseInt($(`#${targetLoc}Mod`).val());
     let value = aVal + bVal;
-    $(`#${targetLoc}Total`).val(value)
-
+    $(`#${targetLoc}Total`).val(value);
   });
   $(".statCalMod").on("change", event => {
     let target = event.target;
@@ -504,6 +503,6 @@ $(document).ready(function() {
     let aVal = parseInt($(target).val());
     let bVal = parseInt($(`#${targetLoc}Abil`).val());
     let value = aVal + bVal;
-    $(`#${targetLoc}Total`).val(value)
+    $(`#${targetLoc}Total`).val(value);
   });
 });

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // see https://github.com/EliasIsaiah/aws-nodejs-sample for full working example
   //enable popovers for random
 
@@ -386,7 +386,7 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post("/api/addCharacter", charData, function (status) {
+      $.post("/api/addCharacter", charData, function(status) {
         console.log(status);
       }).then(() => {
         window.location.assign("/dashboard");
@@ -410,7 +410,7 @@ $(document).ready(function () {
   input.addEventListener("change", update); //event listener to listen for changes to input and then run update()
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     let rollSum = [];
     let exportRolls;
     if (
@@ -485,8 +485,7 @@ $(document).ready(function () {
     let aVal = parseInt($(target).val());
     let bVal = parseInt($(`#${targetLoc}Mod`).val());
     let value = aVal + bVal;
-    $(`#${targetLoc}Total`).val(value)
-
+    $(`#${targetLoc}Total`).val(value);
   });
   $(".statCalMod").on("change", event => {
     let target = event.target;
@@ -496,6 +495,6 @@ $(document).ready(function () {
     let aVal = parseInt($(target).val());
     let bVal = parseInt($(`#${targetLoc}Abil`).val());
     let value = aVal + bVal;
-    $(`#${targetLoc}Total`).val(value)
+    $(`#${targetLoc}Total`).val(value);
   });
 });
