@@ -2,7 +2,7 @@
 // let helper = require("../../../routes/calculator");
 $(document).ready(function () {
   abiltyMod = function (num) {
-    if (num === 1) {
+    if (num === 1 || num === 0) {
       return -5;
     } else if (num === 2 || num === 3) {
       return -4;
