@@ -1,30 +1,35 @@
 <div class="container">
   <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content stats-div">
         <div class="modal-header">
           <h5 class="modal-title">Delete Character</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body sm-low-div">
           <p>Are you sure you want to <strong>DELETE</strong> Character?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger remove" id="remove">Remove Character</button>
+          <button type="button" class="btn btn-secondary button-stone" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger remove button-stone" id="remove">Remove Character</button>
         </div>
       </div>
     </div>
   </div>
+  
   <div class="row header justify-content-center">
-    <div class="col-md-8 col-sm-12">
-      <img src="https://test-bucket5643.s3.amazonaws.com/assets/logo.png" class="img-fluid">
-    </div>
-  </div>
-  <div class="col justify-content-center">
-    <button type="submit" id="logout" class="btn btn-primary button-stone mt-3 mb-3 btnText">Logout</button>
+      <div class="col col-md-2"></div>
+      <div class="col-md-7">
+          <img src="https://test-bucket5643.s3.amazonaws.com/assets/logo.png" alt="" class="img-fluid">
+      </div>
+      <div class="col col-xs-4 col-md-3 text-md-right text-sm-center">
+          <ul id="menu" class="list-group">
+              <li class="list-group-item button-stone mt-2 mb-1 text-center"><button type="submit" id="logout"
+                      class="btn text-center btnText">Logout</button></li>
+          </ul>
+      </div>
   </div>
   <div class="row content">
     <div class="col col-xs-12 col-md-12 text-center center">

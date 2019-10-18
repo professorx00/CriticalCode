@@ -253,12 +253,12 @@ $(document).ready(function() {
       characterName: $("#characterNameInput")
         .val()
         .trim(),
-      str: parseInt($("#strAbility").val()),
-      dex: parseInt($("#dexAbility").val()),
-      con: parseInt($("#conAbility").val()),
-      int: parseInt($("#intAbility").val()),
-      wis: parseInt($("#wisAbility").val()),
-      char: parseInt($("#charAbility").val()),
+      str: parseInt($("#strengthAbil").val()),
+      dex: parseInt($("#dexterityAbil").val()),
+      con: parseInt($("#constitutionAbil").val()),
+      int: parseInt($("#intelligenceAbil").val()),
+      wis: parseInt($("#wisdomAbil").val()),
+      char: parseInt($("#charismaAbil").val()),
       equipment: getEquipment($("#equipmentInput")),
       skill: getskills(),
       spells: getSpells($("#spellsInput")),
@@ -272,12 +272,12 @@ $(document).ready(function() {
       alignment: getAlignment($("#alignmentSelect").val()),
       bonusLanguage: getLanguages($("#languagesInput")),
       background: $("#backstoryInput").val(),
-      strAdditional: parseInt($("#strRollmod").val()),
-      dexAdditional: parseInt($("#dexRollmod").val()),
-      conAdditional: parseInt($("#conRollmod").val()),
-      intAdditional: parseInt($("#intRollmod").val()),
-      wisAdditional: parseInt($("#wisRollmod").val()),
-      charAdditional: parseInt($("#charRollmod").val()),
+      strAdditional: parseInt($("#strengthMod").val()),
+      dexAdditional: parseInt($("#dexterityMod").val()),
+      conAdditional: parseInt($("#constitutionMod").val()),
+      intAdditional: parseInt($("#intelligenceMod").val()),
+      wisAdditional: parseInt($("#wisdomMod").val()),
+      charAdditional: parseInt($("#charismaMod").val()),
       inspiration: parseInt($("inspirationInput").val()),
       acrobatics: skillCheck(parseInt($("#acrobaticsInput").val())),
       animalHandling: skillCheck(parseInt($("#animalHandlingInput").val())),
@@ -431,7 +431,10 @@ $(document).ready(function() {
       rollSum.sort();
       exportRolls = rollSum[1] + rollSum[2] + rollSum[3];
       rollSum = [];
-      $(`#${this.value}Abil`).attr("value", exportRolls);
+      $(`#${this.value}Abil`).val(exportRolls);
+      let modValue = $(`#${this.value}Mod`).val();
+      let total = parseInt(exportRolls) + parseInt(modValue);
+      $(`#${this.value}Total`).val(total);
       $(this).attr("value", "disabled");
     }
   });
@@ -476,5 +479,25 @@ $(document).ready(function() {
     $("#options").removeClass("hide");
     $("#keepName").addClass("hide");
     $("#nameSelect").addClass("hide");
+  });
+  $(".statCal").on("change", event => {
+    let target = event.target;
+    let targetLoc;
+    let targetStat = $(target).attr("id");
+    targetLoc = targetStat.slice(0, targetStat.length - 4);
+    let aVal = parseInt($(target).val());
+    let bVal = parseInt($(`#${targetLoc}Mod`).val());
+    let value = aVal + bVal;
+    $(`#${targetLoc}Total`).val(value);
+  });
+  $(".statCalMod").on("change", event => {
+    let target = event.target;
+    let targetLoc;
+    let targetStat = $(target).attr("id");
+    targetLoc = targetStat.slice(0, targetStat.length - 3);
+    let aVal = parseInt($(target).val());
+    let bVal = parseInt($(`#${targetLoc}Abil`).val());
+    let value = aVal + bVal;
+    $(`#${targetLoc}Total`).val(value);
   });
 });

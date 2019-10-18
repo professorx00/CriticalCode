@@ -353,8 +353,8 @@ $(document).ready(function () {
     addArmor(character.class.allowArmorType.armor);
     addWeapon(character.class.allowWeaponsType.weapon);
     addLanguages(character.bonusLanguage.language);
-    $("#inspiration").append(0);
-    $("#experience").append(0);
+    $("#inspiration").text(character.inspiration);
+    $("#experience").text(character.experiencce);
     $("#alignment").append("Lawful Good");
     $("#background").append("Rich Prince");
     $("#wealth").append("250");

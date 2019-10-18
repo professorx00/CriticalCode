@@ -5,7 +5,7 @@
 <!--This is for the random Generator-->
 <div class="modal" tabindex="-1" role="dialog" id="randomModal">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content stats-div">
       <div class="modal-header">
         <h5 class="modal-title">Please Choose Female Male or Either</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -25,7 +25,7 @@
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="genderOptions" id="either" value="either">
-              <label class="form-check-label" for="either">Either</label>
+              <label class="form-check-label" for="either">Neutral</label>
             </div>
           </div>
         </form>
@@ -72,7 +72,7 @@
       <div class="form-group">
         <!--#####################Character Name Start#####################-->
         <div class="form-group row top-div p-2 justify-content-center">
-          <div class="col col-xs-12 col-sm-12 col-md-2  ">
+          <div class="col col-xs-12 col-sm-12 col-md-2">
             <div class="row justify-content-center">
               <div class="imgLogo"></div>
             </div>
@@ -86,11 +86,12 @@
             </div>
             <div class="row justify-content-center">
               <div class="col-md-10 col-xs-12 m-0">
-                  <div class="input-group-prepend"><span class="input-group-text" for="characterNameInput">Name</span>
-                <textarea id="characterNameInput" class="form-control" aria-label="With textarea"
-                  value="Monty Moose"></textarea>
-                  <button class="btn btn-warning button-stone m-0" type="button" id="randomNameBtn" data-toggle="popover"
-                  data-trigger="hover" data-content="Random Name Generator"><i class="fas fa-dice"></i></button>
+                <div class="input-group-prepend"><span class="input-group-text" for="characterNameInput">Name</span>
+                  <textarea id="characterNameInput" class="form-control" aria-label="With textarea"
+                    value="Monty Moose"></textarea>
+                  <button class="btn btn-warning button-stone m-0" type="button" id="randomNameBtn"
+                    data-toggle="popover" data-trigger="hover" data-content="Random Name Generator"><i
+                      class="fas fa-dice"></i></button>
                 </div>
               </div>
             </div>
@@ -109,582 +110,584 @@
       </div>
   </div>
 
-<br>
-<!--#####################Character Information Start#####################-->
-<div class="stats-div">
-  <div class="form-group row top-div p-2">
-    <div class="col-xs-12 col-md-9">
-      <div class="row">
-        <div class="col col-md-3">
-          <div><span id="className">Class</span></div>
-        </div>
-        <br>
-        <!--############Classes##############-->
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="classSelect">Options</label>
+  <br>
+  <!--#####################Character Information Start#####################-->
+  <div class="stats-div">
+    <div class="form-group row top-div p-2">
+      <div class="col-xs-12 col-md-9">
+        <div class="row">
+          <div class="col col-md-3">
+            <div><span id="className">Class</span></div>
           </div>
-          <select class="custom-select" id="classSelect">
-            <option selected value=99>Choose...</option>
-            <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
-            <option value=12>Barbarian</option>
-            <option value=1>Bard</option>
-            <option value=2>Cleric</option>
-            <option value=11>Druid</option>
-            <option value=3>Fighter</option>
-            <option value=4>Monk</option>
-            <option value=5>Paladin</option>
-            <option value=6>Ranger</option>
-            <option value=7>Rogue</option>
-            <option value=10>Sorcerer</option>
-            <option value=8>Warlock</option>
-            <option value=9>Wizard</option>
-          </select>
-        </div>
-      </div>
-      <!--######### Races ###########-->
-      <div class="row">
-        <div class="col col-md-3">
-          <div><span id="race">Race</span></div>
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="raceSelect">Options</label>
-          </div>
-          <select class="custom-select" id="raceSelect">
-            <option selected value=99>Choose...</option>
-            <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
-            <option value=13>Dragonborn</option>
-            <option value=9>Dwarf</option>
-            <option value=10>Elf</option>
-            <option value=14>Gnome</option>
-            <option value=11>Halfling</option>
-            <option value=15>Half-Elf</option>
-            <option value=16>Half-Orc</option>
-            <option value=12>Human</option>
-            <option value=17>Tiefling</option>
-          </select>
-        </div>
-      </div>
-      <!---########### Alignment ###########-->
-      <div class="row">
-        <div class="col col-md-3">
-          <div><span id="alignment">Alignment</span></div>
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="alignmentSelect">Options</label>
-          </div>
-          <select class="custom-select" id="alignmentSelect">
-            <option selected value="null">Choose...</option>
-            <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
-            <option value="Lawful-Good">Lawful-Good</option>
-            <option value="Neutral-Good">Neutral-Good</option>
-            <option value="Chaotic-Good">Chaotic-Good</option>
-            <option value="Lawful-Neutral">Lawful-Neutral</option>
-            <option value="Neutral">Neutral</option>
-            <option value="Chaotic-Neutral">Chaotic-Neutral</option>
-            <option value="Lawful-Evil">Lawful-Evil</option>
-            <option value="Neutral-Evil">Neutral-Evil</option>
-            <option value="Chaotic-Evil">Chaotic-Evil</option>
-          </select>
-        </div>
-      </div>
-      <!--############# Armor ##############-->
-      <div class="row">
-        <div class="col col-md-3">
-          <div><span id="armor">Armor</span></div>
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="armorSelect">Options</label>
-          </div>
-          <select class="custom-select" id="armorSelect">
-            <option selected value=99>Choose...</option>
-            <option value=1>Padded</option>
-            <option value=2>Leather</option>
-            <option value=3>Studded leather</option>
-            <option value=4>Hide</option>
-            <option value=5>Chain shirt</option>
-            <option value=6>Scale mail</option>
-            <option value=7>Breastplate</option>
-            <option value=8>Half plate</option>
-            <option value=9>Ring mail</option>
-            <option value=10>Chain mail</option>
-            <option value=11>Splint</option>
-            <option value=12>Plate</option>
-            <option value=13>Shield</option>
-          </select>
-        </div>
-      </div>
-      <!--############# Weapon ##############-->
-      <div class="row">
-        <div class="col col-md-3">
-          <div><span id="weapon">Weapon</span></div>
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="weaponSelect">Options</label>
-          </div>
-          <select class="custom-select" id="weaponSelect">
-            <option selected value=99>Choose...</option>
-            <option value=1>Club</option>
-            <option value=2>Dagger</option>
-            <option value=3>Greatclub</option>
-            <option value=4>Handaxe</option>
-            <option value=5>Javelin</option>
-            <option value=6>Light Hammer</option>
-            <option value=7>Mace</option>
-            <option value=8>Quarterstaff</option>
-            <option value=9>Sickle</option>
-            <option value=10>Spear</option>
-            <option value=11>Light Crossbow</option>
-            <option value=12>Dart</option>
-            <option value=13>Shortbow</option>
-            <option value=14>Sling</option>
-            <option value=15>Battleaxe</option>
-            <option value=16>Flail</option>
-            <option value=17>Glaive</option>
-            <option value=18>Greataxe</option>
-            <option value=19>Greatsword</option>
-            <option value=22>Longsword</option>
-            <option value=23>Maul</option>
-            <option value=24>Morningstar</option>
-            <option value=25>Pike</option>
-            <option value=26>Rapier</option>
-            <option value=27>Scimitar</option>
-            <option value=28>Shortsword</option>
-            <option value=29>Trident</option>
-            <option value=30>War pick</option>
-            <option value=31>Warhammer</option>
-            <option value=32>Whip</option>
-            <option value=33>Blowgun</option>
-            <option value=34>Hand Crossbow</option>
-            <option value=35>Crossbow</option>
-            <option value=36>Longbow</option>
-            <option value=37>Longbow</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-md-4">
-          <div class="row">
-            Faction:
-          </div>
-          <div class="row">
-            <input id="factionInput" class="form-control" type="text" value="null">
-          </div>
-        </div>
-        <div class="col col-md-4">
-          <div class="row">
-            Experience:
-          </div>
-          <div class="row">
-            <input id="experienceInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-        </div>
-        <div class="col col-md-4">
-          <div class="row">
-            Inspiration:
-          </div>
-          <div class="row">
-            <input id="inspirationInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--#####################-Money and Gold-#####################-->
-    <div class="col col-md-3 col-sm-12">
-      <div class="row">
-        Wealth
-      </div>
-      <div class="row">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <label for="copperInput" class="input-group-text">Copper </label>
-            <input id="copperInput" type="number" value="0" placeholder="0" class="form-control"
-              aria-label="With textarea"></input>
-          </div>
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="silverInput">Silver </label>
-            <input id="silverInput" type="number" value="0" placeholder="0" class="form-control"
-              aria-label="With textarea"></input>
-          </div>
-          <div class="input-group-prepend">
-            <label for="ElectrumInput" class="input-group-text">Electrum </label>
-            <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control"
-              aria-label="With textarea"></input>
-          </div>
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="GoldInput">Gold </label>
-            <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control"
-              aria-label="With textarea"></input>
-          </div>
-          <div class="input-group-prepend">
-            <label class="input-group-text" for="PlatinumInput">Platinum </label>
-            <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control"
-              aria-label="With textarea"></input>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--#####################-Ability Section-#####################-->
-  <div class="form-group row top-div">
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Strength <button type="button" class="statRoll button-stone" value="strength" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="strengthAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="strengthMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="strengthTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Dexterity <button type="button" class="statRoll button-stone" value="dexterity" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="dexterityAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="dexterityMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="dexterityTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-  </div>
-
-  <div class="form-group row top-div">
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Constitution <button type="button" class="statRoll button-stone" value="constitution" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="constitutionAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="constitutionMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="constitutionTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Intelligence <button type="button" class="statRoll button-stone" value="intelligence" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="intelligenceAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="intelligenceMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="intelligenceTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-  </div>
-
-  <div class="form-group row top-div">
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Wisdom <button type="button" class="statRoll button-stone" value="wisdom" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="wisdomAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="wisdomMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="wisdomTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-    <div class="col-md-6">
-      <table style="width:100%">
-        <tr>
-          <th>
-            Charisma <button type="button" class="statRoll button-stone" value="charisma" data-toggle="popover"
-              data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i
-                class="fas fa-dice"></i></button>
-          </th>
-        </tr>
-        <th>
-          Ability
-        </th>
-        <th>
-          Mod
-        </th>
-        <th>
-          Total
-        </th>
-        </tr>
-        <tr>
-          <td>
-            <input type="number" id="charismaAbil" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="charismaMod" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-          <td>
-            <input type="number" id="charismaTotal" value="0" placeholder="0" class="form-control input-sm">
-          </td>
-        </tr>
-
-      </table>
-    </div>
-  </div>
-  <!--##################### Skills Section #####################-->
-  <div class="form-group row top-div p-2">
-    <!--Head-->
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col col-md-12">
-          <h3 id="skillTitle">Skills</h3><br>
-        </div>
-      </div>
-      <!--Skills-->
-      <div class="row">
-        <div class="col col-md-6 col-xs-12">
-          <div>
-            <div id="acrobatics" class="underline"><input id="acrobaticsCheck" type="checkbox"> Acrobatics</div>
-
-            <input id="acrobaticsInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="animalHandling" class="underline"><input id="animalHandlingCheck" type="checkbox"> Animal
-              Handling</div>
-            <input id="animalHandlingInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="arcana" class="underline"><input id="arcanaCheck" type="checkbox"> Arcana</div>
-            <input id="arcanasInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="athletics" class="underline"><input id="athleticsCheck" type="checkbox"> Athletics</div>
-            <input id="athleticsInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="deception" class="underline"><input id="deceptionCheck" type="checkbox"> Deception</div>
-            <input id="deceptionInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-        </div>
-        <div class="col col-md-6 col-xs-12">
-          <div>
-            <div id="history" class="underline"><input id="historyCheck" type="checkbox"> History</div>
-            <input id="historyInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="insight" class="underline"><input id="insightCheck" type="checkbox"> Insight</div>
-            <input id="insightInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="intimidation" class="underline"><input id="intimidationCheck" type="checkbox"> Intimidation
+          <br>
+          <!--############Classes##############-->
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="classSelect">Options</label>
             </div>
-            <input id="intimidationInput" class="form-control" type="number" value="0" placeholder="0">
+            <select class="custom-select" id="classSelect">
+              <option selected value=99>Choose...</option>
+              <!-- ["Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] -->
+              <option value=12>Barbarian</option>
+              <option value=1>Bard</option>
+              <option value=2>Cleric</option>
+              <option value=11>Druid</option>
+              <option value=3>Fighter</option>
+              <option value=4>Monk</option>
+              <option value=5>Paladin</option>
+              <option value=6>Ranger</option>
+              <option value=7>Rogue</option>
+              <option value=10>Sorcerer</option>
+              <option value=8>Warlock</option>
+              <option value=9>Wizard</option>
+            </select>
           </div>
-
-          <div>
-            <div id="investigation" class="underline"><input id="investigationCheck" type="checkbox">
-              Investigation</div>
-            <input id="investigationInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="medicine" class="underline"><input id="medicineCheck" type="checkbox"> Medicine</div>
-            <input id="medicineInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
         </div>
-        <div class="col-md-6 col-xs-12">
-          <div>
-            <div id="nature" class="underline"><input id="natureCheck" type="checkbox"> Nature</div>
-            <input id="natureInput" class="form-control" type="number" value="0" placeholder="0">
+        <!--######### Races ###########-->
+        <div class="row">
+          <div class="col col-md-3">
+            <div><span id="race">Race</span></div>
           </div>
-
-          <div>
-            <div id="perception" class="underline"><input id="perceptionCheck" type="checkbox"> Perception</div>
-            <input id="perceptionInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="performance" class="underline"><input id="performanceCheck" type="checkbox"> Performance
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="raceSelect">Options</label>
             </div>
-            <input id="performanceInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="religion" class="underline"><input id="religionCheck" type="checkbox"> Religion</div>
-            <input id="religionInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="sleightOfHand" class="underline"><input id="sleightOfHandCheck" type="checkbox"> Sleight of
-              Hand</div>
-            <input id="sleightofHandInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <div>
-            <div id="stealth" class="underline"><input id="stealthCheck" type="checkbox"> Stealth</div>
-            <input id="stealthInput" class="form-control" type="number" value="0" placeholder="0">
-          </div>
-
-          <div>
-            <div id="survival" class="underline"><input id="survivalCheck" type="checkbox"> Survival</div>
-            <input id="survivalInput" class="form-control" type="number" value="0" placeholder="0">
+            <select class="custom-select" id="raceSelect">
+              <option selected value=99>Choose...</option>
+              <!-- ["Dwarf","Elf","Halfling","Human","Dragonborn","Gnome","Half-Elf","Half-Orc","Tiefling"] -->
+              <option value=13>Dragonborn</option>
+              <option value=9>Dwarf</option>
+              <option value=10>Elf</option>
+              <option value=14>Gnome</option>
+              <option value=11>Halfling</option>
+              <option value=15>Half-Elf</option>
+              <option value=16>Half-Orc</option>
+              <option value=12>Human</option>
+              <option value=17>Tiefling</option>
+            </select>
           </div>
         </div>
+        <!---########### Alignment ###########-->
+        <div class="row">
+          <div class="col col-md-3">
+            <div><span id="alignment">Alignment</span></div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="alignmentSelect">Options</label>
+            </div>
+            <select class="custom-select" id="alignmentSelect">
+              <option selected value="null">Choose...</option>
+              <!-- ["Lawful Good","Neutral Good","Chaotic Good","Lawful Neutral","Neutral","Chaotic Neutral","Lawful Evil","Neutral Evil","Chaotic Evil"] -->
+              <option value="Lawful-Good">Lawful-Good</option>
+              <option value="Neutral-Good">Neutral-Good</option>
+              <option value="Chaotic-Good">Chaotic-Good</option>
+              <option value="Lawful-Neutral">Lawful-Neutral</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Chaotic-Neutral">Chaotic-Neutral</option>
+              <option value="Lawful-Evil">Lawful-Evil</option>
+              <option value="Neutral-Evil">Neutral-Evil</option>
+              <option value="Chaotic-Evil">Chaotic-Evil</option>
+            </select>
+          </div>
+        </div>
+        <!--############# Armor ##############-->
+        <div class="row">
+          <div class="col col-md-3">
+            <div><span id="armor">Armor</span></div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="armorSelect">Options</label>
+            </div>
+            <select class="custom-select" id="armorSelect">
+              <option selected value=99>Choose...</option>
+              <option value=1>Padded</option>
+              <option value=2>Leather</option>
+              <option value=3>Studded leather</option>
+              <option value=4>Hide</option>
+              <option value=5>Chain shirt</option>
+              <option value=6>Scale mail</option>
+              <option value=7>Breastplate</option>
+              <option value=8>Half plate</option>
+              <option value=9>Ring mail</option>
+              <option value=10>Chain mail</option>
+              <option value=11>Splint</option>
+              <option value=12>Plate</option>
+              <option value=13>Shield</option>
+            </select>
+          </div>
+        </div>
+        <!--############# Weapon ##############-->
+        <div class="row">
+          <div class="col col-md-3">
+            <div><span id="weapon">Weapon</span></div>
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="weaponSelect">Options</label>
+            </div>
+            <select class="custom-select" id="weaponSelect">
+              <option selected value=99>Choose...</option>
+              <option value=1>Club</option>
+              <option value=2>Dagger</option>
+              <option value=3>Greatclub</option>
+              <option value=4>Handaxe</option>
+              <option value=5>Javelin</option>
+              <option value=6>Light Hammer</option>
+              <option value=7>Mace</option>
+              <option value=8>Quarterstaff</option>
+              <option value=9>Sickle</option>
+              <option value=10>Spear</option>
+              <option value=11>Light Crossbow</option>
+              <option value=12>Dart</option>
+              <option value=13>Shortbow</option>
+              <option value=14>Sling</option>
+              <option value=15>Battleaxe</option>
+              <option value=16>Flail</option>
+              <option value=17>Glaive</option>
+              <option value=18>Greataxe</option>
+              <option value=19>Greatsword</option>
+              <option value=22>Longsword</option>
+              <option value=23>Maul</option>
+              <option value=24>Morningstar</option>
+              <option value=25>Pike</option>
+              <option value=26>Rapier</option>
+              <option value=27>Scimitar</option>
+              <option value=28>Shortsword</option>
+              <option value=29>Trident</option>
+              <option value=30>War pick</option>
+              <option value=31>Warhammer</option>
+              <option value=32>Whip</option>
+              <option value=33>Blowgun</option>
+              <option value=34>Hand Crossbow</option>
+              <option value=35>Crossbow</option>
+              <option value=36>Longbow</option>
+              <option value=37>Longbow</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-4">
+            <div class="row">
+              Faction:
+            </div>
+            <div class="row">
+              <input id="factionInput" class="form-control" type="text" value="null">
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              Experience:
+            </div>
+            <div class="row">
+              <input id="experienceInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row">
+              Inspiration:
+            </div>
+            <div class="row">
+              <input id="inspirationInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--#####################-Money and Gold-#####################-->
+      <div class="col col-md-3 col-sm-12">
+        <div class="row">
+          Wealth
+        </div>
+        <div class="row">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label for="copperInput" class="input-group-text">Copper </label>
+              <input id="copperInput" type="number" value="0" placeholder="0" class="form-control"
+                aria-label="With textarea"></input>
+            </div>
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="silverInput">Silver </label>
+              <input id="silverInput" type="number" value="0" placeholder="0" class="form-control"
+                aria-label="With textarea"></input>
+            </div>
+            <div class="input-group-prepend">
+              <label for="ElectrumInput" class="input-group-text">Electrum </label>
+              <input id="ElectrumInput" type="number" value="0" placeholder="0" class="form-control"
+                aria-label="With textarea"></input>
+            </div>
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="GoldInput">Gold </label>
+              <input id="GoldInput" type="number" value="0" placeholder="0" class="form-control"
+                aria-label="With textarea"></input>
+            </div>
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="PlatinumInput">Platinum </label>
+              <input id="PlatinumInput" type="number" value="0" placeholder="0" class="form-control"
+                aria-label="With textarea"></input>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <!--#####################-Ability Section-#####################-->
+
+    <!--Strength and dex-->
+    <div class="form-group row top-div">
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Strength <button type="button" class="statRoll button-stone" value="strength" data-toggle="popover"
+                data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
+                  class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="strengthAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="strengthMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="strengthTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Dexterity <button type="button" class="statRoll button-stone" value="dexterity" data-toggle="popover"
+                data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
+                  class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="dexterityAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="dexterityMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="dexterityTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <!--Con and Int-->
+    <div class="form-group row top-div">
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Constitution <button type="button" class="statRoll button-stone" value="constitution"
+                data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator" data-placement="top"><i
+                  class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="constitutionAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="constitutionMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="constitutionTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Intelligence <button type="button" class="statRoll button-stone" value="intelligence"
+                data-toggle="popover" data-trigger="hover" data-content="Random Stat Generator"
+                data-placement="bottom"><i class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="intelligenceAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="intelligenceMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="intelligenceTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <!--Wisdom and Charisma-->
+    <div class="form-group row top-div">
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Wisdom <button type="button" class="statRoll button-stone" value="wisdom" data-toggle="popover"
+                data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i
+                  class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="wisdomAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="wisdomMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="wisdomTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table style="width:100%">
+          <tr>
+            <th>
+              Charisma <button type="button" class="statRoll button-stone" value="charisma" data-toggle="popover"
+                data-trigger="hover" data-content="Random Stat Generator" data-placement="bottom"><i
+                  class="fas fa-dice"></i></button>
+            </th>
+          </tr>
+          <th>
+            Ability
+          </th>
+          <th>
+            Mod
+          </th>
+          <th>
+            Total
+          </th>
+          </tr>
+          <tr>
+            <td>
+              <input type="number" id="charismaAbil" value="0" placeholder="0" class="form-control input-sm statCal">
+            </td>
+            <td>
+              <input type="number" id="charismaMod" value="0" placeholder="0" class="form-control input-sm statCalMod">
+            </td>
+            <td>
+              <input type="number" id="charismaTotal" value="0" placeholder="0" class="form-control input-sm ">
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+    <!--##################### Skills Section #####################-->
+    <div class="form-group row top-div p-2">
+      <!--Head-->
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col col-md-12">
+            <h3 id="skillTitle">Skills</h3><br>
+          </div>
+        </div>
+        <!--Skills-->
+        <div class="row">
+          <div class="col col-md-6 col-xs-12">
+            <div>
+              <div id="acrobatics" class="underline"><input id="acrobaticsCheck" type="checkbox"> Acrobatics</div>
+
+              <input id="acrobaticsInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="animalHandling" class="underline"><input id="animalHandlingCheck" type="checkbox"> Animal
+                Handling</div>
+              <input id="animalHandlingInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="arcana" class="underline"><input id="arcanaCheck" type="checkbox"> Arcana</div>
+              <input id="arcanasInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="athletics" class="underline"><input id="athleticsCheck" type="checkbox"> Athletics</div>
+              <input id="athleticsInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="deception" class="underline"><input id="deceptionCheck" type="checkbox"> Deception</div>
+              <input id="deceptionInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+          </div>
+          <div class="col col-md-6 col-xs-12">
+            <div>
+              <div id="history" class="underline"><input id="historyCheck" type="checkbox"> History</div>
+              <input id="historyInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="insight" class="underline"><input id="insightCheck" type="checkbox"> Insight</div>
+              <input id="insightInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="intimidation" class="underline"><input id="intimidationCheck" type="checkbox"> Intimidation
+              </div>
+              <input id="intimidationInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="investigation" class="underline"><input id="investigationCheck" type="checkbox">
+                Investigation</div>
+              <input id="investigationInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="medicine" class="underline"><input id="medicineCheck" type="checkbox"> Medicine</div>
+              <input id="medicineInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div>
+              <div id="nature" class="underline"><input id="natureCheck" type="checkbox"> Nature</div>
+              <input id="natureInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="perception" class="underline"><input id="perceptionCheck" type="checkbox"> Perception</div>
+              <input id="perceptionInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="performance" class="underline"><input id="performanceCheck" type="checkbox"> Performance
+              </div>
+              <input id="performanceInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="religion" class="underline"><input id="religionCheck" type="checkbox"> Religion</div>
+              <input id="religionInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="sleightOfHand" class="underline"><input id="sleightOfHandCheck" type="checkbox"> Sleight of
+                Hand</div>
+              <input id="sleightofHandInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+          </div>
+          <div class="col-md-6 col-xs-12">
+            <div>
+              <div id="stealth" class="underline"><input id="stealthCheck" type="checkbox"> Stealth</div>
+              <input id="stealthInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+
+            <div>
+              <div id="survival" class="underline"><input id="survivalCheck" type="checkbox"> Survival</div>
+              <input id="survivalInput" class="form-control" type="number" value="0" placeholder="0">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-  <!---  Special input fields for spells, language, equipment, and backstory-->
-  <div class="form-group row top-div p-2">
-    <div class="col-md-1"></div>
-    <div class="input-group col col-md-12">
-      <div class="form-group row col-md-12">
-        <label class="input-group-text">Spells:</label>
-        <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None"
-          placeholder="Separate by commas please:"></textarea>
-      </div>
-      <div class="form-group row col-md-12">
-        <label class="input-group-text">Special Languages:</label>
-        <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None"
-          placeholder="Separate by commas please:"></textarea>
-      </div>
-      <div class="form-group row col-md-12">
-        <label class="input-group-text">Equipment:</label>
-        <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None"
-          placeholder="Separate by commas please:"></textarea>
-      </div>
-      <div class="form-group row col-md-12">
-        <label class="input-group-text">Backstory goes here:</label>
-        <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None"
-          placeholder="Our story begins..."></textarea>
+    <!---  Special input fields for spells, language, equipment, and backstory-->
+    <div class="form-group row top-div p-2">
+      <div class="input-group col col-md-12">
+        <div class="form-group row col-md-12">
+          <h5>Please Enter Different Items with a comma (",")</h5>
+          <label class="input-group-text">Spells:</label>
+          <textarea id="spellsInput" class="form-control" aria-label="With textarea" value="None"
+            placeholder="Separate by commas please:"></textarea>
+        </div>
+        <div class="form-group row col-md-12">
+          <label class="input-group-text">Special Languages:</label>
+          <textarea id="languagesInput" class="form-control" aria-label="With textarea" value="None"
+            placeholder="Separate by commas please:"></textarea>
+        </div>
+        <div class="form-group row col-md-12">
+          <label class="input-group-text">Equipment:</label>
+          <textarea id="equipmentInput" class="form-control" aria-label="With textarea" value="None"
+            placeholder="Separate by commas please:"></textarea>
+        </div>
+        <div class="form-group row col-md-12">
+          <label class="input-group-text">Backstory goes here:</label>
+          <textarea id="backstoryInput" class="form-control" aria-label="With textarea" value="None"
+            placeholder="Our story begins..."></textarea>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="form-group row p-2 justify-content-center">
-    <div class="col-md-4 ">
-      <h3 id="error"></h3>
-      <button type="button" id="formSubmit" class="button-stone p-2 btnText">Submit Your Character Data</button>
+    <div class="form-group row p-2 justify-content-center">
+      <div class="col-md-4 ">
+        <h3 id="error"></h3>
+        <button type="button" id="formSubmit" class="button-stone p-2 btnText">Submit Your Character Data</button>
+      </div>
     </div>
+    </form>
   </div>
-</div>
-</form>
 </div>
 
 
