@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //enables the popovers
   $("#randomNameBtn").popover(options);
   $(".statRoll").popover(options);
@@ -332,22 +332,19 @@ $(document).ready(function () {
   const $input = $("#inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label");
 
-
   let $imgDiv = $("div.imgLogo");
   let profileImgURL = $("#userInfo").attr("data-picture"); //gets the picture that was already there
 
-  $input.on('click touchstart', function () {
-    $(this).val('');
+  $input.on("click touchstart", function() {
+    $(this).val("");
   });
 
-
-  //Trigger now when you have selected any file 
-  $input.change(function (e) {
-
+  //Trigger now when you have selected any file
+  $input.change(function(e) {
     const pictureData = new FormData();
 
     pictureData.set("userPic", $input[0].files[0]);
-    console.log("$input[0].files", $input[0].files)
+    console.log("$input[0].files", $input[0].files);
     //loading animation
     $imgDiv.css({
       background: "center no-repeat url('/assets/images/loading.gif')"
@@ -363,7 +360,8 @@ $(document).ready(function () {
       timeout: 600000,
       url: "/photoUpload",
       data: pictureData
-    }).then(data => {
+    })
+      .then(data => {
         $imgDiv.css({
           background: `center / cover no-repeat url("${data.Location}")`
         });
@@ -382,7 +380,7 @@ $(document).ready(function () {
       console.log("Form Submit Button Clicked");
       let charData = getData();
       console.log("Sending");
-      $.post(`/api/updateCharacter/${user}/${char}`, charData, function (
+      $.post(`/api/updateCharacter/${user}/${char}`, charData, function(
         status
       ) {
         console.log(status);
@@ -408,7 +406,7 @@ $(document).ready(function () {
   });
 
   //Dice roll for stats
-  $(".statRoll").on("click", function () {
+  $(".statRoll").on("click", function() {
     let rollSum = [];
     let exportRolls;
     if (

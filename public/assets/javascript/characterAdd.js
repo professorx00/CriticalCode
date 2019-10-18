@@ -321,23 +321,20 @@ $(document).ready(function() {
   const $input = $("#inputGroupFile04"); // fill in with id/class identifying image input elem
   const inputLabel = document.getElementsByClassName("custom-file-label"); // bootstrap class identification
 
-
   let $imgDiv = $("div.imgLogo");
   let profileImgURL;
 
-  $input.on('click touchstart', function () {
-    $(this).val('');
+  $input.on("click touchstart", function() {
+    $(this).val("");
   });
 
-
-  //Trigger now when you have selected any file 
-  $input.change(function (e) {
-
+  //Trigger now when you have selected any file
+  $input.change(function(e) {
     //do whatever you want here
     const pictureData = new FormData();
 
     pictureData.set("userPic", $input[0].files[0]);
-    console.log("$input[0].files", $input[0].files)
+    console.log("$input[0].files", $input[0].files);
     //loading animation
     $imgDiv.css({
       background: "center no-repeat url('/assets/images/loading.gif')"
