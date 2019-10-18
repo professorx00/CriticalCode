@@ -240,5 +240,4 @@ router.post("/photoUpload", (req, res) => {
 //   res.type('txt').send('Not found');
 // });
 
-
 module.exports = router;

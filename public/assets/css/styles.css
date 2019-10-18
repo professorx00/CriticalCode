@@ -15,6 +15,10 @@ body {
 button.dashboardBtn {
     color: white;
 }
+button.dashboardBtn:hover {
+    color: rgb(8, 155, 240);
+}
+
 
 div.red {
     border: 2px red solid;
@@ -59,7 +63,6 @@ div.btn:hover {
 
 .btnText {
     color: #FFFFFF;
-    /* text-shadow: 1px 3px 0 #969696, 1px 4px 2px #aba8a8; */
     font-family: 'Hanalei Fill', cursive;
     letter-spacing: .25rem;
 }
@@ -103,6 +106,20 @@ a.btnText:hover {
     height: 3.5rem;
     transition: all 0.3s ease 0s;
     font-size: 1.3rem;
+}
+.stats-div,
+.img-div {
+    background: url("../../assets/images/paper.jpg") !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    /* overflow: hidden; */
+    font-family: 'Marcellus SC', serif !important;
+    font-size: 1.2rem !important;
+    color: rgb(8, 17, 29) !important;
+    border: 3px outset rgba(91, 36, 23, 0.66);
+    border-radius: 21px 21px 21px 21px;
+    max-width: 100%;
+    padding: 1rem;
 }
 
 .shadow {
