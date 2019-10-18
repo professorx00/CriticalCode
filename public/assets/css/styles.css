@@ -108,6 +108,10 @@ a.btnText:hover {
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.backLogo{
+    color:white;
+    padding: 20%;
+}
 
 h1 {
     color: rgb(43, 4, 3);
@@ -127,8 +131,15 @@ h3 {
     font-size: 1.3rem;
     font-family: 'Metamorphous', cursive;
 }
-
-
+.opener {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("/assets/images/backgroundWelcome.jpg");
+    background-size: cover;
+    z-index: 3;
+    display: block
+}
 
 /* font-family: 'Marcellus SC', serif;
 font-family: 'Uncial Antiqua', cursive;
