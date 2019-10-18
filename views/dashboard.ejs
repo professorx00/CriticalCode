@@ -46,11 +46,11 @@
       <h3 class="text-center">or Select a Character.</h3>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-12">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-md-10">
       <% if (characters!==null){ %>
       <% characters.forEach((element)=>{ %>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col col-xs-12 col-md-12">
           <div class="row justify-content-center">
             <div class="btn button-character shadow col-md-6">
@@ -58,13 +58,13 @@
                 data-charid="<%= element.charid %>"><%= element.characterName %> --
                 <%= element.class.className %></button>
             </div>
-            <div class="col-md-2 ml-1 text-center">
-              <button class="btn btn-primary dashboardBtn updateCharacterBtn shadow btnText button-stone"
-                data-id="<%= id %>" data-charid="<%= element.charid %>">edit</button>
-            </div>
-            <div class="col-md-2 ml-1 text-center">
-              <button class="btn btn-primary dashboardBtn deleteCharacterBtn shadow btnText button-stone delete"
-                data-id="<%= id %>" data-charid="<%= element.charid %>">Delete</button>
+            <div class="col-xs-1 col-sm-1 col-md-2 text-center justify-content-center">
+              <ul class="dashboardCharMenu justify-content-center">
+                <li><button class="btn btn-primary dashboardBtn updateCharacterBtn shadow btnText button-stone"
+                  data-id="<%= id %>" data-charid="<%= element.charid %>">edit</button></li>
+                <li><button class="btn btn-primary dashboardBtn deleteCharacterBtn shadow btnText button-stone delete"
+                  data-id="<%= id %>" data-charid="<%= element.charid %>">Delete</button></li>
+              </ul>
             </div>
           </div>
         </div>

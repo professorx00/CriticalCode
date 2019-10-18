@@ -79,6 +79,12 @@ a.btnText:hover {
     color: rgb(95, 161, 248) !important;
 }
 
+.dashboardCharMenu{
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+}
+
 .button-stone {
     background: url("../../assets/images/stone.jpg") !important;
     border: none;
