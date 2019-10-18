@@ -15,6 +15,10 @@ body {
 button.dashboardBtn {
     color: white;
 }
+button.dashboardBtn:hover {
+    color: rgb(8, 155, 240);
+}
+
 
 div.red {
     border: 2px red solid;
@@ -59,7 +63,6 @@ div.btn:hover {
 
 .btnText {
     color: #FFFFFF;
-    /* text-shadow: 1px 3px 0 #969696, 1px 4px 2px #aba8a8; */
     font-family: 'Hanalei Fill', cursive;
     letter-spacing: .25rem;
 }
