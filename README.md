@@ -89,6 +89,8 @@ The app uses an express server in connection with a SQL database supported by Se
 
 * [AWS](https://aws.amazon.com/)
 
+* [Passport](https://www.passportjs.org/)
+
 * [Bootstrap](https://getbootstrap.com/)
 
 * [EJS](https://ejs.co/)
