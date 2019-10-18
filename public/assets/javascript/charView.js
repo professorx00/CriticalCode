@@ -86,10 +86,10 @@ $(document).ready(function () {
     if (equip) {
       for (let i = 0; i < equip.length; i++) {
         if (i < equip.length - 1) {
-          $("#equipment").text(equip[i] + ",");
+          $("#equipment").append(equip[i] + ",");
         }
         else {
-          $("#equipment").text(equip[i]);
+          $("#equipment").append(equip[i]);
         }
       }
     }
@@ -123,7 +123,6 @@ $(document).ready(function () {
   const addExp = function (exp) {
     $("#experience").text(exp);
     exp = parseInt(exp);
-    console.log(exp);
     switch (true) {
     case (exp < 300):
       $("#level").text(1);
@@ -231,7 +230,6 @@ $(document).ready(function () {
   const hitPoints = $("#hitPoints");
   const hitDice = $("#hitDice");
   const characterInfo = $("#characterInfo");
-
   const user = characterInfo.attr("data-user");
   const char = characterInfo.attr("data-char");
   console.log(user, char);
@@ -353,11 +351,9 @@ $(document).ready(function () {
     addArmor(character.class.allowArmorType.armor);
     addWeapon(character.class.allowWeaponsType.weapon);
     addLanguages(character.bonusLanguage.language);
-    $("#inspiration").text(character.inspiration);
+    // $("#inspiration").text(if(character.inspiration === NaN){ });
     $("#experience").text(character.experiencce);
-    $("#alignment").append("Lawful Good");
-    $("#background").append("Rich Prince");
-    $("#wealth").append("250");
+    $("#alignment").append(character.alignment);
     addEquipment(character.equipment.equipment);
     addSpells(character.spells.spells);
     $("#backstory").text(character.background);
@@ -369,7 +365,11 @@ $(document).ready(function () {
     $("#platinum").text(character.platinum);
     addExp(character.experience);
     $("#faction").text(character.faction);
-
+    if(character.inspiration === "NaN"){ 
+      $("#inspiration").text(0);
+    }else{
+      $("#inspiration").text(character.inspiration);
+    }
   });
 
   //EventListeners
