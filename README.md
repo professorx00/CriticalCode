@@ -5,6 +5,8 @@
 username: testuser
 password: testapp
 
+Deployment link: https://warm-dusk-48851.herokuapp.com/users/login
+
 ### Value proposition
 
 Valhalla is a mobile app that allows the user instant access to all their D&D characters ina mobile-friendly  interface. Campaign, convention, meetup - no matter where, you can share and play all your characters with other D&D players.
